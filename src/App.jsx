@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ProblemVsSolution from './components/ProblemVsSolution';
 import PortfolioGrid from './components/PortfolioGrid';
 import FeaturedCaseStudy from './components/FeaturedCaseStudy';
-import ProblemVsSolution from './components/ProblemVsSolution';
-import PricingSection from './components/PricingSection';
-import ConversionSystem from './components/ConversionSystem';
-import WhiteLabelSection from './components/WhiteLabelSection';
+import CarouselShowcase from './components/CarouselShowcase';
 import WorkflowSection from './components/WorkflowSection';
+import WhiteLabelSection from './components/WhiteLabelSection';
+import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -37,43 +37,43 @@ export default function App() {
       {/* Ambient Mouse Radial Spotlight */}
       <div className="mouse-spotlight" />
 
-      {/* Navigation Header */}
+      {/* 1. Navigation Header */}
       <Navbar onOpenModal={handleOpenModal} />
 
-      {/* Hero Section */}
+      {/* 2. Hero Section */}
       <Hero onOpenModal={handleOpenModal} />
 
-      {/* Visual Portfolio Grid (Show, Don't Tell) */}
-      <PortfolioGrid onOpenModal={handleOpenModal} />
-
-      {/* Featured Live Case Study (Mathify.tech) */}
-      <FeaturedCaseStudy />
-
-      {/* Problem vs Solution Comparison */}
+      {/* 3. Problem vs Solution Comparison */}
       <ProblemVsSolution />
 
-      {/* Core Offer & Pricing Packages */}
-      <PricingSection onOpenModal={handleOpenModal} />
+      {/* 4. Portfolio Grid (Static Ad Creatives with 4 Category Filter Tabs) */}
+      <PortfolioGrid onOpenModal={handleOpenModal} />
 
-      {/* Closed-Loop Conversion Architecture */}
-      <ConversionSystem />
+      {/* 5. Featured Live Case Study (Mathify.tech) */}
+      <FeaturedCaseStudy />
 
-      {/* White-Label Agency Partnership */}
-      <WhiteLabelSection onOpenModal={handleOpenModal} />
+      {/* 6. Carousel Showcase (3 Multi-Frame Meta Carousels) */}
+      <CarouselShowcase onOpenModal={handleOpenModal} />
 
-      {/* 100% Asynchronous Workflow */}
+      {/* 7. 100% Asynchronous Workflow */}
       <WorkflowSection onOpenModal={handleOpenModal} />
 
-      {/* Frequently Asked Questions */}
+      {/* 8. White-Label Agency Partnership */}
+      <WhiteLabelSection onOpenModal={handleOpenModal} />
+
+      {/* 9. Core Offer & Pricing Packages */}
+      <PricingSection onOpenModal={handleOpenModal} />
+
+      {/* 10. Frequently Asked Questions */}
       <FAQSection />
 
-      {/* Final CTA */}
+      {/* 11. Final CTA */}
       <FinalCTA onOpenModal={handleOpenModal} />
 
-      {/* Footer */}
+      {/* 12. Footer */}
       <Footer />
 
-      {/* 2-Min Asynchronous Order Brief Modal */}
+      {/* 13. 2-Min Asynchronous Order Brief Modal */}
       <BriefModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
