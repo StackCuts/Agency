@@ -9,6 +9,7 @@ export default function PricingSection({ onOpenModal }) {
       price: '$495',
       originalPrice: null,
       priceSuffix: 'Flat Rate',
+      deliveryTime: '48H Delivery',
       badge: 'POPULAR TRIAL',
       isPopular: true,
       subtext: 'Ideal for fixing ad fatigue on active Meta ad campaigns.',
@@ -29,6 +30,7 @@ export default function PricingSection({ onOpenModal }) {
       originalPrice: '$1,095',
       savingsBadge: '⚡ SAVE $200 WITH BUNDLE',
       priceSuffix: 'Flat Rate',
+      deliveryTime: '4-5 Days Delivery',
       badge: 'BEST VALUE BUNDLE',
       isPopular: false,
       isBestValue: true,
@@ -38,7 +40,7 @@ export default function PricingSection({ onOpenModal }) {
         'High-Speed Custom Next.js Landing Page',
         'Offer-Matched Copywriting & Visual Layout',
         'Booking Software / Lead Form Integration',
-        'Sub-1 Second Latency & Mobile Optimization'
+        '4-5 Day Full Loop Delivery Protocol'
       ],
       ctaText: 'Build Full Authority Stack ($895)',
       ctaStyle: 'bg-[#3B82F6] text-white hover:bg-[#3B82F6]/90 shadow-blue-glow'
@@ -49,6 +51,7 @@ export default function PricingSection({ onOpenModal }) {
       price: '$600',
       originalPrice: null,
       priceSuffix: 'Flat Rate',
+      deliveryTime: '3-4 Days Delivery',
       badge: 'CONVERSION INFRASTRUCTURE',
       isPopular: false,
       subtext: 'Dedicated conversion infrastructure for high-traffic offers.',
@@ -56,7 +59,7 @@ export default function PricingSection({ onOpenModal }) {
         'High-Converting Landing Page Design & Setup',
         'Sales Copy Structuring & Visual Asset Alignment',
         'Tracking Pixel & Form Integration',
-        '48-Hour Rapid Deployment Protocol',
+        '3-4 Day Deployment Protocol',
         'Sub-1 Second Page Load Speed'
       ],
       ctaText: 'Get Landing Page ($600)',
@@ -108,7 +111,7 @@ export default function PricingSection({ onOpenModal }) {
                   {pkg.badge}
                 </span>
                 <span className="text-xs font-mono text-[#94A3B8] flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-[#00E599]" /> 48H Delivery
+                  <Clock className="w-3.5 h-3.5 text-[#00E599]" /> {pkg.deliveryTime}
                 </span>
               </div>
 
@@ -188,7 +191,7 @@ export default function PricingSection({ onOpenModal }) {
           </div>
           <div className="flex items-center gap-2">
             <Clock className="w-5 h-5 text-[#00E599]" />
-            <span>Strict 48-Hour SLA Deadline</span>
+            <span>Strict Asynchronous SLA Deadlines</span>
           </div>
         </div>
 
