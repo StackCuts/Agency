@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, Sparkles, Eye, ArrowUpRight, Check, X, Shield, Zap, Flame, ArrowRight, Award, Star } from 'lucide-react';
+import { Brain, Sparkles, ArrowUpRight, X, Zap, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function PortfolioGrid({ onOpenModal }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -9,9 +9,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 1,
       tagCategory: 'transformation',
-      angleTag: 'Angle: Transformation & Problem-Solution',
+      psychologyTag: 'Psychology: Visual Proof & Immediate Pain Interrupt',
       title: 'Before/After Hair Regeneration Split-Grid',
-      image: '/images/showcase/Showcase_Creative_1_HairRegen.png',
+      image: '/images/showcase/Showcase_Creative_1_HairRegen_4.jpg',
       niche: 'MedSpa / Hair Restoration',
       metric: '+48% CTR Boost',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -22,9 +22,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 2,
       tagCategory: 'transformation',
-      angleTag: 'Angle: Transformation & Problem-Solution',
+      psychologyTag: 'Psychology: Visual Proof & Immediate Pain Interrupt',
       title: 'Oral Supplements vs. Regen-Cell IV Solution',
-      image: '/images/showcase/Showcase_Creative_2_ProblemSolution.png',
+      image: '/images/showcase/Showcase_Creative_2_ProblemSolution_3.jpg',
       niche: 'Wellness / IV Therapy',
       metric: '-34% Cost Per Lead',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -35,9 +35,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 3,
       tagCategory: 'social-proof',
-      angleTag: 'Angle: Social Proof & Feature Breakdown',
+      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
       title: '5-Star Verified Review Hair Restoration Split',
-      image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair.png',
+      image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair_2.jpg',
       niche: 'Aesthetic Clinic / MedSpa',
       metric: '4.9/5 Star CTR Magnet',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -48,9 +48,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 4,
       tagCategory: 'social-proof',
-      angleTag: 'Angle: Social Proof & Feature Breakdown',
+      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
       title: '3-USP Breakdown Cellular IV Drip Protocol',
-      image: '/images/showcase/Showcase_Creative_4_IVDrip_USP.png',
+      image: '/images/showcase/Showcase_Creative_4_IVDrip_USP_2.jpg',
       niche: 'Clinical Health / IV Drip',
       metric: '+52% Offer Engagement',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -61,9 +61,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 5,
       tagCategory: 'comparison',
-      angleTag: 'Angle: Us vs. Them Comparison',
+      psychologyTag: 'Psychology: Overcoming Skepticism (Us vs. Them)',
       title: 'Us vs. Them Surgical Hair Transplants Comparison',
-      image: '/images/showcase/Showcase_Creative_5_UsVsThem_Hair.png',
+      image: '/images/showcase/Showcase_Creative_5_UsVsThem_Hair_2.jpg',
       niche: 'MedSpa / Non-Invasive Tech',
       metric: '3.9x Conversion Intent',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -74,9 +74,9 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 6,
       tagCategory: 'comparison',
-      angleTag: 'Angle: Us vs. Them Comparison',
+      psychologyTag: 'Psychology: Overcoming Skepticism (Us vs. Them)',
       title: 'Old Way vs. New Way Energy & Recovery IV',
-      image: '/images/showcase/Showcase_Creative_6_OldWayVsNewWay_IV.png',
+      image: '/images/showcase/Showcase_Creative_6_OldWayVsNewWay_IV_2.jpg',
       niche: 'Performance / IV Clinic',
       metric: '-41% CPL Reduction',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -93,7 +93,7 @@ export default function PortfolioGrid({ onOpenModal }) {
   return (
     <section id="portfolio" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       
-      {/* Radial Background Glow */}
+      {/* Background Radial Glow */}
       <div className="absolute top-1/4 right-1/4 w-[700px] h-[350px] bg-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#00E599]/5 blur-[120px] pointer-events-none" />
 
@@ -102,19 +102,19 @@ export default function PortfolioGrid({ onOpenModal }) {
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400">
-            <Zap className="w-3.5 h-3.5" />
-            <span>⚡ HIGH-CTR DIRECT-RESPONSE ASSETS</span>
+            <Brain className="w-3.5 h-3.5" />
+            <span>🧠 CONVERSION ENGINEERING & SALES PSYCHOLOGY</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
-            6 High-Contrast Static Split-Grids <br className="hidden sm:block" />
+            Direct-Response Creatives <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
-              Included In Our $495 Pack
+              Engineered With Sales Psychology
             </span>
           </h2>
 
           <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed">
-            Engineered specifically for Meta Advertisers & MedSpas to stop the scroll, tackle skepticism, and drive instant conversions.
+            We don't just design visuals—we apply consumer psychology, high-contrast pattern interrupts, and objection-handling frameworks to scale Meta ad campaigns.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export default function PortfolioGrid({ onOpenModal }) {
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              Transformation & Problem-Solution
+              Visual Proof & Interrupt
             </button>
             <button
               onClick={() => setSelectedFilter('social-proof')}
@@ -149,7 +149,7 @@ export default function PortfolioGrid({ onOpenModal }) {
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              Social Proof & Breakdown
+              Authority & Social Proof
             </button>
             <button
               onClick={() => setSelectedFilter('comparison')}
@@ -159,7 +159,7 @@ export default function PortfolioGrid({ onOpenModal }) {
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              Us vs. Them Comparison
+              Us vs. Them Skepticism
             </button>
           </div>
         </div>
@@ -170,31 +170,28 @@ export default function PortfolioGrid({ onOpenModal }) {
             <div
               key={creative.id}
               onClick={() => setSelectedCreative(creative)}
-              className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
+              className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer flex flex-col justify-between"
             >
               <div>
-                {/* Header Angle Badge */}
-                <div className="p-4 pb-3 border-b border-slate-800 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20">
-                    {creative.angleTag}
-                  </span>
-                  <span className="text-xs font-mono font-bold text-[#00E599]">
-                    {creative.metric}
-                  </span>
+                {/* Header Tag Bar */}
+                <div className="p-4 pb-3 border-b border-slate-800 flex flex-col gap-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20">
+                      {creative.psychologyTag}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-[#00E599] shrink-0 ml-2">
+                      {creative.metric}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Creative Image Preview */}
+                {/* Clean Image Container - No Blur, No Popup Pill */}
                 <div className="relative h-72 sm:h-80 overflow-hidden bg-[#0B0F17]">
                   <img
                     src={creative.image}
                     alt={creative.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover object-top"
                   />
-                  <div className="absolute inset-0 bg-[#0B0F17]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <span className="px-4 py-2 rounded-full bg-amber-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
-                      <Eye className="w-4 h-4" /> Inspect High-Res Creative
-                    </span>
-                  </div>
                 </div>
 
                 {/* Content Info */}
@@ -250,7 +247,7 @@ export default function PortfolioGrid({ onOpenModal }) {
 
       </div>
 
-      {/* Lightbox Modal View */}
+      {/* Lightbox Modal View - Aspect Ratio Fixed */}
       {selectedCreative && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/95 backdrop-blur-md">
           <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
@@ -262,9 +259,9 @@ export default function PortfolioGrid({ onOpenModal }) {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30">
-                {selectedCreative.angleTag}
+                {selectedCreative.psychologyTag}
               </span>
               <span className="text-xs font-mono text-[#94A3B8]">{selectedCreative.specs}</span>
             </div>
@@ -273,12 +270,12 @@ export default function PortfolioGrid({ onOpenModal }) {
               {selectedCreative.title}
             </h3>
 
-            {/* High Res Full Creative Image */}
-            <div className="rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] max-h-[60vh] flex items-center justify-center">
+            {/* High Res Creative Image - Native Aspect Ratio Container */}
+            <div className="aspect-square w-full max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] flex items-center justify-center p-2">
               <img
                 src={selectedCreative.image}
                 alt={selectedCreative.title}
-                className="w-full h-full object-contain max-h-[60vh]"
+                className="w-full h-full object-contain"
               />
             </div>
 
