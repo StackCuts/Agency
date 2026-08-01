@@ -49,8 +49,8 @@ export default function App() {
       {/* 4. Portfolio Grid (Static Ad Creatives with 4 Category Filter Tabs) */}
       <PortfolioGrid onOpenModal={handleOpenModal} />
 
-      {/* 5. Featured Live Case Study (Mathify.tech) */}
-      <FeaturedCaseStudy />
+      {/* 5. Featured Live Case Study (CellMatrix.tech & Mathify.tech) */}
+      <FeaturedCaseStudy onOpenModal={handleOpenModal} />
 
       {/* 6. Carousel Showcase (3 Multi-Frame Meta Carousels) */}
       <CarouselShowcase onOpenModal={handleOpenModal} />
