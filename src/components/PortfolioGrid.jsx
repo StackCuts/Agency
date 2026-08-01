@@ -311,11 +311,11 @@ export default function PortfolioGrid({ onOpenModal }) {
 
       </div>
 
-      {/* Lightbox Modal View - Compact Fit Without Scrolling */}
+      {/* Lightbox Modal View - Generous Size with Fully Visible Creative Image */}
       {selectedCreative && (
         <div 
           onClick={(e) => { if (e.target === e.currentTarget) setSelectedCreative(null); }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
         >
           {/* Close Button (✕) Positioned Outside Card Container */}
           <button
@@ -327,63 +327,63 @@ export default function PortfolioGrid({ onOpenModal }) {
           </button>
 
           {/* Modal Container */}
-          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-2xl w-full p-5 sm:p-6 relative shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
             
             {/* Header Tags & Title */}
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
+                <span className="text-xs font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
                   {selectedCreative.psychologyTag}
                 </span>
                 <span className="text-xs font-mono text-[#00E599] font-bold">{selectedCreative.metric}</span>
               </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-white leading-tight">
+              <h3 className="text-2xl font-display font-bold text-white">
                 {selectedCreative.title}
               </h3>
             </div>
 
-            {/* High Res Creative Image - Compact Fit Container */}
-            <div className="w-full max-h-[38vh] rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] flex items-center justify-center p-1.5 shadow-inner">
+            {/* High Res Creative Image - Fully Visible Container */}
+            <div className="w-full max-h-[55vh] rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] flex items-center justify-center p-2 shadow-inner">
               <img
                 src={selectedCreative.image}
                 alt={selectedCreative.title}
-                className="max-h-[36vh] w-auto max-w-full object-contain rounded-lg"
+                className="max-h-[52vh] w-auto max-w-full object-contain rounded-lg shadow-md"
               />
             </div>
 
             {/* Strategy & Metrics Breakdown */}
-            <div className="space-y-2.5 text-xs text-[#94A3B8]">
-              <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447]">
-                <div className="text-[10px] font-mono text-amber-400 mb-0.5 uppercase tracking-wider font-bold">Direct-Response Strategy</div>
-                <p className="text-white font-medium text-xs leading-relaxed">{selectedCreative.description}</p>
+            <div className="space-y-3 text-sm text-[#94A3B8]">
+              <div className="bg-[#0B0F17] p-4 rounded-xl border border-[#2A3447]">
+                <div className="text-xs font-mono text-amber-400 mb-1 uppercase tracking-wider font-bold">Direct-Response Creative Strategy</div>
+                <p className="text-white font-medium text-sm leading-relaxed">{selectedCreative.description}</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] font-mono">
-                <div className="bg-[#0B0F17] p-2.5 rounded-lg border border-[#2A3447]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
                   <span className="text-[#94A3B8]">Primary Hook Angle:</span>
-                  <div className="text-white font-bold mt-0.5">{selectedCreative.hookText}</div>
+                  <div className="text-white font-bold mt-1">{selectedCreative.hookText}</div>
                 </div>
-                <div className="bg-[#0B0F17] p-2.5 rounded-lg border border-[#2A3447]">
+                <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
                   <span className="text-[#94A3B8]">Format Specs:</span>
-                  <div className="text-slate-200 font-bold mt-0.5">{selectedCreative.specs}</div>
+                  <div className="text-slate-200 font-bold mt-1">{selectedCreative.specs}</div>
                 </div>
               </div>
             </div>
 
             {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <button
                 onClick={() => {
                   setSelectedCreative(null);
                   if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
                 }}
-                className="btn-shimmer flex-1 py-3 px-5 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
+                className="btn-shimmer flex-1 py-3.5 px-6 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
               >
                 Request Custom Version For Your Brand ($495)
               </button>
               <button
                 onClick={() => setSelectedCreative(null)}
-                className="px-5 py-3 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
+                className="px-6 py-3.5 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
               >
                 Close Preview
               </button>
