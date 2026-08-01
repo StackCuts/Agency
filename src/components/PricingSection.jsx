@@ -7,6 +7,8 @@ export default function PricingSection({ onOpenModal }) {
       id: 'growth-pack',
       title: 'Ad Creative Growth Pack',
       price: '$495',
+      originalPrice: null,
+      priceSuffix: 'Flat Rate',
       badge: 'POPULAR TRIAL',
       isPopular: true,
       subtext: 'Ideal for fixing ad fatigue on active Meta ad campaigns.',
@@ -17,33 +19,36 @@ export default function PricingSection({ onOpenModal }) {
         '48-Hour Asynchronous Delivery',
         '2 Free Rounds of Revisions'
       ],
-      ctaText: 'Start 1-Pack Trial',
+      ctaText: 'Start 1-Pack Trial ($495)',
       ctaStyle: 'bg-[#00E599] text-[#0B0F17] hover:bg-[#00E599]/90 shadow-mint-glow'
     },
     {
       id: 'full-stack',
       title: 'The Full Authority Stack',
-      price: '$1,200',
-      priceSuffix: 'Starting',
-      badge: 'BEST VALUE',
+      price: '$895',
+      originalPrice: '$1,095',
+      savingsBadge: '⚡ SAVE $200 WITH BUNDLE',
+      priceSuffix: 'Flat Rate',
+      badge: 'BEST VALUE BUNDLE',
       isPopular: false,
       isBestValue: true,
       subtext: 'Complete Ad-to-Landing-Page conversion loop architecture.',
       bullets: [
-        'Full Ad Creative Growth Pack (Static, Carousel, Video)',
+        'Full Ad Creative Growth Pack (2x Split-Grid + 1x Carousel)',
         'High-Speed Custom Next.js Landing Page',
         'Offer-Matched Copywriting & Visual Layout',
         'Booking Software / Lead Form Integration',
         'Sub-1 Second Latency & Mobile Optimization'
       ],
-      ctaText: 'Build Full Authority Stack',
+      ctaText: 'Build Full Authority Stack ($895)',
       ctaStyle: 'bg-[#3B82F6] text-white hover:bg-[#3B82F6]/90 shadow-blue-glow'
     },
     {
       id: 'landing-page',
       title: 'Custom Landing Page Infrastructure',
       price: '$600',
-      priceSuffix: 'Starting',
+      originalPrice: null,
+      priceSuffix: 'Flat Rate',
       badge: 'CONVERSION INFRASTRUCTURE',
       isPopular: false,
       subtext: 'Dedicated conversion infrastructure for high-traffic offers.',
@@ -54,13 +59,13 @@ export default function PricingSection({ onOpenModal }) {
         '48-Hour Rapid Deployment Protocol',
         'Sub-1 Second Page Load Speed'
       ],
-      ctaText: 'Get Landing Page',
+      ctaText: 'Get Landing Page ($600)',
       ctaStyle: 'bg-[#161C27] border border-[#2A3447] text-white hover:border-[#00E599]'
     }
   ];
 
   return (
-    <section id="packages" className="py-24 bg-[#0B0F17] relative">
+    <section id="packages" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -74,7 +79,7 @@ export default function PricingSection({ onOpenModal }) {
             <span className="text-[#00E599]">Zero Long-Term Contracts.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#94A3B8]">
-            Test with a single 48-hour trial pack or build the full closed-loop conversion infrastructure. No monthly retainers required.
+            Test with a single 48-hour trial pack or build the full closed-loop conversion infrastructure with bundle savings. No monthly retainers required.
           </p>
         </div>
 
@@ -116,7 +121,12 @@ export default function PricingSection({ onOpenModal }) {
                 </p>
 
                 {/* Price Display */}
-                <div className="my-6 pb-6 border-b border-[#2A3447] flex items-baseline gap-2">
+                <div className="my-6 pb-6 border-b border-[#2A3447] flex flex-wrap items-baseline gap-2">
+                  {pkg.originalPrice && (
+                    <span className="text-lg font-mono text-slate-500 line-through font-bold">
+                      {pkg.originalPrice}
+                    </span>
+                  )}
                   <span className="text-4xl sm:text-5xl font-display font-extrabold text-white">
                     {pkg.price}
                   </span>
@@ -125,9 +135,16 @@ export default function PricingSection({ onOpenModal }) {
                       / {pkg.priceSuffix}
                     </span>
                   )}
-                  <span className="text-xs text-[#00E599] font-mono ml-auto bg-[#00E599]/10 px-2 py-1 rounded border border-[#00E599]/20">
-                    Fixed Flat Rate
-                  </span>
+
+                  {pkg.savingsBadge ? (
+                    <span className="w-full mt-2 text-xs text-[#00E599] font-mono bg-[#00E599]/10 px-3 py-1 rounded-full border border-[#00E599]/30 font-bold inline-block text-center">
+                      {pkg.savingsBadge}
+                    </span>
+                  ) : (
+                    <span className="text-xs text-[#00E599] font-mono ml-auto bg-[#00E599]/10 px-2 py-1 rounded border border-[#00E599]/20">
+                      Fixed Flat Rate
+                    </span>
+                  )}
                 </div>
 
                 {/* Bullet Points */}
@@ -145,7 +162,11 @@ export default function PricingSection({ onOpenModal }) {
 
               {/* Action CTA Button */}
               <button
-                onClick={() => onOpenModal(`${pkg.title} (${pkg.price})`)}
+                onClick={() => {
+                  if (onOpenModal) {
+                    onOpenModal(`${pkg.title} (${pkg.price})`);
+                  }
+                }}
                 className={`w-full py-4 rounded-full font-bold text-sm btn-shimmer transition-all flex items-center justify-center gap-2 group ${pkg.ctaStyle}`}
               >
                 <span>{pkg.ctaText}</span>
