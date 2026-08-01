@@ -15,7 +15,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_1_HairRegen_4.png',
       niche: 'MedSpa / Hair Restoration',
       metric: '+48% CTR Boost',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Visual Contrast Pain-Split',
       hookText: 'Skeptical About Hair Regeneration? See 90-Day Proof',
       description: 'Side-by-side high-contrast visual comparison triggering immediate pattern interrupt in Meta feeds while tackling consumer skepticism.'
@@ -28,7 +28,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_2_ProblemSolution_3.png',
       niche: 'Wellness / IV Therapy',
       metric: '-34% Cost Per Lead',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Mechanism Absorption Matrix',
       hookText: 'Why Oral Pills Fail: 100% Bioavailability Difference',
       description: 'Direct mechanism contrast highlighting absorption superiority over traditional oral pills with high visual hierarchy callouts.'
@@ -41,7 +41,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair_2.png',
       niche: 'Aesthetic Clinic / MedSpa',
       metric: '4.9/5 Star CTR Magnet',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Social Proof Trust Stack',
       hookText: 'Over 1,200+ Verified Patient Transformation Reviews',
       description: 'Combines real customer rating badges with high-contrast before/after visual proof to establish instant authority.'
@@ -54,7 +54,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_4_IVDrip_USP_2.png',
       niche: 'Clinical Health / IV Drip',
       metric: '+52% Offer Engagement',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: '3-Tier Value Stack',
       hookText: '3 Science-Backed Reasons Cellular Drips Scale Recovery',
       description: 'Breaks down 3 distinct clinical benefits into digestible, highly scannable visual callouts.'
@@ -67,7 +67,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_5_UsVsThem_Hair_2.png',
       niche: 'MedSpa / Non-Invasive Tech',
       metric: '3.9x Conversion Intent',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Direct Competitor Contrast',
       hookText: 'Surgical Transplants ($12k) vs. Non-Invasive Cellular ($495)',
       description: 'Exposes traditional high-cost surgical pain points vs. non-invasive cellular protocol in an un-ignorable comparison matrix.'
@@ -80,7 +80,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Showcase_Creative_6_OldWayVsNewWay_IV_2.png',
       niche: 'Performance / IV Clinic',
       metric: '-41% CPL Reduction',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Paradigm Shift Grid',
       hookText: 'Stop Crashing On Energy Drinks: The Direct Cellular Way',
       description: 'Contrasts temporary caffeine energy crashes with 100% cellular absorption for high-intent lead conversion.'
@@ -95,7 +95,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Static_Post_1.png',
       niche: 'Aesthetic Skincare / Collagen',
       metric: '2.4x Engagement Rate',
-      specs: '4:5 Portrait Feed Spec',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Editorial Prestige Typography',
       hookText: 'Clinical Bio-Peptide Rejuvenation Protocol',
       description: 'High-fashion magazine aesthetic layout paired with clinical proof callouts to build premium brand authority.'
@@ -108,7 +108,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Static_Post_2.png',
       niche: 'Dermatology / Laser Clinic',
       metric: '+62% Qualified Leads',
-      specs: '4:5 Portrait Feed Spec',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Dermatological Science Overlay',
       hookText: 'Sub-Dermal Laser Scan & Collagen Synthesis',
       description: 'Scientific medical-grade graphic overlays showcasing precision diagnostic technology to justify high-ticket pricing.'
@@ -121,7 +121,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Asset_Variant_B_HydraFacial.png',
       niche: 'MedSpa / Facial Therapy',
       metric: '3.2x Campaign ROI',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Multi-Layer Floating Badge',
       hookText: 'Deep Pore Glow Treatment Special $189',
       description: 'Layered card architecture creating depth and visual contrast to highlight treatment results & limited offer.'
@@ -136,7 +136,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       image: '/images/showcase/Asset_Variant_A_IVDrip.png',
       niche: 'IV Drip Bar / Wellness',
       metric: '-50% Acquisition Cost',
-      specs: '1:1 Feed & 4:5 Spec Ready',
+      specs: '1:1 Meta Feed Spec • High-Res Source File Included',
       framework: 'Asymmetric Glass Floating Pill',
       hookText: 'First Hydration Session Only $99 (Limited Slots)',
       description: 'High-contrast glassmorphic floating price badge designed to draw eyes straight to the introductory offer.'
@@ -272,7 +272,7 @@ export default function PortfolioGrid({ onOpenModal }) {
 
               {/* Card Footer Micro Badges */}
               <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8]">
-                <span>{creative.specs}</span>
+                <span>1:1 Meta Feed Spec</span>
                 <span className="text-slate-300 font-semibold">{creative.framework}</span>
               </div>
             </div>
@@ -336,7 +336,7 @@ export default function PortfolioGrid({ onOpenModal }) {
                 <img
                   src={selectedCreative.image}
                   alt={selectedCreative.title}
-                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl"
+                  className="max-h-[80vh] w-auto object-contain mx-auto rounded-xl shadow-2xl"
                 />
               </div>
 
