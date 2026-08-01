@@ -311,69 +311,79 @@ export default function PortfolioGrid({ onOpenModal }) {
 
       </div>
 
-      {/* Lightbox Modal View - Aspect Ratio Fixed */}
+      {/* Lightbox Modal View - Compact Fit Without Scrolling */}
       {selectedCreative && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/95 backdrop-blur-md">
-          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
-            
-            <button
-              onClick={() => setSelectedCreative(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-[#0B0F17] border border-[#2A3447] text-[#94A3B8] hover:text-white transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
+        <div 
+          onClick={(e) => { if (e.target === e.currentTarget) setSelectedCreative(null); }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/90 backdrop-blur-md"
+        >
+          {/* Close Button (✕) Positioned Outside Card Container */}
+          <button
+            onClick={() => setSelectedCreative(null)}
+            className="fixed top-4 right-4 z-50 p-2.5 rounded-full bg-[#161C27] border border-[#2A3447] text-white hover:text-amber-400 hover:border-amber-400 transition-colors shadow-2xl"
+            aria-label="Close preview"
+          >
+            <X className="w-6 h-6" />
+          </button>
 
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30">
-                {selectedCreative.psychologyTag}
-              </span>
-              <span className="text-xs font-mono text-[#94A3B8]">{selectedCreative.specs}</span>
+          {/* Modal Container */}
+          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-2xl w-full p-5 sm:p-6 relative shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+            
+            {/* Header Tags & Title */}
+            <div className="space-y-1.5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
+                  {selectedCreative.psychologyTag}
+                </span>
+                <span className="text-xs font-mono text-[#00E599] font-bold">{selectedCreative.metric}</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-display font-bold text-white leading-tight">
+                {selectedCreative.title}
+              </h3>
             </div>
 
-            <h3 className="text-2xl font-display font-bold text-white">
-              {selectedCreative.title}
-            </h3>
-
-            {/* High Res Creative Image - Native Aspect Ratio Container */}
-            <div className="aspect-square w-full max-w-2xl mx-auto rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] flex items-center justify-center p-2">
+            {/* High Res Creative Image - Compact Fit Container */}
+            <div className="w-full max-h-[38vh] rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] flex items-center justify-center p-1.5 shadow-inner">
               <img
                 src={selectedCreative.image}
                 alt={selectedCreative.title}
-                className="w-full h-full object-contain"
+                className="max-h-[36vh] w-auto max-w-full object-contain rounded-lg"
               />
             </div>
 
-            <div className="space-y-3 text-sm text-[#94A3B8]">
-              <div className="bg-[#0B0F17] p-4 rounded-xl border border-[#2A3447]">
-                <div className="text-xs font-mono text-amber-400 mb-1 uppercase tracking-wider">Direct-Response Creative Strategy</div>
-                <p className="text-white font-medium">{selectedCreative.description}</p>
+            {/* Strategy & Metrics Breakdown */}
+            <div className="space-y-2.5 text-xs text-[#94A3B8]">
+              <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447]">
+                <div className="text-[10px] font-mono text-amber-400 mb-0.5 uppercase tracking-wider font-bold">Direct-Response Strategy</div>
+                <p className="text-white font-medium text-xs leading-relaxed">{selectedCreative.description}</p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-                <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[11px] font-mono">
+                <div className="bg-[#0B0F17] p-2.5 rounded-lg border border-[#2A3447]">
                   <span className="text-[#94A3B8]">Primary Hook Angle:</span>
-                  <div className="text-white font-bold mt-1">{selectedCreative.hookText}</div>
+                  <div className="text-white font-bold mt-0.5">{selectedCreative.hookText}</div>
                 </div>
-                <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
-                  <span className="text-[#94A3B8]">Measured Performance Result:</span>
-                  <div className="text-amber-400 font-extrabold mt-1">{selectedCreative.metric}</div>
+                <div className="bg-[#0B0F17] p-2.5 rounded-lg border border-[#2A3447]">
+                  <span className="text-[#94A3B8]">Format Specs:</span>
+                  <div className="text-slate-200 font-bold mt-0.5">{selectedCreative.specs}</div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            {/* Modal Actions */}
+            <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
               <button
                 onClick={() => {
                   setSelectedCreative(null);
                   if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
                 }}
-                className="btn-shimmer flex-1 py-3.5 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
+                className="btn-shimmer flex-1 py-3 px-5 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
               >
                 Request Custom Version For Your Brand ($495)
               </button>
               <button
                 onClick={() => setSelectedCreative(null)}
-                className="px-6 py-3.5 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
+                className="px-5 py-3 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
               >
                 Close Preview
               </button>
