@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(0);
@@ -7,7 +7,7 @@ export default function FAQSection() {
   const faqs = [
     {
       q: 'Do we need to schedule a Zoom call to start?',
-      a: 'No. We operate 100% asynchronously via Upwork, Drive, and Email to save you time. Simply submit your brief using our streamlined 2-minute intake form, and production begins immediately.'
+      a: 'No. We operate asynchronously via Upwork messaging to save calendar friction, though quick milestone alignment chats are always available.'
     },
     {
       q: 'Can we test with 1 Ad Pack before scaling?',
@@ -15,15 +15,15 @@ export default function FAQSection() {
     },
     {
       q: 'How are revisions handled?',
-      a: 'Revisions are handled directly via 1-click visual comments on Drive/Frame.io preview links within 48 hours. You get 2 free rounds of revisions included with every pack to ensure perfection.'
+      a: 'Revisions are handled directly via 1-click visual comments on Drive/Frame.io preview links or Upwork messaging. You get 2 free rounds of revisions included with every pack to ensure perfection.'
     },
     {
       q: 'What formats do we receive?',
-      a: 'You receive Meta-ready 1:1 (Feed/Square) and 9:16 (Reels/Stories/Vertical) high-resolution PNGs, MP4s, and formatted doc files with recommended ad captions, hooks, and direct-response copy angles.'
+      a: 'You receive Meta-ready 1:1 (Feed/Square) high-resolution PNGs, formatted copy docs with recommended ad captions & hooks, and clean Next.js/React code for custom funnels.'
     },
     {
-      q: 'How do you guarantee 48-hour turnarounds?',
-      a: 'Because we eliminate meeting overhead, our studio focuses purely on graphic design execution, visual hierarchy, and direct-response structure. Production starts within 1 hour of brief intake.'
+      q: 'What are your delivery timelines?',
+      a: 'Ad Creative Packs are delivered within 48 hours. Custom Landing Pages take 3–4 days, and Full Conversion Stacks are deployed within 4–5 business days via Upwork milestones.'
     }
   ];
 
@@ -41,7 +41,7 @@ export default function FAQSection() {
             Got Questions? <span className="text-[#3B82F6]">We Have Answers.</span>
           </h2>
           <p className="text-base text-[#94A3B8]">
-            Everything you need to know about our 48-hour asynchronous creative studio workflow.
+            Everything you need to know about our Upwork collaboration, deliverables, and timelines.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ export default function FAQSection() {
           })}
         </div>
 
-        {/* Direct Email Support Box */}
+        {/* Direct Support Box */}
         <div className="mt-12 text-center p-6 rounded-2xl bg-[#161C27]/40 border border-[#2A3447] font-mono text-xs text-[#94A3B8]">
           Have a unique requirement or custom agency volume need? <br />
           Contact our lead strategist directly: <a href="mailto:team@stackcuts.agency" className="text-[#00E599] font-bold underline hover:text-white ml-1">team@stackcuts.agency</a>

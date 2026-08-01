@@ -1,26 +1,26 @@
 import React from 'react';
-import { FileText, Clock, Rocket, ShieldAlert, ArrowRight, Zap } from 'lucide-react';
+import { FileText, Clock, Rocket, ArrowRight, Zap } from 'lucide-react';
 
 export default function WorkflowSection({ onOpenModal }) {
   const steps = [
     {
       num: '01',
-      title: 'Submit Brief & Assets',
-      desc: 'Fill out our 2-minute intake form. Drop your brand guidelines, offer link, and target audience hook angles. No kickoff call needed.',
+      title: 'Define Scope on Upwork',
+      desc: 'Review package options or request a custom proposal. Share brand guidelines and offer links via Upwork chat. No kickoff call needed.',
       icon: FileText,
       color: '#00E599'
     },
     {
       num: '02',
-      title: '48-Hour Production',
-      desc: 'Our studio engineers your high-contrast split-grids, carousels, and motion videos. Review progress via Frame.io / Drive comment links.',
+      title: 'Rapid Studio Production',
+      desc: 'Our studio engineers your high-contrast split-grids, carousels, or landing page funnels. Delivered in 48H to 5 days based on milestone scope.',
       icon: Clock,
       color: '#3B82F6'
     },
     {
       num: '03',
       title: 'Launch & Scale',
-      desc: 'Approve assets with 1-click and download high-resolution, Meta Ads Manager ready PNGs, MP4s, and pre-written direct-response copy.',
+      desc: 'Approve deliverables with 1-click on Upwork. Receive high-resolution Meta-ready PNGs, Next.js code, and direct-response copy docs.',
       icon: Rocket,
       color: '#00E599'
     }
@@ -37,11 +37,11 @@ export default function WorkflowSection({ onOpenModal }) {
             <span>100% ASYNCHRONOUS OPERATING MODEL</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-            Zero Zoom Calls. <br className="hidden sm:block" />
+            Zero Friction. <br className="hidden sm:block" />
             <span className="text-[#00E599]">Pure Execution.</span>
           </h2>
           <p className="text-base sm:text-lg text-[#94A3B8]">
-            We operate asynchronously to save your team hours of calendar friction. Here is how your first 48-hour creative pack gets delivered.
+            How we collaborate seamlessly via Upwork to deliver high-converting ad assets and funnels.
           </p>
         </div>
 
@@ -85,10 +85,10 @@ export default function WorkflowSection({ onOpenModal }) {
         {/* Bottom Callout CTA */}
         <div className="mt-12 text-center">
           <button
-            onClick={() => onOpenModal('Growth Pack ($495 Trial)')}
+            onClick={() => onOpenModal && onOpenModal('Discuss Project on Upwork')}
             className="btn-shimmer px-8 py-4 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow inline-flex items-center gap-2"
           >
-            <span>Submit Intake Brief (Takes 2 Mins)</span>
+            <span>Discuss Project on Upwork</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
