@@ -44,7 +44,7 @@ export default function App() {
       <Hero onOpenModal={handleOpenModal} />
 
       {/* Visual Portfolio Grid (Show, Don't Tell) */}
-      <PortfolioGrid />
+      <PortfolioGrid onOpenModal={handleOpenModal} />
 
       {/* Featured Live Case Study (Mathify.tech) */}
       <FeaturedCaseStudy />

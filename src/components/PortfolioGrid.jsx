@@ -1,386 +1,327 @@
 import React, { useState } from 'react';
-import { Layers, Sparkles, Film, Eye, ArrowUpRight, Check, X, Shield, Zap, Flame } from 'lucide-react';
+import { Layers, Sparkles, Eye, ArrowUpRight, Check, X, Shield, Zap, Flame, ArrowRight, Award, Star } from 'lucide-react';
 
-export default function PortfolioGrid() {
-  const [activeTab, setActiveTab] = useState('static');
-  const [selectedItem, setSelectedItem] = useState(null);
+export default function PortfolioGrid({ onOpenModal }) {
+  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [selectedCreative, setSelectedCreative] = useState(null);
 
-  const portfolioItems = [
-    // Static Split-Grids
+  const staticCreatives = [
     {
       id: 1,
-      category: 'static',
-      title: 'High-Contrast Dual Angle Split-Grid',
-      client: 'B2B SaaS / Ad Tech',
-      metric: '+46% CTR Boost',
-      hookText: 'Old Way vs. The StackCuts 48H Engine',
-      description: 'Split-screen layout leveraging direct-response contrast psychology. Left side triggers pain point recognition; right side delivers high-converting visual solution.',
-      specs: '1080x1080 (1:1 Meta Feed PNG)',
-      badge: 'Static Split-Grid',
-      color: '#00E599',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] flex flex-col justify-between p-4 border border-[#2A3447] rounded-lg">
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#00E599]/20 text-[#00E599] border border-[#00E599]/30">DIRECT-RESPONSE PAIN-SPLIT</span>
-            <span className="text-xs font-mono text-[#94A3B8]">1:1 Meta Spec</span>
-          </div>
-          <div className="grid grid-cols-2 gap-2 my-4">
-            <div className="bg-[#161C27] border border-red-500/30 p-3 rounded flex flex-col justify-between">
-              <span className="text-[9px] font-mono text-red-400 font-bold">❌ TRADITIONAL AGENCY</span>
-              <p className="text-xs text-slate-300 font-bold mt-2">2-Week Delivery & Endless Calls</p>
-            </div>
-            <div className="bg-gradient-to-br from-[#161C27] to-[#00E599]/20 border border-[#00E599] p-3 rounded flex flex-col justify-between">
-              <span className="text-[9px] font-mono text-[#00E599] font-bold">⚡ STACKCUTS SYSTEM</span>
-              <p className="text-xs text-white font-extrabold mt-2">48-Hour Async Production</p>
-            </div>
-          </div>
-          <div className="w-full bg-[#00E599] text-[#0B0F17] text-center font-extrabold text-xs py-2 rounded uppercase tracking-wider">
-            Fix Ad Fatigue Now ➔
-          </div>
-        </div>
-      )
+      tagCategory: 'transformation',
+      angleTag: 'Angle: Transformation & Problem-Solution',
+      title: 'Before/After Hair Regeneration Split-Grid',
+      image: '/images/showcase/Showcase_Creative_1_HairRegen.png',
+      niche: 'MedSpa / Hair Restoration',
+      metric: '+48% CTR Boost',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Visual Contrast Pain-Split',
+      hookText: 'Skeptical About Hair Regeneration? See 90-Day Proof',
+      description: 'Side-by-side high-contrast visual comparison triggering immediate pattern interrupt in Meta feeds while tackling consumer skepticism.'
     },
     {
       id: 2,
-      category: 'static',
-      title: 'Problem / Solution Feature Matrix Grid',
-      client: 'Direct-to-Consumer / MedSpa',
-      metric: '-38% Cost Per Lead',
-      hookText: 'Why 92% of Meta Ads Get Ignored',
-      description: 'Ultra-clean grid layout highlighting immediate visual value props with high contrast typography and clear direct-response visual markers.',
-      specs: '1080x1080 (1:1 Meta Feed PNG)',
-      badge: 'Static Split-Grid',
-      color: '#00E599',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] flex flex-col justify-between p-4 border border-[#2A3447] rounded-lg">
-          <div className="flex items-center justify-between">
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#3B82F6]/20 text-[#3B82F6] border border-[#3B82F6]/30">CONVERSION MATRIX</span>
-            <span className="text-xs font-mono text-[#94A3B8]">CPL -38%</span>
-          </div>
-          <div className="space-y-2 my-2">
-            <div className="bg-[#161C27] p-2 rounded border border-[#2A3447] flex justify-between items-center text-xs">
-              <span className="text-slate-300">Turnaround Speed</span>
-              <span className="text-[#00E599] font-bold">48 Hours Fixed</span>
-            </div>
-            <div className="bg-[#161C27] p-2 rounded border border-[#2A3447] flex justify-between items-center text-xs">
-              <span className="text-slate-300">Zoom Friction</span>
-              <span className="text-[#00E599] font-bold">Zero Meetings</span>
-            </div>
-          </div>
-          <div className="w-full bg-[#3B82F6] text-white text-center font-bold text-xs py-2 rounded">
-            Scale Creative Output
-          </div>
-        </div>
-      )
+      tagCategory: 'transformation',
+      angleTag: 'Angle: Transformation & Problem-Solution',
+      title: 'Oral Supplements vs. Regen-Cell IV Solution',
+      image: '/images/showcase/Showcase_Creative_2_ProblemSolution.png',
+      niche: 'Wellness / IV Therapy',
+      metric: '-34% Cost Per Lead',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Mechanism Absorption Matrix',
+      hookText: 'Why Oral Pills Fail: 100% Bioavailability Difference',
+      description: 'Direct mechanism contrast highlighting absorption superiority over traditional oral pills with high visual hierarchy callouts.'
     },
-
-    // Multi-Frame Carousels
     {
       id: 3,
-      category: 'carousel',
-      title: '3-Frame Seamless Storytelling Carousel',
-      client: 'B2B Agency & Media Buyers',
-      metric: '3.8x Swipe Rate',
-      hookText: 'Swipe ➔ See The 48H Production Framework',
-      description: 'Continuous multi-frame layout where visual elements cross frame boundaries, driving curiosity and maximum swipe-through engagement.',
-      specs: '1080x1080 x 3 Frames (Carousel PNG Set)',
-      badge: 'Multi-Frame Carousel',
-      color: '#3B82F6',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] p-3 border border-[#2A3447] rounded-lg flex flex-col justify-between">
-          <div className="flex items-center justify-between text-xs font-mono text-[#94A3B8]">
-            <span className="text-[#3B82F6] font-bold">FRAME 1 of 3</span>
-            <span>SWIPE ➔</span>
-          </div>
-          <div className="flex gap-1.5 my-3">
-            <div className="flex-1 bg-[#161C27] border border-[#00E599] p-2 rounded text-[10px]">
-              <span className="text-[#00E599] font-bold block mb-1">01. THE HOOK</span>
-              <div className="h-1 bg-[#00E599] w-3/4 rounded mb-1"></div>
-              <div className="h-1 bg-slate-600 w-1/2 rounded"></div>
-            </div>
-            <div className="flex-1 bg-[#161C27] border border-[#2A3447] p-2 rounded text-[10px]">
-              <span className="text-[#3B82F6] font-bold block mb-1">02. PROOF</span>
-              <div className="h-1 bg-[#3B82F6] w-full rounded mb-1"></div>
-              <div className="h-1 bg-slate-600 w-2/3 rounded"></div>
-            </div>
-            <div className="flex-1 bg-[#161C27] border border-[#2A3447] p-2 rounded text-[10px]">
-              <span className="text-white font-bold block mb-1">03. OFFER</span>
-              <div className="h-1 bg-white w-4/5 rounded mb-1"></div>
-            </div>
-          </div>
-          <div className="text-[10px] text-center text-[#94A3B8] font-mono">
-            Optimized for Meta Mobile Swipe Patterns
-          </div>
-        </div>
-      )
+      tagCategory: 'social-proof',
+      angleTag: 'Angle: Social Proof & Feature Breakdown',
+      title: '5-Star Verified Review Hair Restoration Split',
+      image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair.png',
+      niche: 'Aesthetic Clinic / MedSpa',
+      metric: '4.9/5 Star CTR Magnet',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Social Proof Trust Stack',
+      hookText: 'Over 1,200+ Verified Patient Transformation Reviews',
+      description: 'Combines real customer rating badges with high-contrast before/after visual proof to establish instant authority in cold feeds.'
     },
     {
       id: 4,
-      category: 'carousel',
-      title: 'Value Stack Multi-Slide Framework',
-      client: 'High-Ticket B2B Service',
-      metric: '+54% Lead Intent',
-      hookText: 'What Happens When You Eliminate Meeting Fatigue',
-      description: 'Educational carousel framework engineered to build authority and warm cold traffic before landing page click.',
-      specs: '1080x1080 x 4 Frames (Carousel Set)',
-      badge: 'Multi-Frame Carousel',
-      color: '#3B82F6',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] p-3 border border-[#2A3447] rounded-lg flex flex-col justify-between">
-          <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-white font-bold">FRAME STACK</span>
-            <span className="text-[#00E599] font-mono">4-Slide Loop</span>
-          </div>
-          <div className="bg-[#161C27] border border-[#3B82F6]/40 p-3 rounded my-2">
-            <div className="text-xs font-bold text-white mb-1">Step-by-Step Direct-Response Loop</div>
-            <p className="text-[10px] text-[#94A3B8]">High contrast visual callouts designed for quick scanning in feed.</p>
-          </div>
-          <div className="flex justify-between text-[10px] text-[#94A3B8] font-mono">
-            <span>Slide 1/4</span>
-            <span className="text-[#3B82F6]">Swipe for Offer ➔</span>
-          </div>
-        </div>
-      )
+      tagCategory: 'social-proof',
+      angleTag: 'Angle: Social Proof & Feature Breakdown',
+      title: '3-USP Breakdown Cellular IV Drip Protocol',
+      image: '/images/showcase/Showcase_Creative_4_IVDrip_USP.png',
+      niche: 'Clinical Health / IV Drip',
+      metric: '+52% Offer Engagement',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: '3-Tier Value Stack',
+      hookText: '3 Science-Backed Reasons Cellular Drips Scale Recovery',
+      description: 'Breaks down 3 distinct clinical benefits into digestible, highly scannable visual callouts designed for mobile feed scanning.'
     },
-
-    // Motion / Video Assets
     {
       id: 5,
-      category: 'video',
-      title: 'Thumb-Stopping Motion Kinetic Video Ad',
-      client: 'SaaS & E-Commerce',
-      metric: '82% 3-Sec Hook Rate',
-      hookText: 'Stop Scrolling: The 48-Hour Creative Engine is Live',
-      description: 'Fast-paced kinetic typography and high-contrast motion transitions built to grab feed attention in the first 1.5 seconds.',
-      specs: '1080x1920 (9:16 Vertical Reel/Story MP4)',
-      badge: 'Motion / Video Asset',
-      color: '#00E599',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] p-3 border border-[#2A3447] rounded-lg flex flex-col justify-between relative overflow-hidden">
-          <div className="flex items-center justify-between text-xs font-mono">
-            <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-400 border border-red-500/30 flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-              9:16 REEL MOTION
-            </span>
-            <span className="text-[#00E599] font-bold">HOOK RATE 82%</span>
-          </div>
-          <div className="my-auto text-center space-y-2 py-4 bg-[#161C27]/80 rounded border border-[#00E599]/40 backdrop-blur">
-            <div className="w-10 h-10 rounded-full bg-[#00E599] text-[#0B0F17] flex items-center justify-center mx-auto shadow-mint-glow">
-              <Film className="w-5 h-5" />
-            </div>
-            <div className="text-xs font-extrabold text-white tracking-wide uppercase px-2">
-              "STOP SCROLLING: FIX AD FATIGUE IN 48H"
-            </div>
-          </div>
-          <div className="flex items-center justify-between text-[10px] font-mono text-[#94A3B8]">
-            <span>1080x1920 MP4</span>
-            <span className="text-[#00E599]">Meta Reel Ready</span>
-          </div>
-        </div>
-      )
+      tagCategory: 'comparison',
+      angleTag: 'Angle: Us vs. Them Comparison',
+      title: 'Us vs. Them Surgical Hair Transplants Comparison',
+      image: '/images/showcase/Showcase_Creative_5_UsVsThem_Hair.png',
+      niche: 'MedSpa / Non-Invasive Tech',
+      metric: '3.9x Conversion Intent',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Direct Competitor Contrast',
+      hookText: 'Surgical Transplants ($12k) vs. Non-Invasive Cellular ($495)',
+      description: 'Exposes traditional high-cost surgical pain points vs. non-invasive cellular protocol in an un-ignorable comparison matrix.'
     },
     {
       id: 6,
-      category: 'video',
-      title: 'Dynamic Product Cut & Split Motion Video',
-      client: 'B2B Agency Growth',
-      metric: '+65% Conversion Rate',
-      hookText: 'How We Deliver Ads 10x Faster Without Meetings',
-      description: 'Clean screen recording breakdowns paired with high-impact kinetic subtitle overlays and urgency motion graphics.',
-      specs: '1080x1080 & 1080x1920 MP4 Set',
-      badge: 'Motion / Video Asset',
-      color: '#00E599',
-      imageMock: (
-        <div className="w-full h-full bg-[#0B0F17] p-3 border border-[#2A3447] rounded-lg flex flex-col justify-between">
-          <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-[#3B82F6] font-bold">KINETIC TEXT OVERLAY</span>
-            <span className="text-white">48H Production</span>
-          </div>
-          <div className="bg-gradient-to-r from-[#161C27] to-[#0B0F17] p-4 rounded border border-[#2A3447] my-3 text-center">
-            <span className="text-xs font-mono text-[#00E599] block mb-1">⚡ NO ZOOM CALLS</span>
-            <div className="text-sm font-black text-white">SUBMIT BRIEF ➔ LAUNCH IN 48H</div>
-          </div>
-          <div className="text-[10px] text-center text-[#94A3B8] font-mono">
-            Includes Audio Sync & Meta Subtitles
-          </div>
-        </div>
-      )
+      tagCategory: 'comparison',
+      angleTag: 'Angle: Us vs. Them Comparison',
+      title: 'Old Way vs. New Way Energy & Recovery IV',
+      image: '/images/showcase/Showcase_Creative_6_OldWayVsNewWay_IV.png',
+      niche: 'Performance / IV Clinic',
+      metric: '-41% CPL Reduction',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Paradigm Shift Grid',
+      hookText: 'Stop Crashing On Energy Drinks: The Direct Cellular Way',
+      description: 'Contrasts temporary caffeine energy crashes with 100% cellular absorption for high-intent lead conversion.'
     }
   ];
 
-  const filteredItems = portfolioItems.filter(item => item.category === activeTab);
+  const filteredCreatives = selectedFilter === 'all'
+    ? staticCreatives
+    : staticCreatives.filter(c => c.tagCategory === selectedFilter);
 
   return (
-    <section id="portfolio" className="py-24 bg-[#0B0F17] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
+      
+      {/* Radial Background Glow */}
+      <div className="absolute top-1/4 right-1/4 w-[700px] h-[350px] bg-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#00E599]/5 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
+        {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161C27] border border-[#2A3447] text-xs font-mono text-[#00E599]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>DIRECT-RESPONSE CREATIVE SHOWCASE</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400">
+            <Zap className="w-3.5 h-3.5" />
+            <span>⚡ HIGH-CTR DIRECT-RESPONSE ASSETS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-            Engineered for Conversion & <br className="hidden sm:block" />
-            <span className="text-[#00E599]">Visual Impact</span>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+            6 High-Contrast Static Split-Grids <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+              Included In Our $495 Pack
+            </span>
           </h2>
-          <p className="text-base sm:text-lg text-[#94A3B8]">
-            High-contrast visual hierarchy designed to stop thumbs, cut through feed noise, and drive measurable CTR improvements.
+
+          <p className="text-base sm:text-lg text-[#94A3B8] leading-relaxed">
+            Engineered specifically for Meta Advertisers & MedSpas to stop the scroll, tackle skepticism, and drive instant conversions.
           </p>
         </div>
 
-        {/* Tab Switcher */}
+        {/* Categorized Filter Tabs */}
         <div className="mt-10 flex justify-center">
-          <div className="inline-flex p-1.5 rounded-full bg-[#161C27] border border-[#2A3447] backdrop-blur-md">
+          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-md">
             <button
-              onClick={() => setActiveTab('static')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'static'
-                  ? 'bg-[#00E599] text-[#0B0F17] shadow-mint-glow font-bold'
+              onClick={() => setSelectedFilter('all')}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                selectedFilter === 'all'
+                  ? 'bg-amber-500 text-black font-extrabold shadow-lg'
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              <Layers className="w-4 h-4" />
-              <span>Static Split-Grids</span>
+              All 6 Split-Grids
             </button>
-
             <button
-              onClick={() => setActiveTab('carousel')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'carousel'
-                  ? 'bg-[#00E599] text-[#0B0F17] shadow-mint-glow font-bold'
+              onClick={() => setSelectedFilter('transformation')}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                selectedFilter === 'transformation'
+                  ? 'bg-amber-500 text-black font-extrabold shadow-lg'
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              <Sparkles className="w-4 h-4" />
-              <span>Multi-Frame Carousels</span>
+              Transformation & Problem-Solution
             </button>
-
             <button
-              onClick={() => setActiveTab('video')}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
-                activeTab === 'video'
-                  ? 'bg-[#00E599] text-[#0B0F17] shadow-mint-glow font-bold'
+              onClick={() => setSelectedFilter('social-proof')}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                selectedFilter === 'social-proof'
+                  ? 'bg-amber-500 text-black font-extrabold shadow-lg'
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              <Film className="w-4 h-4" />
-              <span>Motion / Video Assets</span>
+              Social Proof & Breakdown
+            </button>
+            <button
+              onClick={() => setSelectedFilter('comparison')}
+              className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                selectedFilter === 'comparison'
+                  ? 'bg-amber-500 text-black font-extrabold shadow-lg'
+                  : 'text-[#94A3B8] hover:text-white'
+              }`}
+            >
+              Us vs. Them Comparison
             </button>
           </div>
         </div>
 
-        {/* Portfolio Gallery Grid */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredItems.map((item) => (
+        {/* Responsive Grid Layout (2 col tablet, 3 col desktop) */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredCreatives.map((creative) => (
             <div
-              key={item.id}
-              onClick={() => setSelectedItem(item)}
-              className="glass-panel glass-panel-hover rounded-2xl p-6 cursor-pointer group flex flex-col justify-between"
+              key={creative.id}
+              onClick={() => setSelectedCreative(creative)}
+              className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/40 transition-all duration-300 shadow-xl group cursor-pointer flex flex-col justify-between"
             >
               <div>
-                {/* Header Tag & Metric */}
-                <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#2A3447]">
-                  <span className="text-xs font-mono text-[#94A3B8] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }}></span>
-                    {item.badge}
+                {/* Header Angle Badge */}
+                <div className="p-4 pb-3 border-b border-slate-800 flex items-center justify-between">
+                  <span className="text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20">
+                    {creative.angleTag}
                   </span>
-                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-[#00E599]/10 text-[#00E599] border border-[#00E599]/30">
-                    {item.metric}
+                  <span className="text-xs font-mono font-bold text-[#00E599]">
+                    {creative.metric}
                   </span>
                 </div>
 
-                {/* Mock Visual Frame */}
-                <div className="h-60 rounded-xl overflow-hidden mb-5 transition-transform duration-300 group-hover:scale-[1.02] shadow-inner relative">
-                  {item.imageMock}
+                {/* Creative Image Preview */}
+                <div className="relative h-72 sm:h-80 overflow-hidden bg-[#0B0F17]">
+                  <img
+                    src={creative.image}
+                    alt={creative.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                   <div className="absolute inset-0 bg-[#0B0F17]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <span className="px-4 py-2 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-xs flex items-center gap-2 shadow-lg">
-                      <Eye className="w-4 h-4" /> Inspect Creative Breakdown
+                    <span className="px-4 py-2 rounded-full bg-amber-500 text-black font-bold text-xs flex items-center gap-2 shadow-lg">
+                      <Eye className="w-4 h-4" /> Inspect High-Res Creative
                     </span>
                   </div>
                 </div>
 
-                {/* Item Details */}
-                <h3 className="text-xl font-display font-bold text-white group-hover:text-[#00E599] transition-colors flex items-center justify-between">
-                  <span>{item.title}</span>
-                  <ArrowUpRight className="w-5 h-5 text-[#94A3B8] group-hover:text-[#00E599] transition-colors" />
-                </h3>
-                <p className="text-sm text-[#94A3B8] mt-2 line-clamp-2">
-                  {item.description}
-                </p>
+                {/* Content Info */}
+                <div className="p-5 space-y-2">
+                  <h3 className="text-base font-display font-bold text-white group-hover:text-amber-400 transition-colors flex items-center justify-between">
+                    <span>{creative.title}</span>
+                    <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-amber-400 transition-colors shrink-0 ml-2" />
+                  </h3>
+                  <p className="text-xs text-[#94A3B8] line-clamp-2">
+                    {creative.description}
+                  </p>
+                </div>
               </div>
 
-              {/* Specs & Client Category */}
-              <div className="mt-6 pt-4 border-t border-[#2A3447]/60 flex items-center justify-between text-xs font-mono text-[#94A3B8]">
-                <span>Niche: {item.client}</span>
-                <span className="text-slate-400">{item.specs}</span>
+              {/* Card Footer Micro Badges */}
+              <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8]">
+                <span>{creative.specs}</span>
+                <span className="text-slate-300 font-semibold">{creative.framework}</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Micro-Copy Footer */}
-        <div className="mt-12 text-center">
-          <p className="text-xs sm:text-sm font-mono text-[#94A3B8] bg-[#161C27]/80 border border-[#2A3447] px-6 py-3 rounded-full inline-block">
-            ⚡ Built using strict graphic design principles, direct-response psychology, and visual hierarchy.
-          </p>
+        {/* CTA Box At Bottom of Grid */}
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-amber-500/40 p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div className="space-y-2 text-center md:text-left">
+            <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
+              ⚡ READY TO FIX AD FATIGUE?
+            </span>
+            <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
+              Need these high-converting split-grids customized for your ad account?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#94A3B8] max-w-2xl">
+              Get 2x high-contrast static split-grids + 1x multi-frame carousel engineered for your offer in 48 hours.
+            </p>
+          </div>
+
+          <button
+            onClick={() => {
+              if (onOpenModal) {
+                onOpenModal('Growth Pack ($495 Trial)');
+              } else {
+                const el = document.getElementById('packages');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="btn-shimmer bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-8 rounded-full text-xs sm:text-sm tracking-wide uppercase shadow-lg transition-all shrink-0 flex items-center gap-2 group"
+          >
+            <span>CLAIM YOUR $495 GROWTH PACK</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
 
       </div>
 
-      {/* Lightbox Preview Modal */}
-      {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/90 backdrop-blur-md">
-          <div className="bg-[#161C27] border border-[#2A3447] rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6">
+      {/* Lightbox Modal View */}
+      {selectedCreative && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0F17]/95 backdrop-blur-md">
+          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
+            
             <button
-              onClick={() => setSelectedItem(null)}
-              className="absolute top-4 right-4 p-2 rounded-full bg-[#0B0F17] border border-[#2A3447] text-[#94A3B8] hover:text-white"
+              onClick={() => setSelectedCreative(null)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-[#0B0F17] border border-[#2A3447] text-[#94A3B8] hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono px-3 py-1 rounded bg-[#00E599]/10 text-[#00E599] border border-[#00E599]/30">
-                {selectedItem.badge}
+              <span className="text-xs font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                {selectedCreative.angleTag}
               </span>
-              <span className="text-xs font-mono text-[#94A3B8]">Spec: {selectedItem.specs}</span>
+              <span className="text-xs font-mono text-[#94A3B8]">{selectedCreative.specs}</span>
             </div>
 
             <h3 className="text-2xl font-display font-bold text-white">
-              {selectedItem.title}
+              {selectedCreative.title}
             </h3>
 
-            <div className="h-64 rounded-xl overflow-hidden border border-[#2A3447]">
-              {selectedItem.imageMock}
+            {/* High Res Full Creative Image */}
+            <div className="rounded-xl overflow-hidden border border-slate-800 bg-[#0B0F17] max-h-[60vh] flex items-center justify-center">
+              <img
+                src={selectedCreative.image}
+                alt={selectedCreative.title}
+                className="w-full h-full object-contain max-h-[60vh]"
+              />
             </div>
 
             <div className="space-y-3 text-sm text-[#94A3B8]">
               <div className="bg-[#0B0F17] p-4 rounded-xl border border-[#2A3447]">
-                <div className="text-xs font-mono text-[#00E599] mb-1 uppercase tracking-wider">Direct-Response Strategy</div>
-                <p className="text-white font-medium">{selectedItem.description}</p>
+                <div className="text-xs font-mono text-amber-400 mb-1 uppercase tracking-wider">Direct-Response Creative Strategy</div>
+                <p className="text-white font-medium">{selectedCreative.description}</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 text-xs font-mono">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
                 <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
-                  <span className="text-[#94A3B8]">Primary Hook:</span>
-                  <div className="text-white font-bold mt-1">{selectedItem.hookText}</div>
+                  <span className="text-[#94A3B8]">Primary Hook Angle:</span>
+                  <div className="text-white font-bold mt-1">{selectedCreative.hookText}</div>
                 </div>
                 <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
-                  <span className="text-[#94A3B8]">Measured Result:</span>
-                  <div className="text-[#00E599] font-extrabold mt-1">{selectedItem.metric}</div>
+                  <span className="text-[#94A3B8]">Measured Performance Result:</span>
+                  <div className="text-amber-400 font-extrabold mt-1">{selectedCreative.metric}</div>
                 </div>
               </div>
             </div>
 
-            <button
-              onClick={() => setSelectedItem(null)}
-              className="w-full py-3 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow"
-            >
-              Close Preview & Request Creative Pack
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <button
+                onClick={() => {
+                  setSelectedCreative(null);
+                  if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
+                }}
+                className="btn-shimmer flex-1 py-3.5 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
+              >
+                Request Custom Version For Your Brand ($495)
+              </button>
+              <button
+                onClick={() => setSelectedCreative(null)}
+                className="px-6 py-3.5 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
+              >
+                Close Preview
+              </button>
+            </div>
+
           </div>
         </div>
       )}
+
     </section>
   );
 }
