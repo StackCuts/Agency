@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Sparkles, Layers, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, ArrowRight, X, Maximize2 } from 'lucide-react';
 
 export default function CarouselShowcase({ onOpenModal }) {
   const carouselFrameworks = [
@@ -107,21 +107,26 @@ export default function CarouselShowcase({ onOpenModal }) {
     }
   ];
 
-  // State to track current slide index for each carousel
+  // State for grid preview slides
   const [slideIndices, setSlideIndices] = useState({
     1: 0,
     2: 0,
     3: 0
   });
 
-  const prevSlide = (carouselId, slideLength) => {
+  // State for full-screen lightbox modal: { frameworkId, slideIndex } or null
+  const [activeModal, setActiveModal] = useState(null);
+
+  const prevSlide = (carouselId, slideLength, e) => {
+    e?.stopPropagation();
     setSlideIndices((prev) => ({
       ...prev,
       [carouselId]: prev[carouselId] === 0 ? slideLength - 1 : prev[carouselId] - 1
     }));
   };
 
-  const nextSlide = (carouselId, slideLength) => {
+  const nextSlide = (carouselId, slideLength, e) => {
+    e?.stopPropagation();
     setSlideIndices((prev) => ({
       ...prev,
       [carouselId]: prev[carouselId] === slideLength - 1 ? 0 : prev[carouselId] + 1
@@ -186,8 +191,11 @@ export default function CarouselShowcase({ onOpenModal }) {
                     </p>
                   </div>
 
-                  {/* Interactive Swipable Slide Container - NO HOVER BLUR */}
-                  <div className="relative aspect-square rounded-2xl overflow-hidden bg-[#0B0F17] border border-[#2A3447] shadow-inner group">
+                  {/* Interactive Swipable Slide Container - NO HOVER BLUR, CLICK OPENS FULLSCREEN MODAL */}
+                  <div 
+                    onClick={() => setActiveModal({ frameworkId: framework.id, slideIndex: currentSlideIdx })}
+                    className="relative aspect-square rounded-2xl overflow-hidden bg-[#0B0F17] border border-[#2A3447] shadow-inner cursor-pointer"
+                  >
                     <img
                       src={currentSlide.src}
                       alt={currentSlide.alt}
@@ -196,8 +204,8 @@ export default function CarouselShowcase({ onOpenModal }) {
 
                     {/* Left Arrow Button */}
                     <button
-                      onClick={() => prevSlide(framework.id, framework.slides.length)}
-                      className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110"
+                      onClick={(e) => prevSlide(framework.id, framework.slides.length, e)}
+                      className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-10"
                       aria-label="Previous Slide"
                     >
                       <ChevronLeft className="w-5 h-5 text-[#3B82F6]" />
@@ -205,8 +213,8 @@ export default function CarouselShowcase({ onOpenModal }) {
 
                     {/* Right Arrow Button */}
                     <button
-                      onClick={() => nextSlide(framework.id, framework.slides.length)}
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110"
+                      onClick={(e) => nextSlide(framework.id, framework.slides.length, e)}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-10"
                       aria-label="Next Slide"
                     >
                       <ChevronRight className="w-5 h-5 text-[#3B82F6]" />
@@ -218,8 +226,9 @@ export default function CarouselShowcase({ onOpenModal }) {
                     </div>
 
                     {/* Frame Counter Badge */}
-                    <div className="absolute bottom-3 right-3 bg-[#0B0F17]/90 backdrop-blur-md border border-[#2A3447] px-2.5 py-1 rounded text-[10px] font-mono text-white">
-                      Frame {currentSlideIdx + 1}/4
+                    <div className="absolute bottom-3 right-3 bg-[#0B0F17]/90 backdrop-blur-md border border-[#2A3447] px-2.5 py-1 rounded text-[10px] font-mono text-white flex items-center gap-1">
+                      <span>Frame {currentSlideIdx + 1}/4</span>
+                      <Maximize2 className="w-3 h-3 text-[#3B82F6] ml-1" />
                     </div>
                   </div>
 
@@ -273,6 +282,109 @@ export default function CarouselShowcase({ onOpenModal }) {
         </div>
 
       </div>
+
+      {/* FULL-SCREEN LIGHTBOX MODAL */}
+      {activeModal && (() => {
+        const framework = carouselFrameworks.find(f => f.id === activeModal.frameworkId);
+        if (!framework) return null;
+
+        const modalSlideIdx = activeModal.slideIndex;
+        const currentModalSlide = framework.slides[modalSlideIdx];
+
+        const handleModalPrev = (e) => {
+          e.stopPropagation();
+          setActiveModal(prev => ({
+            ...prev,
+            slideIndex: prev.slideIndex === 0 ? framework.slides.length - 1 : prev.slideIndex - 1
+          }));
+        };
+
+        const handleModalNext = (e) => {
+          e.stopPropagation();
+          setActiveModal(prev => ({
+            ...prev,
+            slideIndex: prev.slideIndex === framework.slides.length - 1 ? 0 : prev.slideIndex + 1
+          }));
+        };
+
+        return (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+            
+            {/* Close Button (✕) top right */}
+            <button
+              onClick={() => setActiveModal(null)}
+              className="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-[#161C27] border border-[#2A3447] text-white hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Modal Body Container */}
+            <div className="relative max-w-4xl w-full flex flex-col items-center justify-center space-y-4">
+              
+              {/* Header Info Banner inside Modal */}
+              <div className="flex flex-wrap items-center justify-between w-full max-w-4xl px-2 text-xs font-mono gap-2">
+                <span className="text-[#3B82F6] font-bold bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/30">
+                  {framework.title}
+                </span>
+                <span className="text-[#00E599] bg-[#161C27] px-3 py-1 rounded-full border border-[#2A3447]">
+                  Frame {modalSlideIdx + 1} / {framework.slides.length} — {currentModalSlide.tag}
+                </span>
+              </div>
+
+              {/* Slide Image Display with Left/Right Navigation Arrows */}
+              <div className="relative w-full max-w-4xl max-h-[80vh] flex items-center justify-center">
+                
+                {/* Left Arrow Button inside Modal */}
+                <button
+                  onClick={handleModalPrev}
+                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
+                  aria-label="Previous Slide"
+                >
+                  <ChevronLeft className="w-6 h-6 text-[#3B82F6]" />
+                </button>
+
+                {/* High Res Slide Image - Strict Native Aspect Ratio object-contain */}
+                <img
+                  src={currentModalSlide.src}
+                  alt={currentModalSlide.alt}
+                  className="max-w-4xl max-h-[80vh] object-contain rounded-2xl border border-[#2A3447] shadow-2xl mx-auto"
+                />
+
+                {/* Right Arrow Button inside Modal */}
+                <button
+                  onClick={handleModalNext}
+                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
+                  aria-label="Next Slide"
+                >
+                  <ChevronRight className="w-6 h-6 text-[#3B82F6]" />
+                </button>
+
+              </div>
+
+              {/* Dot Indicators inside Modal */}
+              <div className="flex items-center justify-center gap-2 pt-1">
+                {framework.slides.map((_, dotIdx) => (
+                  <button
+                    key={dotIdx}
+                    onClick={() => setActiveModal(prev => ({ ...prev, slideIndex: dotIdx }))}
+                    className={`h-2 rounded-full transition-all ${
+                      modalSlideIdx === dotIdx ? 'w-6 bg-[#3B82F6]' : 'w-2 bg-[#2A3447] hover:bg-slate-400'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="text-[11px] font-mono text-[#94A3B8] text-center pt-1">
+                ⚡ Press Esc or click ✕ to return to website
+              </div>
+
+            </div>
+
+          </div>
+        );
+      })()}
+
     </section>
   );
 }
