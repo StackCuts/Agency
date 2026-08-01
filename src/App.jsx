@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import PortfolioGrid from './components/PortfolioGrid';
+import FeaturedCaseStudy from './components/FeaturedCaseStudy';
 import ProblemVsSolution from './components/ProblemVsSolution';
 import PricingSection from './components/PricingSection';
 import ConversionSystem from './components/ConversionSystem';
@@ -44,6 +45,9 @@ export default function App() {
 
       {/* Visual Portfolio Grid (Show, Don't Tell) */}
       <PortfolioGrid />
+
+      {/* Featured Live Case Study (Mathify.tech) */}
+      <FeaturedCaseStudy />
 
       {/* Problem vs Solution Comparison */}
       <ProblemVsSolution />
