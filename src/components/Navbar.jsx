@@ -17,7 +17,7 @@ export default function Navbar({ onOpenModal }) {
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Why Us', href: '#why-us' },
     { name: 'Packages', href: '#packages' },
-    { name: 'System', href: '#system' },
+    { name: 'Case Studies', href: '#case-studies' },
     { name: 'Workflow', href: '#workflow' },
     { name: 'FAQ', href: '#faq' },
   ];
@@ -63,13 +63,13 @@ export default function Navbar({ onOpenModal }) {
           <div className="hidden md:flex items-center gap-3">
             <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#94A3B8] font-mono border-r border-[#2A3447] pr-3">
               <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
-              48H Turnaround Active
+              Available for Upwork Contracts
             </div>
             <button
-              onClick={() => onOpenModal('Growth Pack ($495 Trial)')}
+              onClick={() => onOpenModal && onOpenModal('Hire on Upwork')}
               className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group"
             >
-              <span>Claim 1-Pack Trial</span>
+              <span>Hire on Upwork</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -105,11 +105,11 @@ export default function Navbar({ onOpenModal }) {
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
-                onOpenModal('Growth Pack ($495 Trial)');
+                if (onOpenModal) onOpenModal('Hire on Upwork');
               }}
               className="w-full py-3 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm flex items-center justify-center gap-2 shadow-mint-glow"
             >
-              <span>Claim 1-Pack Trial ($495)</span>
+              <span>Hire on Upwork</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
