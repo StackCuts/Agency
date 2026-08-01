@@ -51,10 +51,8 @@ export default function FeaturedCaseStudy() {
     setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
-  const handleSlideClick = (index) => {
-    if (index === 5) {
-      window.open('https://www.mathify.tech', '_blank');
-    }
+  const handleSlideClick = () => {
+    window.open('https://www.mathify.tech', '_blank');
   };
 
   return (
@@ -107,13 +105,13 @@ export default function FeaturedCaseStudy() {
 
                 {/* Main Carousel Image Container */}
                 <div 
-                  className="relative aspect-[4/5] rounded-xl overflow-hidden bg-[#161C27] border border-[#2A3447] cursor-pointer group shadow-inner"
-                  onClick={() => handleSlideClick(currentIndex)}
+                  className="relative aspect-[4/5] rounded-xl overflow-hidden bg-[#161C27] border border-[#2A3447] cursor-pointer shadow-inner"
+                  onClick={handleSlideClick}
                 >
                   <img
                     src={slides[currentIndex].src}
                     alt={slides[currentIndex].alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="w-full h-full object-cover"
                   />
 
                   {/* Left Arrow Button */}
@@ -139,14 +137,6 @@ export default function FeaturedCaseStudy() {
                   >
                     <ChevronRight className="w-5 h-5 text-amber-400" />
                   </button>
-
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#0B0F17]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                    <span className="px-3.5 py-1.5 rounded-full bg-amber-500 text-black font-extrabold text-xs flex items-center gap-1.5 shadow-lg">
-                      <span>Click to Visit Mathify.tech</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </span>
-                  </div>
                 </div>
 
                 {/* Dot Pagination Controls */}
