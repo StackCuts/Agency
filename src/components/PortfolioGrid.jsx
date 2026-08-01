@@ -311,7 +311,7 @@ export default function PortfolioGrid({ onOpenModal }) {
 
       </div>
 
-      {/* Lightbox Modal View - High-Impact Large Image View (Same as Carousel) */}
+      {/* Lightbox Modal View - 2-Column Horizontal Split Layout for Desktop */}
       {selectedCreative && (
         <div 
           onClick={(e) => { if (e.target === e.currentTarget) setSelectedCreative(null); }}
@@ -326,59 +326,83 @@ export default function PortfolioGrid({ onOpenModal }) {
             <X className="w-6 h-6" />
           </button>
 
-          {/* Modal Container */}
-          <div className="bg-[#161C27] border border-amber-500/50 rounded-2xl max-w-4xl w-full p-4 sm:p-6 relative shadow-2xl space-y-4 max-h-[92vh] overflow-y-auto">
+          {/* Modal Container: Max-w-5xl, 2-Column Grid on Laptop */}
+          <div className="bg-[#161C27] border border-amber-500/50 rounded-3xl max-w-5xl w-full p-4 sm:p-6 lg:p-8 relative shadow-2xl max-h-[92vh] overflow-y-auto">
             
-            {/* Header Info Banner */}
-            <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-xs font-mono">
-              <div className="flex items-center gap-2">
-                <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
-                  {selectedCreative.psychologyTag}
-                </span>
-                <span className="text-[#00E599] font-bold">{selectedCreative.metric}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+              
+              {/* LEFT COLUMN: Large High-Res Ad Post Creative (~7 cols on desktop) */}
+              <div className="lg:col-span-7 bg-[#0B0F17] rounded-2xl border border-[#2A3447] p-3 flex items-center justify-center min-h-[380px] lg:min-h-[500px] shadow-inner">
+                <img
+                  src={selectedCreative.image}
+                  alt={selectedCreative.title}
+                  className="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl"
+                />
               </div>
-              <span className="text-[#94A3B8]">{selectedCreative.specs}</span>
-            </div>
 
-            <h3 className="text-xl sm:text-2xl font-display font-bold text-white px-1">
-              {selectedCreative.title}
-            </h3>
+              {/* RIGHT COLUMN: Information, Psychology & Conversion CTA (~5 cols on desktop) */}
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
+                
+                <div className="space-y-4">
+                  {/* Category Tag & Performance Metric */}
+                  <div className="flex items-center justify-between gap-2 border-b border-[#2A3447] pb-3">
+                    <span className="text-xs font-mono px-3 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-bold">
+                      {selectedCreative.psychologyTag}
+                    </span>
+                    <span className="text-xs font-mono text-[#00E599] font-extrabold bg-[#00E599]/10 px-2.5 py-1 rounded border border-[#00E599]/30">
+                      {selectedCreative.metric}
+                    </span>
+                  </div>
 
-            {/* High Res Creative Image Container - Expanded max-h-[72vh] for maximum text legibility */}
-            <div className="w-full max-h-[72vh] rounded-2xl overflow-hidden border border-[#2A3447] bg-[#0B0F17] flex items-center justify-center p-2 shadow-2xl">
-              <img
-                src={selectedCreative.image}
-                alt={selectedCreative.title}
-                className="max-h-[70vh] w-auto max-w-full object-contain rounded-xl shadow-xl"
-              />
-            </div>
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white leading-tight">
+                    {selectedCreative.title}
+                  </h3>
 
-            {/* Strategy Info Footer Box */}
-            <div className="bg-[#0B0F17] p-4 rounded-xl border border-[#2A3447] space-y-2 text-xs">
-              <div className="flex flex-wrap items-center justify-between text-amber-400 font-mono font-bold uppercase tracking-wider text-[11px] gap-2">
-                <span>Direct-Response Creative Strategy</span>
-                <span>Hook: {selectedCreative.hookText}</span>
+                  {/* Direct-Response Strategy Box */}
+                  <div className="bg-[#0B0F17] p-4 rounded-xl border border-[#2A3447] space-y-2">
+                    <div className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
+                      Direct-Response Creative Strategy
+                    </div>
+                    <p className="text-white text-xs font-medium leading-relaxed">
+                      {selectedCreative.description}
+                    </p>
+                  </div>
+
+                  {/* Hook & Format Specs */}
+                  <div className="space-y-2 text-xs font-mono">
+                    <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
+                      <span className="text-[#94A3B8]">Primary Hook Angle:</span>
+                      <div className="text-white font-bold mt-1">{selectedCreative.hookText}</div>
+                    </div>
+                    <div className="bg-[#0B0F17] p-3 rounded-lg border border-[#2A3447]">
+                      <span className="text-[#94A3B8]">Format Specs & Delivery:</span>
+                      <div className="text-slate-200 font-bold mt-1">{selectedCreative.specs} • {selectedCreative.framework}</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom CTA Action Buttons */}
+                <div className="pt-4 border-t border-[#2A3447] space-y-2.5">
+                  <button
+                    onClick={() => {
+                      setSelectedCreative(null);
+                      if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
+                    }}
+                    className="btn-shimmer w-full py-3.5 px-6 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
+                  >
+                    Request Custom Version For Your Brand ($495)
+                  </button>
+                  <button
+                    onClick={() => setSelectedCreative(null)}
+                    className="w-full py-3 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50 transition-colors"
+                  >
+                    Close Preview
+                  </button>
+                </div>
+
               </div>
-              <p className="text-white font-medium text-xs leading-relaxed">{selectedCreative.description}</p>
-            </div>
 
-            {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-1">
-              <button
-                onClick={() => {
-                  setSelectedCreative(null);
-                  if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
-                }}
-                className="btn-shimmer flex-1 py-3.5 px-6 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
-              >
-                Request Custom Version For Your Brand ($495)
-              </button>
-              <button
-                onClick={() => setSelectedCreative(null)}
-                className="px-6 py-3.5 rounded-full bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-amber-500/50"
-              >
-                Close Preview
-              </button>
             </div>
 
           </div>
