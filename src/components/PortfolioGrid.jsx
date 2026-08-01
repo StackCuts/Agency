@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Brain, Sparkles, ArrowUpRight, X, Zap, ArrowRight, Layers, LayoutGrid, Image as ImageIcon, Target } from 'lucide-react';
+import { Brain, Sparkles, ArrowUpRight, X, Zap, ArrowRight, LayoutGrid, Target } from 'lucide-react';
 
 export default function PortfolioGrid({ onOpenModal }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectedCreative, setSelectedCreative] = useState(null);
 
   const staticCreatives = [
-    // ⚡ SPLIT-GRID COMPARISONS
+    // ⚡ SPLIT-GRID COMPARISONS (6 Items)
     {
       id: 1,
       category: 'split-grid',
@@ -36,6 +36,32 @@ export default function PortfolioGrid({ onOpenModal }) {
     {
       id: 3,
       category: 'split-grid',
+      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
+      title: '5-Star Verified Review Hair Restoration Split',
+      image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair_2.png',
+      niche: 'Aesthetic Clinic / MedSpa',
+      metric: '4.9/5 Star CTR Magnet',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: 'Social Proof Trust Stack',
+      hookText: 'Over 1,200+ Verified Patient Transformation Reviews',
+      description: 'Combines real customer rating badges with high-contrast before/after visual proof to establish instant authority.'
+    },
+    {
+      id: 4,
+      category: 'split-grid',
+      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
+      title: '3-USP Breakdown Cellular IV Drip Protocol',
+      image: '/images/showcase/Showcase_Creative_4_IVDrip_USP_2.png',
+      niche: 'Clinical Health / IV Drip',
+      metric: '+52% Offer Engagement',
+      specs: '1:1 Feed & 4:5 Spec Ready',
+      framework: '3-Tier Value Stack',
+      hookText: '3 Science-Backed Reasons Cellular Drips Scale Recovery',
+      description: 'Breaks down 3 distinct clinical benefits into digestible, highly scannable visual callouts.'
+    },
+    {
+      id: 5,
+      category: 'split-grid',
       psychologyTag: 'Psychology: Overcoming Skepticism (Us vs. Them)',
       title: 'Us vs. Them Surgical Hair Transplants',
       image: '/images/showcase/Showcase_Creative_5_UsVsThem_Hair_2.png',
@@ -47,7 +73,7 @@ export default function PortfolioGrid({ onOpenModal }) {
       description: 'Exposes traditional high-cost surgical pain points vs. non-invasive cellular protocol in an un-ignorable comparison matrix.'
     },
     {
-      id: 4,
+      id: 6,
       category: 'split-grid',
       psychologyTag: 'Psychology: Overcoming Skepticism (Us vs. Them)',
       title: 'Coffee & Caffeine Crash vs. Cellular IV Energy',
@@ -60,13 +86,13 @@ export default function PortfolioGrid({ onOpenModal }) {
       description: 'Contrasts temporary caffeine energy crashes with 100% cellular absorption for high-intent lead conversion.'
     },
 
-    // 💎 EDITORIAL & HIGH-TECH
+    // 💎 EDITORIAL & HIGH-TECH (3 Items)
     {
-      id: 5,
+      id: 7,
       category: 'editorial',
       psychologyTag: 'Psychology: Clinical Authority & Bio-Rebuild',
       title: 'Collagen Rebuild Editorial Magazine Frame',
-      image: '/images/showcase/Static_Post_1.jpg',
+      image: '/images/showcase/Static_Post_1.png',
       niche: 'Aesthetic Skincare / Collagen',
       metric: '2.4x Engagement Rate',
       specs: '4:5 Portrait Feed Spec',
@@ -75,11 +101,11 @@ export default function PortfolioGrid({ onOpenModal }) {
       description: 'High-fashion magazine aesthetic layout paired with clinical proof callouts to build premium brand authority.'
     },
     {
-      id: 6,
+      id: 8,
       category: 'editorial',
       psychologyTag: 'Psychology: High-Tech Diagnostic Precision',
       title: 'Laser Diagnostic Precision Frame',
-      image: '/images/showcase/Static_Post_2.jpg',
+      image: '/images/showcase/Static_Post_2.png',
       niche: 'Dermatology / Laser Clinic',
       metric: '+62% Qualified Leads',
       specs: '4:5 Portrait Feed Spec',
@@ -87,27 +113,12 @@ export default function PortfolioGrid({ onOpenModal }) {
       hookText: 'Sub-Dermal Laser Scan & Collagen Synthesis',
       description: 'Scientific medical-grade graphic overlays showcasing precision diagnostic technology to justify high-ticket pricing.'
     },
-
-    // 🎯 FLOATING OFFER CARDS
     {
-      id: 7,
-      category: 'floating-offer',
-      psychologyTag: 'Psychology: Floating Price Anchor & Urgency',
-      title: 'IV Drip Floating $99 Intro Card',
-      image: '/images/showcase/Asset_Variant_A_IVDrip.jpg',
-      niche: 'IV Drip Bar / Wellness',
-      metric: '-50% Acquisition Cost',
-      specs: '1:1 Feed & 4:5 Spec Ready',
-      framework: 'Asymmetric Glass Floating Pill',
-      hookText: 'First Hydration Session Only $99 (Limited Slots)',
-      description: 'High-contrast glassmorphic floating price badge designed to draw eyes straight to the introductory offer.'
-    },
-    {
-      id: 8,
-      category: 'floating-offer',
+      id: 9,
+      category: 'editorial',
       psychologyTag: 'Psychology: Asymmetric Window & Offer Contrast',
       title: 'HydraFacial $189 Asymmetric Window',
-      image: '/images/showcase/Asset_Variant_B_HydraFacial.jpg',
+      image: '/images/showcase/Asset_Variant_B_HydraFacial.png',
       niche: 'MedSpa / Facial Therapy',
       metric: '3.2x Campaign ROI',
       specs: '1:1 Feed & 4:5 Spec Ready',
@@ -115,31 +126,20 @@ export default function PortfolioGrid({ onOpenModal }) {
       hookText: 'Deep Pore Glow Treatment Special $189',
       description: 'Layered card architecture creating depth and visual contrast to highlight treatment results & limited offer.'
     },
-    {
-      id: 9,
-      category: 'floating-offer',
-      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
-      title: '5-Star Verified Review Hair Studio Split',
-      image: '/images/showcase/Showcase_Creative_3_SocialProof_Hair_2.png',
-      niche: 'Aesthetic Clinic / MedSpa',
-      metric: '4.9/5 Star CTR Magnet',
-      specs: '1:1 Feed & 4:5 Spec Ready',
-      framework: 'Social Proof Trust Stack',
-      hookText: 'Over 1,200+ Verified Patient Transformation Reviews',
-      description: 'Combines real customer rating badges with high-contrast before/after visual proof to establish instant authority.'
-    },
+
+    // 🎯 FLOATING OFFER CARDS (1 Item ONLY)
     {
       id: 10,
       category: 'floating-offer',
-      psychologyTag: 'Psychology: Authority Anchor & Social Proof',
-      title: '3-USP Breakdown Cellular IV Drip Protocol',
-      image: '/images/showcase/Showcase_Creative_4_IVDrip_USP_2.png',
-      niche: 'Clinical Health / IV Drip',
-      metric: '+52% Offer Engagement',
+      psychologyTag: 'Psychology: Floating Price Anchor & Urgency',
+      title: 'IV Drip Floating $99 Intro Card',
+      image: '/images/showcase/Asset_Variant_A_IVDrip.png',
+      niche: 'IV Drip Bar / Wellness',
+      metric: '-50% Acquisition Cost',
       specs: '1:1 Feed & 4:5 Spec Ready',
-      framework: '3-Tier Value Stack',
-      hookText: '3 Science-Backed Reasons Cellular Drips Scale Recovery',
-      description: 'Breaks down 3 distinct clinical benefits into digestible, highly scannable visual callouts.'
+      framework: 'Asymmetric Glass Floating Pill',
+      hookText: 'First Hydration Session Only $99 (Limited Slots)',
+      description: 'High-contrast glassmorphic floating price badge designed to draw eyes straight to the introductory offer.'
     }
   ];
 
@@ -175,7 +175,7 @@ export default function PortfolioGrid({ onOpenModal }) {
           </p>
         </div>
 
-        {/* 4 Interactive Category Filter Tabs */}
+        {/* 4 Category Filter Tabs */}
         <div className="mt-10 flex justify-center">
           <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-md">
             <button
@@ -199,7 +199,7 @@ export default function PortfolioGrid({ onOpenModal }) {
               }`}
             >
               <Zap className="w-3.5 h-3.5" />
-              <span>⚡ SPLIT-GRID COMPARISONS</span>
+              <span>⚡ SPLIT-GRID COMPARISONS (6)</span>
             </button>
 
             <button
@@ -211,7 +211,7 @@ export default function PortfolioGrid({ onOpenModal }) {
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>💎 EDITORIAL & HIGH-TECH</span>
+              <span>💎 EDITORIAL & HIGH-TECH (3)</span>
             </button>
 
             <button
@@ -223,7 +223,7 @@ export default function PortfolioGrid({ onOpenModal }) {
               }`}
             >
               <Target className="w-3.5 h-3.5" />
-              <span>🎯 FLOATING OFFER CARDS</span>
+              <span>🎯 FLOATING OFFER CARDS (1)</span>
             </button>
           </div>
         </div>
@@ -237,7 +237,7 @@ export default function PortfolioGrid({ onOpenModal }) {
               className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer flex flex-col justify-between"
             >
               <div>
-                {/* Header Psychology Tag Bar */}
+                {/* Header Tag Bar */}
                 <div className="p-4 pb-3 border-b border-slate-800 flex flex-col gap-1.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20">
@@ -249,7 +249,7 @@ export default function PortfolioGrid({ onOpenModal }) {
                   </div>
                 </div>
 
-                {/* Clean Image Container - NO BLUR, NO HOVER OVERLAY */}
+                {/* Clean Image Container - NO HOVER BLUR, NO POPUP PILL */}
                 <div className="relative h-72 sm:h-80 overflow-hidden bg-[#0B0F17]">
                   <img
                     src={creative.image}

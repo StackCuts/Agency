@@ -8,12 +8,12 @@ export default function CarouselShowcase({ onOpenModal }) {
       title: '1. Educational / Storytelling Carousel',
       angle: 'Problem ➔ Mechanism ➔ Result ➔ Offer',
       metric: '3.8x Swipe-Through Rate',
-      specs: '1080x1080 Meta Carousel Set',
+      specs: '1080x1080 Meta Carousel Set (PNG)',
       description: 'Continuous multi-frame layout where visual elements cross slide boundaries, building curiosity and driving high swipe engagement.',
       slides: [
         {
           id: 1,
-          src: '/images/showcase/Showcase_Carousel_Hair_Slide1_Hook_3.jpg',
+          src: '/images/showcase/Showcase_Carousel_Hair_Slide1_Hook_3.png',
           alt: 'Hair Storytelling Carousel Slide 1 - Hook',
           tag: 'SLIDE 1: PATTERN INTERRUPT HOOK'
         },
@@ -25,13 +25,13 @@ export default function CarouselShowcase({ onOpenModal }) {
         },
         {
           id: 3,
-          src: '/images/showcase/Showcase_Carousel_Hair_Slide3_Result.jpg',
+          src: '/images/showcase/Showcase_Carousel_Hair_Slide3_Result.png',
           alt: 'Hair Storytelling Carousel Slide 3 - Result',
           tag: 'SLIDE 3: VISUAL RESULT PROOF'
         },
         {
           id: 4,
-          src: '/images/showcase/Showcase_Carousel_Hair_Slide4_OfferCTA.jpg',
+          src: '/images/showcase/Showcase_Carousel_Hair_Slide4_OfferCTA.png',
           alt: 'Hair Storytelling Carousel Slide 4 - Offer CTA',
           tag: 'SLIDE 4: DIRECT OFFER CALL TO ACTION'
         }
@@ -42,30 +42,30 @@ export default function CarouselShowcase({ onOpenModal }) {
       title: '2. Social Proof / Case Study Carousel',
       angle: 'Transformation ➔ Clinical Protocol ➔ Verified Review ➔ Offer',
       metric: '+54% Lead Intent',
-      specs: '1080x1080 Meta Carousel Set',
+      specs: '1080x1080 Meta Carousel Set (PNG)',
       description: 'Patient transformation case study framework leveraging authentic review badges and protocol breakdowns to warm cold traffic.',
       slides: [
         {
           id: 1,
-          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide1_Hook.jpg',
+          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide1_Hook.png',
           alt: 'Case Study Carousel Slide 1 - Transformation Hook',
           tag: 'SLIDE 1: REAL PATIENT TRANSFORMATION'
         },
         {
           id: 2,
-          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide2_Breakdown_2.jpg',
+          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide2_Breakdown_2.png',
           alt: 'Case Study Carousel Slide 2 - Clinical Protocol',
           tag: 'SLIDE 2: CLINICAL PROTOCOL BREAKDOWN'
         },
         {
           id: 3,
-          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide3_Testimonial_2.jpg',
+          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide3_Testimonial_2.png',
           alt: 'Case Study Carousel Slide 3 - Verified Review',
           tag: 'SLIDE 3: VERIFIED 5-STAR TESTIMONIAL'
         },
         {
           id: 4,
-          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide4_OfferCTA.jpg',
+          src: '/images/showcase/Showcase_Carousel_CaseStudy_Slide4_OfferCTA.png',
           alt: 'Case Study Carousel Slide 4 - Offer CTA',
           tag: 'SLIDE 4: LIMITED INTRO OFFER CTA'
         }
@@ -76,12 +76,12 @@ export default function CarouselShowcase({ onOpenModal }) {
       title: '3. Product / Feature Breakdown Carousel',
       angle: 'Hero Offer ➔ Bio-Availability ➔ Formulation ➔ Offer',
       metric: '-38% Cost Per Acquisition',
-      specs: '1080x1080 Meta Carousel Set',
+      specs: '1080x1080 Meta Carousel Set (PNG)',
       description: 'E-commerce and MedSpa offer breakdown highlighting ingredient bioavailability and formulation advantages.',
       slides: [
         {
           id: 1,
-          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide1_Hero.jpg',
+          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide1_Hero.png',
           alt: 'IV Drip Carousel Slide 1 - Hero Offer',
           tag: 'SLIDE 1: HERO OFFER & INTRO'
         },
@@ -93,13 +93,13 @@ export default function CarouselShowcase({ onOpenModal }) {
         },
         {
           id: 3,
-          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide3_Formulation.jpg',
+          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide3_Formulation.png',
           alt: 'IV Drip Carousel Slide 3 - Formulation Breakdown',
           tag: 'SLIDE 3: FORMULATION INGREDIENTS'
         },
         {
           id: 4,
-          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide4_OfferCTA.jpg',
+          src: '/images/showcase/Showcase_Carousel_IVDrip_Slide4_OfferCTA.png',
           alt: 'IV Drip Carousel Slide 4 - Offer CTA',
           tag: 'SLIDE 4: DIRECT CLAIM OFFER CTA'
         }
