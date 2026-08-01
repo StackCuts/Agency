@@ -74,7 +74,7 @@ export default function BriefModal({ isOpen, onClose }) {
           {/* Trust Footer */}
           <div className="text-xs text-center text-[#94A3B8] font-mono flex items-center justify-center gap-1.5 pt-1">
             <ShieldCheck className="w-4 h-4 text-[#00E599]" />
-            <span>🛡️ Verified Upwork Freelancer Profile</span>
+            <span>🛡️ 100% Secure Payments via Upwork Escrow</span>
           </div>
         </div>
 
