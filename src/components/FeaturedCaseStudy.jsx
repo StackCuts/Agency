@@ -55,7 +55,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
   };
 
   return (
-    <section id="case-studies" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50 overflow-hidden">
+    <section id="case-studies" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50 overflow-hidden">
       
       {/* Background Radial Glow */}
       <div className="absolute top-1/3 left-1/4 w-[700px] h-[350px] bg-cyan-500/10 blur-[150px] pointer-events-none rounded-full" />
@@ -82,64 +82,64 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
           </p>
         </div>
 
-        {/* Interactive Case Study Switcher (Tabs) */}
-        <div className="mt-10 flex justify-center">
-          <div className="inline-flex flex-wrap justify-center gap-2 p-2 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-xl shadow-2xl">
+        {/* Interactive Case Study Switcher (Tabs - Prominently Displayed on Mobile & Desktop) */}
+        <div className="mt-8 sm:mt-10 flex justify-center w-full px-2 sm:px-4">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2.5 p-2 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-xl shadow-2xl w-full max-w-2xl">
             
             <button
               onClick={() => setActiveTab('cellmatrix')}
-              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+              className={`w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                 activeTab === 'cellmatrix'
                   ? 'bg-gradient-to-r from-cyan-500 to-teal-500 text-black shadow-lg shadow-cyan-500/20 font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              <Stethoscope className="w-4 h-4" />
-              <span>💉 CellMatrix.tech — MedSpa & Bio-Regenerative Platform</span>
+              <Stethoscope className="w-4 h-4 shrink-0" />
+              <span>💉 CellMatrix.tech — MedSpa Platform</span>
             </button>
 
             <button
               onClick={() => setActiveTab('mathify')}
-              className={`px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+              className={`w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                 activeTab === 'mathify'
                   ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-black shadow-lg shadow-amber-500/20 font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
-              <span>🧮 Mathify.tech — EdTech Conversion Engine</span>
+              <BookOpen className="w-4 h-4 shrink-0" />
+              <span>🧮 Mathify.tech — EdTech Engine</span>
             </button>
 
           </div>
         </div>
 
         {/* Main Content Showcase Area */}
-        <div className="mt-12">
+        <div className="mt-8 sm:mt-12">
           
           {/* ================= TAB 1: CELLMATRIX.TECH ================= */}
           {activeTab === 'cellmatrix' && (
-            <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-cyan-500/30 p-6 sm:p-10 lg:p-12 shadow-2xl space-y-8 animate-fadeIn">
+            <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-cyan-500/30 p-4 sm:p-8 lg:p-12 shadow-2xl space-y-6 sm:space-y-8 animate-fadeIn">
               
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
                 
-                {/* LEFT COLUMN: Interactive Browser Window Mockup Frame */}
+                {/* LEFT COLUMN: Interactive Browser Window Mockup Frame (Responsive Scaling) */}
                 <div className="lg:col-span-7 flex flex-col">
                   
                   {/* Browser Mockup Wrapper */}
-                  <div className="w-full h-full min-h-[420px] lg:min-h-[500px] bg-[#0B0F17] rounded-2xl border border-cyan-500/30 overflow-hidden shadow-2xl flex flex-col relative group">
+                  <div className="w-full max-h-[350px] sm:max-h-[500px] bg-[#0B0F17] rounded-2xl border border-cyan-500/30 overflow-hidden shadow-2xl flex flex-col relative group">
                     
                     {/* Browser Header Bar */}
-                    <div className="bg-[#121824] px-4 py-3 border-b border-[#2A3447] flex items-center justify-between shrink-0">
-                      <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                        <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                        <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                    <div className="bg-[#121824] px-3.5 py-2.5 border-b border-[#2A3447] flex items-center justify-between shrink-0">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80 inline-block"></span>
                       </div>
 
                       {/* SSL URL Address Bar */}
-                      <div className="flex-1 max-w-md mx-4 bg-[#0B0F17] border border-[#2A3447] rounded-full px-3.5 py-1 text-[11px] font-mono text-cyan-400 flex items-center justify-center gap-1.5 shadow-inner">
-                        <Lock className="w-3 h-3 text-cyan-400" />
-                        <span className="text-white font-medium">https://www.cellmatrix.tech</span>
+                      <div className="flex-1 max-w-md mx-2 sm:mx-4 bg-[#0B0F17] border border-[#2A3447] rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-mono text-cyan-400 flex items-center justify-center gap-1.5 shadow-inner truncate">
+                        <Lock className="w-3 h-3 text-cyan-400 shrink-0" />
+                        <span className="text-white font-medium truncate">https://www.cellmatrix.tech</span>
                       </div>
 
                       <div className="text-[10px] font-mono text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
@@ -148,16 +148,16 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                     </div>
 
                     {/* Interactive Live Website iframe / Mockup View */}
-                    <div className="relative flex-1 bg-[#0B0F17] overflow-hidden">
+                    <div className="relative flex-1 bg-[#0B0F17] overflow-hidden min-h-[280px] sm:min-h-[440px]">
                       <iframe
                         src="https://www.cellmatrix.tech"
                         title="CellMatrix.tech Live Web Platform"
-                        className="w-full h-full min-h-[400px] lg:min-h-[460px] border-0 pointer-events-auto"
+                        className="w-full h-full min-h-[280px] sm:min-h-[440px] border-0 pointer-events-auto origin-top transform scale-95 sm:scale-100"
                         loading="lazy"
                       />
 
                       {/* Floating Badge overlay */}
-                      <div className="absolute bottom-4 left-4 z-20 bg-[#0B0F17]/90 backdrop-blur-md border border-cyan-500/40 px-3 py-1.5 rounded-full text-xs font-mono text-cyan-400 font-bold shadow-xl flex items-center gap-2 pointer-events-none">
+                      <div className="absolute bottom-3 left-3 z-20 bg-[#0B0F17]/90 backdrop-blur-md border border-cyan-500/40 px-3 py-1 rounded-full text-[11px] font-mono text-cyan-400 font-bold shadow-xl flex items-center gap-1.5 pointer-events-none">
                         <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                         <span>⚡ Live Patient Acquisition System</span>
                       </div>
@@ -168,52 +168,52 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                 </div>
 
                 {/* RIGHT COLUMN: Case Study Strategy Breakdown */}
-                <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
+                <div className="lg:col-span-5 flex flex-col justify-between space-y-5 sm:space-y-6">
                   
-                  <div className="space-y-5">
+                  <div className="space-y-4 sm:space-y-5">
                     
                     {/* Title & Niche Tag */}
                     <div className="space-y-2">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-mono font-bold">
-                        <span>Aesthetic Science • Exosome Therapy • High-Ticket MedSpa</span>
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-[11px] font-mono font-bold">
+                        <span>Aesthetic Science • Exosome Therapy • MedSpa</span>
                       </div>
                       
-                      <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white leading-tight">
-                        CellMatrix Labs — Exosome & Bio-Regenerative Clinical Platform
+                      <h3 className="text-xl sm:text-3xl font-display font-extrabold text-white leading-tight">
+                        CellMatrix Labs — Exosome Clinical Platform
                       </h3>
                     </div>
 
                     {/* Strategy Highlight */}
-                    <div className="bg-[#0B0F17] p-4 rounded-2xl border border-cyan-500/30 space-y-1.5">
-                      <span className="text-[11px] font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                    <div className="bg-[#0B0F17] p-3.5 sm:p-4 rounded-2xl border border-cyan-500/30 space-y-1.5">
+                      <span className="text-[10px] sm:text-[11px] font-mono text-cyan-400 font-bold uppercase tracking-wider">
                         Full-Funnel Architecture
                       </span>
                       <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
-                        "A high-converting, luxury clinical platform built to educate cold traffic on cellular exosome therapy, sell digital protocols ($9 Molecular Matrix), and capture high-intent patient consults."
+                        "A high-converting luxury clinical platform built to educate cold traffic on cellular exosome therapy, sell digital protocols, and capture high-intent patient consults."
                       </p>
                     </div>
 
-                    {/* 4 Specs Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                    {/* 4 Specs Grid (Compact 2x2 Grid on Mobile) */}
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-xs font-mono">
                       
-                      <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
-                        <div className="text-cyan-400 font-bold mb-1">🧪 3-Step Invisible Consult</div>
-                        <p className="text-[#94A3B8] text-[11px]">Interactive cellular mapping & neo-synthesis framework.</p>
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
+                        <div className="text-cyan-400 font-bold mb-0.5 text-xs truncate">🧪 3-Step Consult</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Cellular mapping & synthesis framework.</p>
                       </div>
 
-                      <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
-                        <div className="text-cyan-400 font-bold mb-1">💳 Dual Revenue System</div>
-                        <p className="text-[#94A3B8] text-[11px]">Lead assessment form + Lemon Squeezy digital store.</p>
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
+                        <div className="text-cyan-400 font-bold mb-0.5 text-xs truncate">💳 Dual Revenue</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Lead form + Lemon Squeezy digital store.</p>
                       </div>
 
-                      <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
-                        <div className="text-cyan-400 font-bold mb-1">🏦 Patient Financing Integrated</div>
-                        <p className="text-[#94A3B8] text-[11px]">CareCredit & Cherry financing options built-in.</p>
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
+                        <div className="text-cyan-400 font-bold mb-0.5 text-xs truncate">🏦 Patient Financing</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">CareCredit & Cherry financing integrated.</p>
                       </div>
 
-                      <div className="bg-[#0B0F17] p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
-                        <div className="text-cyan-400 font-bold mb-1">📊 Comparison Matrix</div>
-                        <p className="text-[#94A3B8] text-[11px]">Direct mechanism contrast vs. traditional Botox & PRP.</p>
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-cyan-500/30 transition-colors">
+                        <div className="text-cyan-400 font-bold mb-0.5 text-xs truncate">📊 Comparison Grid</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Direct contrast vs. Botox & PRP.</p>
                       </div>
 
                     </div>
@@ -221,7 +221,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="pt-4 border-t border-[#2A3447] space-y-3">
+                  <div className="pt-3 border-t border-[#2A3447] space-y-2.5">
                     <a
                       href="https://www.cellmatrix.tech"
                       target="_blank"
@@ -235,7 +235,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                     <button
                       onClick={() => {
                         if (onOpenModal) {
-                          onOpenModal('Landing Page Infrastructure ($600)');
+                          onOpenModal('Discuss Custom Funnel on Upwork');
                         } else {
                           const el = document.getElementById('packages');
                           if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -243,7 +243,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                       }}
                       className="w-full py-3 px-6 rounded-xl bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-cyan-500/50 transition-colors"
                     >
-                      REQUEST SIMILAR MEDSPA FUNNEL ($600)
+                      Discuss Custom Funnel on Upwork →
                     </button>
                   </div>
 
@@ -256,9 +256,9 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
 
           {/* ================= TAB 2: MATHIFY.TECH ================= */}
           {activeTab === 'mathify' && (
-            <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-amber-500/30 p-6 sm:p-10 lg:p-12 shadow-2xl space-y-8 animate-fadeIn">
+            <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-amber-500/30 p-4 sm:p-8 lg:p-12 shadow-2xl space-y-6 sm:space-y-8 animate-fadeIn">
               
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 
                 {/* LEFT COLUMN: Interactive Carousel Swiper */}
                 <div className="lg:col-span-6 flex flex-col items-center">
@@ -340,10 +340,10 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                 </div>
 
                 {/* RIGHT COLUMN: Campaign Architecture Breakdown */}
-                <div className="lg:col-span-6 space-y-6">
+                <div className="lg:col-span-6 space-y-5 sm:space-y-6">
                   
                   {/* Header Box */}
-                  <div className="bg-[#0B0F17] p-5 rounded-2xl border border-amber-500/30 space-y-2">
+                  <div className="bg-[#0B0F17] p-4 sm:p-5 rounded-2xl border border-amber-500/30 space-y-2">
                     <div className="flex items-center justify-between text-xs font-mono">
                       <span className="text-[#94A3B8]">BRAND CASE STUDY</span>
                       <span className="text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -361,43 +361,43 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                   {/* 3 Key Deliverables */}
                   <div className="space-y-3">
                     
-                    <div className="bg-[#0B0F17]/80 p-4 rounded-xl border border-[#2A3447] hover:border-amber-500/40 transition-all flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
-                        <Layers className="w-5 h-5" />
+                    <div className="bg-[#0B0F17]/80 p-3.5 sm:p-4 rounded-xl border border-[#2A3447] hover:border-amber-500/40 transition-all flex items-start gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shrink-0 text-amber-400">
+                        <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                        <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                           <span>🎨 6-Frame Storytelling Carousel Ad</span>
                         </h4>
-                        <p className="text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
+                        <p className="text-[11px] sm:text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
                           Cognitive story-mapping angle designed to stop parents in-feed and guide them step-by-step toward digital product download.
                         </p>
                       </div>
                     </div>
 
-                    <div className="bg-[#0B0F17]/80 p-4 rounded-xl border border-[#2A3447] hover:border-[#00E599]/40 transition-all flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#00E599]/10 border border-[#00E599]/30 flex items-center justify-center shrink-0 text-[#00E599]">
-                        <Zap className="w-5 h-5" />
+                    <div className="bg-[#0B0F17]/80 p-3.5 sm:p-4 rounded-xl border border-[#2A3447] hover:border-[#00E599]/40 transition-all flex items-start gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#00E599]/10 border border-[#00E599]/30 flex items-center justify-center shrink-0 text-[#00E599]">
+                        <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                        <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                           <span>⚡ Sub-1s Fast Landing Page</span>
                         </h4>
-                        <p className="text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
+                        <p className="text-[11px] sm:text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
                           High-speed conversion funnel matching the exact visual promise of the ad carousel with zero latency bounce.
                         </p>
                       </div>
                     </div>
 
-                    <div className="bg-[#0B0F17]/80 p-4 rounded-xl border border-[#2A3447] hover:border-[#3B82F6]/40 transition-all flex items-start gap-3.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center shrink-0 text-[#3B82F6]">
-                        <CreditCard className="w-5 h-5" />
+                    <div className="bg-[#0B0F17]/80 p-3.5 sm:p-4 rounded-xl border border-[#2A3447] hover:border-[#3B82F6]/40 transition-all flex items-start gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center shrink-0 text-[#3B82F6]">
+                        <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                        <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                           <span>💳 Live Checkout Engine</span>
                         </h4>
-                        <p className="text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
+                        <p className="text-[11px] sm:text-xs text-[#94A3B8] mt-0.5 leading-relaxed">
                           100% functional digital product delivery engine configured for instant PDF pack purchases ($14.99).
                         </p>
                       </div>
@@ -420,7 +420,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
                       href="https://www.mathify.tech"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-6 rounded-xl w-full text-center shadow-lg transition-all flex items-center justify-center gap-2 group text-sm sm:text-base tracking-wide uppercase"
+                      className="bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-6 rounded-xl w-full text-center shadow-lg transition-all flex items-center justify-center gap-2 group text-xs sm:text-base tracking-wide uppercase"
                     >
                       <span>EXPERIENCE LIVE CONVERSION ENGINE (MATHIFY.TECH)</span>
                       <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
