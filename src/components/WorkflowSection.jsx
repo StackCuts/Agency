@@ -27,7 +27,7 @@ export default function WorkflowSection({ onOpenModal }) {
   ];
 
   return (
-    <section id="workflow" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
+    <section id="workflow" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -45,14 +45,18 @@ export default function WorkflowSection({ onOpenModal }) {
           </p>
         </div>
 
-        {/* 3 Step Process Cards */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {/* 3 Step Process Cards (Equal Height Desktop Grid) */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#161C27] border border-[#2A3447] rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-[#00E599]/50 transition-all duration-300 group"
+                className={`bg-[#161C27] border rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between transition-all duration-300 group ${
+                  idx === 2
+                    ? 'border-[#00E599]/60 shadow-mint-glow'
+                    : 'border-[#2A3447] hover:border-[#00E599]/50'
+                }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -73,9 +77,10 @@ export default function WorkflowSection({ onOpenModal }) {
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-[#2A3447]/60 flex items-center justify-between text-xs font-mono text-[#00E599]">
-                  <span>Async Protocol Active</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <div className="mt-8 pt-4 border-t border-[#2A3447]/60 flex items-center justify-between text-xs font-mono">
+                  <span className="text-[11px] font-mono text-[#00E599]/90 tracking-wider uppercase font-bold">
+                    ⚡ Step Completed Async
+                  </span>
                 </div>
               </div>
             );
@@ -88,8 +93,7 @@ export default function WorkflowSection({ onOpenModal }) {
             onClick={() => onOpenModal && onOpenModal('Discuss Project on Upwork')}
             className="btn-shimmer px-8 py-4 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow inline-flex items-center gap-2"
           >
-            <span>Discuss Project on Upwork</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>Discuss Project on Upwork →</span>
           </button>
         </div>
 
