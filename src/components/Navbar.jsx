@@ -26,28 +26,28 @@ export default function Navbar({ onOpenModal }) {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
         ? 'bg-[#0B0F17]/90 backdrop-blur-md border-b border-[#2A3447]/60 py-3 shadow-xl' 
-        : 'bg-transparent py-3 sm:py-4'
+        : 'bg-transparent py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex items-center justify-between gap-4 sm:gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-4 lg:gap-8">
           
-          {/* Logo */}
+          {/* Logo (Inter Font: font-sans font-black) */}
           <a href="#" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#161C27] to-[#0B0F17] border border-[#00E599]/40 flex items-center justify-center shadow-mint-glow group-hover:border-[#00E599] transition-all">
               <Zap className="w-5 h-5 text-[#00E599] fill-[#00E599]/20 group-hover:scale-110 transition-transform" />
             </div>
-            <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white flex items-center">
+            <span className="font-sans font-black text-xl sm:text-2xl tracking-tight text-white flex items-center">
               STACK<span className="text-[#00E599]">CUTS</span>
             </span>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#161C27]/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#2A3447]/60 shadow-inner">
+          {/* Desktop Nav Links (Clean single line whitespace-nowrap) */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#161C27]/80 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full border border-[#2A3447]/60 shadow-inner">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/50 rounded-full transition-all"
+                className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/60 rounded-full transition-all whitespace-nowrap"
               >
                 {link.name}
               </a>
@@ -55,14 +55,14 @@ export default function Navbar({ onOpenModal }) {
           </nav>
 
           {/* Right Action CTA */}
-          <div className="hidden md:flex items-center gap-4 sm:gap-6 shrink-0">
-            <div className="hidden lg:flex items-center gap-2 text-xs text-[#94A3B8] font-mono border-r border-[#2A3447] pr-4">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+            <div className="hidden lg:flex items-center gap-2 text-xs text-[#94A3B8] font-mono whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
-              Available for Upwork Contracts
+              <span>Available for Upwork Contracts</span>
             </div>
             <button
               onClick={() => onOpenModal && onOpenModal('Hire on Upwork')}
-              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs lg:text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group shrink-0"
+              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs lg:text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group shrink-0 whitespace-nowrap"
             >
               <span>Hire on Upwork →</span>
             </button>
