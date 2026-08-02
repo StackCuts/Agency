@@ -3,8 +3,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemVsSolution from './components/ProblemVsSolution';
 import PortfolioGrid from './components/PortfolioGrid';
-import FeaturedCaseStudy from './components/FeaturedCaseStudy';
 import CarouselShowcase from './components/CarouselShowcase';
+import FeaturedCaseStudy from './components/FeaturedCaseStudy';
 import WorkflowSection from './components/WorkflowSection';
 import WhiteLabelSection from './components/WhiteLabelSection';
 import PricingSection from './components/PricingSection';
@@ -21,7 +21,7 @@ export default function App() {
   useEffect(() => {
     const handleMouseMove = (e) => {
       document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
-      document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+      document.body.style.setProperty('--mouse-[#00E599]', `${e.clientY}px`);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -49,11 +49,11 @@ export default function App() {
       {/* 4. Portfolio Grid (Static Ad Creatives with 4 Category Filter Tabs) */}
       <PortfolioGrid onOpenModal={handleOpenModal} />
 
-      {/* 5. Featured Live Case Study (CellMatrix.tech & Mathify.tech) */}
-      <FeaturedCaseStudy onOpenModal={handleOpenModal} />
-
-      {/* 6. Carousel Showcase (3 Multi-Frame Meta Carousels) */}
+      {/* 5. Carousel Showcase (3 Multi-Frame Meta Carousels - Positioned Directly After Static Portfolio) */}
       <CarouselShowcase onOpenModal={handleOpenModal} />
+
+      {/* 6. Featured Live Case Study (CellMatrix.tech & Mathify.tech) */}
+      <FeaturedCaseStudy onOpenModal={handleOpenModal} />
 
       {/* 7. 100% Asynchronous Workflow */}
       <WorkflowSection onOpenModal={handleOpenModal} />
@@ -73,7 +73,7 @@ export default function App() {
       {/* 12. Footer */}
       <Footer />
 
-      {/* 13. 2-Min Asynchronous Order Brief Modal */}
+      {/* 13. Upwork Direct Action Modal */}
       <BriefModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

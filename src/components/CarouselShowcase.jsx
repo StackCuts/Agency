@@ -134,7 +134,7 @@ export default function CarouselShowcase({ onOpenModal }) {
   };
 
   return (
-    <section className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50 overflow-hidden">
+    <section className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50 overflow-hidden">
       
       {/* Background Glow */}
       <div className="absolute top-1/3 left-1/3 w-[600px] h-[300px] bg-[#3B82F6]/10 blur-[130px] pointer-events-none rounded-full" />
@@ -161,7 +161,7 @@ export default function CarouselShowcase({ onOpenModal }) {
         </div>
 
         {/* 3 Interactive Swipable Carousel Cards */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {carouselFrameworks.map((framework) => {
             const currentSlideIdx = slideIndices[framework.id] || 0;
             const currentSlide = framework.slides[currentSlideIdx];
@@ -169,7 +169,7 @@ export default function CarouselShowcase({ onOpenModal }) {
             return (
               <div
                 key={framework.id}
-                className="bg-[#161C27] border border-[#2A3447] rounded-3xl p-6 flex flex-col justify-between hover:border-[#3B82F6]/50 transition-all duration-300 shadow-2xl relative"
+                className="bg-[#161C27] border border-[#2A3447] rounded-3xl p-4 sm:p-6 flex flex-col justify-between hover:border-[#3B82F6]/50 transition-all duration-300 shadow-2xl relative"
               >
                 <div className="space-y-4">
                   {/* Card Header Info */}
@@ -183,7 +183,7 @@ export default function CarouselShowcase({ onOpenModal }) {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-display font-bold text-white">
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-white">
                       {framework.title}
                     </h3>
                     <p className="text-xs font-mono text-amber-400 mt-1">
@@ -205,28 +205,28 @@ export default function CarouselShowcase({ onOpenModal }) {
                     {/* Left Arrow Button */}
                     <button
                       onClick={(e) => prevSlide(framework.id, framework.slides.length, e)}
-                      className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-10"
+                      className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-20"
                       aria-label="Previous Slide"
                     >
-                      <ChevronLeft className="w-5 h-5 text-[#3B82F6]" />
+                      <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6]" />
                     </button>
 
                     {/* Right Arrow Button */}
                     <button
                       onClick={(e) => nextSlide(framework.id, framework.slides.length, e)}
-                      className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-10"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#0B0F17]/85 hover:bg-[#0B0F17] border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition-all shadow-lg hover:scale-110 z-20"
                       aria-label="Next Slide"
                     >
-                      <ChevronRight className="w-5 h-5 text-[#3B82F6]" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#3B82F6]" />
                     </button>
 
-                    {/* Slide Tag Overlay at top */}
-                    <div className="absolute top-3 left-3 bg-[#0B0F17]/90 backdrop-blur-md border border-[#2A3447] px-2.5 py-1 rounded text-[10px] font-mono text-[#00E599]">
+                    {/* Slide Tag Overlay at top - Positioned neatly inside semi-transparent pill to avoid text clipping */}
+                    <div className="absolute top-3 left-3 z-10 bg-black/70 backdrop-blur-md border border-white/20 px-2.5 py-1 rounded text-[10px] font-mono text-[#00E599] font-bold max-w-[85%] truncate">
                       {currentSlide.tag}
                     </div>
 
                     {/* Frame Counter Badge */}
-                    <div className="absolute bottom-3 right-3 bg-[#0B0F17]/90 backdrop-blur-md border border-[#2A3447] px-2.5 py-1 rounded text-[10px] font-mono text-white flex items-center gap-1">
+                    <div className="absolute bottom-3 right-3 z-10 bg-[#0B0F17]/90 backdrop-blur-md border border-[#2A3447] px-2.5 py-1 rounded text-[10px] font-mono text-white flex items-center gap-1">
                       <span>Frame {currentSlideIdx + 1}/4</span>
                       <Maximize2 className="w-3 h-3 text-[#3B82F6] ml-1" />
                     </div>
@@ -259,20 +259,19 @@ export default function CarouselShowcase({ onOpenModal }) {
                 </div>
 
                 {/* Card CTA Action */}
-                <div className="pt-6 border-t border-[#2A3447] mt-6">
+                <div className="pt-5 border-t border-[#2A3447] mt-5">
                   <button
                     onClick={() => {
                       if (onOpenModal) {
-                        onOpenModal('Growth Pack ($495 Trial)');
+                        onOpenModal('Discuss Carousel Campaign on Upwork');
                       } else {
                         const el = document.getElementById('packages');
                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
-                    className="w-full py-3 rounded-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-bold text-xs btn-shimmer transition-all shadow-blue-glow flex items-center justify-center gap-2"
+                    className="w-full py-3.5 rounded-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-bold text-xs btn-shimmer transition-all shadow-blue-glow flex items-center justify-center gap-2"
                   >
-                    <span>Request Carousel Framework ($495)</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <span>Discuss Carousel Campaign on Upwork →</span>
                   </button>
                 </div>
 
