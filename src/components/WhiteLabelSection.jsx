@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Users, Lock, Layers, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Users, Lock, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function WhiteLabelSection({ onOpenModal }) {
   const highlights = [
@@ -9,11 +9,11 @@ export default function WhiteLabelSection({ onOpenModal }) {
     },
     {
       title: 'Plug-and-Play Specs',
-      desc: 'Delivery in Meta Ads Manager ready 1:1 Feed PNGs and 9:16 Reel/Story MP4 formats.'
+      desc: 'Delivery in Meta Ads Manager ready 1:1 Feed PNGs and clean Next.js/React funnel code.'
     },
     {
       title: 'Batch Production SLA',
-      desc: 'Scale from 5 to 50 ad packs per week with guaranteed 48-hour delivery SLA.'
+      desc: 'Scale from 5 to 50 ad packs per week with guaranteed rapid SLA per milestone batch via Upwork.'
     },
     {
       title: 'Agency Volume Pricing',
@@ -25,7 +25,7 @@ export default function WhiteLabelSection({ onOpenModal }) {
     <section className="py-20 bg-[#0B0F17] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-[#3B82F6]/40 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-[#3B82F6]/40 p-6 sm:p-12 shadow-2xl relative overflow-hidden">
           
           {/* Subtle Background Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#3B82F6]/10 blur-[100px] pointer-events-none" />
@@ -46,28 +46,28 @@ export default function WhiteLabelSection({ onOpenModal }) {
               </h2>
 
               <p className="text-base text-[#94A3B8] leading-relaxed max-w-xl">
-                Outsource your agency's static split-grid, carousel, and video production to our silent 48-hour engine. Keep 100% client ownership with zero overhead.
+                Outsource your agency's static split-grid, carousel, and landing page production to our silent backend powerhouse. Keep 100% client ownership with zero overhead.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              {/* Benefit Cards (Compact p-3.5 on Mobile) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                 {highlights.map((item, idx) => (
-                  <div key={idx} className="bg-[#0B0F17]/80 border border-[#2A3447] p-4 rounded-xl space-y-1">
+                  <div key={idx} className="bg-[#0B0F17]/80 border border-[#2A3447] p-3.5 rounded-xl space-y-1">
                     <div className="flex items-center gap-2 text-white font-bold text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-[#3B82F6]" />
+                      <CheckCircle2 className="w-4 h-4 text-[#3B82F6] shrink-0" />
                       <span>{item.title}</span>
                     </div>
-                    <p className="text-xs text-[#94A3B8] pl-6">{item.desc}</p>
+                    <p className="text-xs text-[#94A3B8] pl-6 leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
 
               <div className="pt-4">
                 <button
-                  onClick={() => onOpenModal('White-Label Agency Partnership')}
-                  className="btn-shimmer px-8 py-4 rounded-full bg-[#3B82F6] text-white font-bold text-sm hover:bg-[#3B82F6]/90 transition-all shadow-blue-glow flex items-center gap-2 group"
+                  onClick={() => onOpenModal && onOpenModal('Partner on Upwork')}
+                  className="btn-shimmer px-8 py-4 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow flex items-center justify-center gap-2 group w-full sm:w-auto"
                 >
-                  <span>Partner as an Agency</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>Partner on Upwork →</span>
                 </button>
               </div>
 
@@ -90,11 +90,11 @@ export default function WhiteLabelSection({ onOpenModal }) {
                   </div>
                   <div className="flex justify-between p-2.5 rounded bg-[#161C27] text-slate-300">
                     <span>Delivery Protocol:</span>
-                    <span className="text-[#00E599] font-bold">Drive / Frame.io</span>
+                    <span className="text-[#00E599] font-bold">Upwork Milestones</span>
                   </div>
                   <div className="flex justify-between p-2.5 rounded bg-[#161C27] text-slate-300">
                     <span>Revisions:</span>
-                    <span className="text-[#3B82F6] font-bold">48H Turnaround</span>
+                    <span className="text-[#3B82F6] font-bold">Rapid Turnaround</span>
                   </div>
                 </div>
 
