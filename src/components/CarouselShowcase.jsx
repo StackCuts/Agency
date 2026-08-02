@@ -307,62 +307,64 @@ export default function CarouselShowcase({ onOpenModal }) {
         };
 
         return (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
-            
-            {/* Close Button (✕) top right */}
-            <button
-              onClick={() => setActiveModal(null)}
-              className="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-[#161C27] border border-[#2A3447] text-white hover:text-[#3B82F6] hover:border-[#3B82F6] transition-colors"
-              aria-label="Close modal"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {/* Modal Body Container */}
-            <div className="relative max-w-4xl w-full flex flex-col items-center justify-center space-y-4">
-              
-              {/* Header Info Banner inside Modal */}
-              <div className="flex flex-wrap items-center justify-between w-full max-w-4xl px-2 text-xs font-mono gap-2">
-                <span className="text-[#3B82F6] font-bold bg-[#3B82F6]/10 px-3 py-1 rounded-full border border-[#3B82F6]/30">
+          <div 
+            onClick={(e) => { if (e.target === e.currentTarget) setActiveModal(null); }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-8 overflow-hidden"
+          >
+            {/* Modal Top Header & Close Button */}
+            <div className="w-full max-w-4xl flex items-center justify-between gap-2 mb-3 z-20 px-1">
+              <div className="flex items-center gap-2 font-mono text-xs overflow-hidden">
+                <span className="text-[#3B82F6] font-bold bg-[#3B82F6]/10 px-2.5 py-1 rounded-full border border-[#3B82F6]/30 truncate">
                   {framework.title}
                 </span>
-                <span className="text-[#00E599] bg-[#161C27] px-3 py-1 rounded-full border border-[#2A3447]">
-                  Frame {modalSlideIdx + 1} / {framework.slides.length} — {currentModalSlide.tag}
+                <span className="text-[#00E599] bg-[#161C27] px-2.5 py-1 rounded-full border border-[#2A3447] shrink-0">
+                  Frame {modalSlideIdx + 1}/{framework.slides.length}
                 </span>
               </div>
 
-              {/* Slide Image Display with Left/Right Navigation Arrows */}
-              <div className="relative w-full max-w-4xl max-h-[80vh] flex items-center justify-center">
-                
-                {/* Left Arrow Button inside Modal */}
+              <button
+                onClick={() => setActiveModal(null)}
+                className="p-2 rounded-full bg-slate-800/80 hover:bg-slate-700 text-white transition-colors shrink-0 shadow-lg"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5 sm:w-6 sm:h-6" />
+              </button>
+            </div>
+
+            {/* Slide Image Display with Left/Right Navigation Arrows */}
+            <div className="relative w-full max-w-4xl flex items-center justify-center my-auto">
+              
+              {/* High Res Slide Image - Strict Native Aspect Ratio object-contain */}
+              <img
+                src={currentModalSlide.src}
+                alt={currentModalSlide.alt}
+                className="max-w-full max-h-[70vh] sm:max-h-[80vh] w-auto h-auto object-contain rounded-xl shadow-2xl mx-auto border border-[#2A3447]"
+              />
+
+              {/* Left/Right Navigation Arrows Overlay */}
+              <div className="absolute inset-x-2 sm:inset-x-4 top-1/2 -translate-y-1/2 flex justify-between items-center pointer-events-none z-20">
                 <button
                   onClick={handleModalPrev}
-                  className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
+                  className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
                   aria-label="Previous Slide"
                 >
-                  <ChevronLeft className="w-6 h-6 text-[#3B82F6]" />
+                  <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6]" />
                 </button>
 
-                {/* High Res Slide Image - Strict Native Aspect Ratio object-contain */}
-                <img
-                  src={currentModalSlide.src}
-                  alt={currentModalSlide.alt}
-                  className="max-w-4xl max-h-[80vh] object-contain rounded-2xl border border-[#2A3447] shadow-2xl mx-auto"
-                />
-
-                {/* Right Arrow Button inside Modal */}
                 <button
                   onClick={handleModalNext}
-                  className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
+                  className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#161C27]/90 hover:bg-[#161C27] border border-[#2A3447] hover:border-[#3B82F6] text-white flex items-center justify-center backdrop-blur-md transition-all shadow-xl hover:scale-110"
                   aria-label="Next Slide"
                 >
-                  <ChevronRight className="w-6 h-6 text-[#3B82F6]" />
+                  <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6]" />
                 </button>
-
               </div>
 
-              {/* Dot Indicators inside Modal */}
-              <div className="flex items-center justify-center gap-2 pt-1">
+            </div>
+
+            {/* Modal Bottom Dots & Tag */}
+            <div className="mt-3 space-y-2 text-center z-20">
+              <div className="flex items-center justify-center gap-2">
                 {framework.slides.map((_, dotIdx) => (
                   <button
                     key={dotIdx}
@@ -374,10 +376,9 @@ export default function CarouselShowcase({ onOpenModal }) {
                 ))}
               </div>
 
-              <div className="text-[11px] font-mono text-[#94A3B8] text-center pt-1">
-                ⚡ Press Esc or click ✕ to return to website
+              <div className="text-[11px] font-mono text-[#94A3B8]">
+                {currentModalSlide.tag}
               </div>
-
             </div>
 
           </div>
