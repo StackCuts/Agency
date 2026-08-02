@@ -107,7 +107,7 @@ export default function FAQSection({ onOpenModal }) {
           </div>
 
           <div className="text-xs text-[#94A3B8] font-mono pt-1">
-            Or email us directly at: <a href="mailto:team@stackcuts.agency" className="text-[#00E599] font-bold underline hover:text-white ml-1">team@stackcuts.agency</a>
+            Or email us directly at: <a href="mailto:team@stackcuts.com" className="text-[#00E599] font-bold underline hover:text-white ml-1">team@stackcuts.com</a>
           </div>
         </div>
 

@@ -45,8 +45,8 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#00E599]" />
-                <a href="mailto:team@stackcuts.agency" className="text-white hover:text-[#00E599] transition-colors font-bold">
-                  team@stackcuts.agency
+                <a href="mailto:team@stackcuts.com" className="text-white hover:text-[#00E599] transition-colors font-bold">
+                  team@stackcuts.com
                 </a>
               </div>
               <p className="text-[11px] text-[#94A3B8] pt-1">
@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Bottom Rights Bar */}
         <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left font-mono text-[11px]">
           <div>
-            © {new Date().getFullYear()} StackCuts Studio (`stackcuts.agency`). All rights reserved.
+            © {new Date().getFullYear()} StackCuts Studio (stackcuts.com). All rights reserved.
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

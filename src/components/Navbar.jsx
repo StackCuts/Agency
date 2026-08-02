@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Menu, X, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Zap, Menu, X, ArrowRight } from 'lucide-react';
 
 export default function Navbar({ onOpenModal }) {
   const [scrolled, setScrolled] = useState(false);
@@ -25,34 +25,34 @@ export default function Navbar({ onOpenModal }) {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'bg-[#0B0F17]/85 backdrop-blur-md border-b border-[#2A3447]/60 py-3 shadow-xl' 
-        : 'bg-transparent py-5'
+        ? 'bg-[#0B0F17]/90 backdrop-blur-md border-b border-[#2A3447]/60 py-3 shadow-xl' 
+        : 'bg-transparent py-3 sm:py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+        <div className="flex items-center justify-between gap-4 sm:gap-6">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
+          <a href="#" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#161C27] to-[#0B0F17] border border-[#00E599]/40 flex items-center justify-center shadow-mint-glow group-hover:border-[#00E599] transition-all">
               <Zap className="w-5 h-5 text-[#00E599] fill-[#00E599]/20 group-hover:scale-110 transition-transform" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center gap-1">
+              <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center">
                 STACK<span className="text-[#00E599]">CUTS</span>
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#94A3B8] -mt-1">
-                stackcuts.agency
+              <span className="text-[10px] uppercase font-mono tracking-widest text-[#94A3B8] -mt-1 font-bold">
+                STACKCUTS.COM
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-[#161C27]/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#2A3447]/50">
+          <nav className="hidden md:flex items-center gap-1 bg-[#161C27]/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#2A3447]/60 shadow-inner">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-1.5 text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/40 rounded-full transition-all"
+                className="px-3.5 py-1.5 text-xs lg:text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/50 rounded-full transition-all"
               >
                 {link.name}
               </a>
@@ -60,17 +60,16 @@ export default function Navbar({ onOpenModal }) {
           </nav>
 
           {/* Right Action CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className="hidden lg:flex items-center gap-1.5 text-xs text-[#94A3B8] font-mono border-r border-[#2A3447] pr-3">
+          <div className="hidden md:flex items-center gap-4 sm:gap-6 shrink-0">
+            <div className="hidden lg:flex items-center gap-2 text-xs text-[#94A3B8] font-mono border-r border-[#2A3447] pr-4">
               <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
               Available for Upwork Contracts
             </div>
             <button
               onClick={() => onOpenModal && onOpenModal('Hire on Upwork')}
-              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group"
+              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs lg:text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group shrink-0"
             >
-              <span>Hire on Upwork</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>Hire on Upwork →</span>
             </button>
           </div>
 
@@ -109,8 +108,7 @@ export default function Navbar({ onOpenModal }) {
               }}
               className="w-full py-3 rounded-full bg-[#00E599] text-[#0B0F17] font-bold text-sm flex items-center justify-center gap-2 shadow-mint-glow"
             >
-              <span>Hire on Upwork</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Hire on Upwork →</span>
             </button>
           </div>
         </div>
