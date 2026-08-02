@@ -4,7 +4,7 @@ import { Brain, Sparkles, ArrowUpRight, X, Zap, LayoutGrid, Target, ChevronDown 
 export default function PortfolioGrid({ onOpenModal }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectedCreative, setSelectedCreative] = useState(null);
-  const [showAllMobile, setShowAllMobile] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const staticCreatives = [
     // ⚡ SPLIT-GRID COMPARISONS (6 Items)
@@ -146,12 +146,14 @@ export default function PortfolioGrid({ onOpenModal }) {
 
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
-    setShowAllMobile(false);
+    setShowAll(false);
   };
 
   const filteredCreatives = selectedFilter === 'all'
     ? staticCreatives
     : staticCreatives.filter(c => c.category === selectedFilter);
+
+  const visibleCreatives = showAll ? filteredCreatives : filteredCreatives.slice(0, 3);
 
   return (
     <section id="portfolio" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
@@ -234,72 +236,68 @@ export default function PortfolioGrid({ onOpenModal }) {
           </div>
         </div>
 
-        {/* Responsive Grid Layout (Strict Equal Height Desktop Cards & Mobile 4-Item Limit) */}
-        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-          {filteredCreatives.map((creative, idx) => {
-            const isHiddenOnMobile = !showAllMobile && selectedFilter === 'all' && idx >= 4;
+        {/* Responsive Grid Layout (Strict 3-Card Initial Limit Across Desktop & Mobile) */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch transition-all duration-500">
+          {visibleCreatives.map((creative) => (
+            <div
+              key={creative.id}
+              onClick={() => setSelectedCreative(creative)}
+              className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer h-full flex flex-col justify-between"
+            >
+              <div className="flex flex-col flex-grow justify-between">
+                <div>
+                  {/* Header Tag Bar */}
+                  <div className="p-4 pb-3 border-b border-slate-800 flex items-center justify-between">
+                    <span className="text-[10px] sm:text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20 truncate max-w-[70%]">
+                      {creative.psychologyTag}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-[#00E599] shrink-0 ml-2">
+                      {creative.metric}
+                    </span>
+                  </div>
 
-            return (
-              <div
-                key={creative.id}
-                onClick={() => setSelectedCreative(creative)}
-                className={`bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer h-full flex-col justify-between ${
-                  isHiddenOnMobile ? 'hidden md:flex' : 'flex'
-                }`}
-              >
-                <div className="flex flex-col flex-grow justify-between">
-                  <div>
-                    {/* Header Tag Bar */}
-                    <div className="p-4 pb-3 border-b border-slate-800 flex items-center justify-between">
-                      <span className="text-[10px] sm:text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20 truncate max-w-[70%]">
-                        {creative.psychologyTag}
-                      </span>
-                      <span className="text-xs font-mono font-bold text-[#00E599] shrink-0 ml-2">
-                        {creative.metric}
-                      </span>
-                    </div>
+                  {/* Clean Image Container */}
+                  <div className="relative h-64 sm:h-80 overflow-hidden bg-[#0B0F17]">
+                    <img
+                      src={creative.image}
+                      alt={creative.title}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
 
-                    {/* Clean Image Container */}
-                    <div className="relative h-64 sm:h-80 overflow-hidden bg-[#0B0F17]">
-                      <img
-                        src={creative.image}
-                        alt={creative.title}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-
-                    {/* Content Info */}
-                    <div className="p-4 sm:p-5 space-y-2">
-                      <h3 className="text-sm sm:text-base font-display font-bold text-white hover:text-amber-400 transition-colors flex items-center justify-between">
-                        <span>{creative.title}</span>
-                        <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
-                      </h3>
-                      <p className="text-xs text-[#94A3B8] line-clamp-2">
-                        {creative.description}
-                      </p>
-                    </div>
+                  {/* Content Info */}
+                  <div className="p-4 sm:p-5 space-y-2">
+                    <h3 className="text-sm sm:text-base font-display font-bold text-white hover:text-amber-400 transition-colors flex items-center justify-between">
+                      <span>{creative.title}</span>
+                      <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
+                    </h3>
+                    <p className="text-xs text-[#94A3B8] line-clamp-2">
+                      {creative.description}
+                    </p>
                   </div>
                 </div>
-
-                {/* Card Footer Micro Badges (Pinned to Bottom) */}
-                <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8] mt-auto">
-                  <span>1:1 Meta Feed Spec</span>
-                  <span className="text-slate-300 font-semibold">{creative.framework}</span>
-                </div>
               </div>
-            );
-          })}
+
+              {/* Card Footer Micro Badges (Pinned to Bottom) */}
+              <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8] mt-auto">
+                <span>1:1 Meta Feed Spec</span>
+                <span className="text-slate-300 font-semibold">{creative.framework}</span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* Mobile Load More Button (Only Visible on Mobile when 'ALL CREATIVES' has > 4 items) */}
-        {!showAllMobile && selectedFilter === 'all' && (
-          <div className="mt-8 text-center md:hidden">
+        {/* Expand / Collapse Button (Shown when filtered items > 3) */}
+        {filteredCreatives.length > 3 && (
+          <div className="mt-8 sm:mt-10 text-center">
             <button
-              onClick={() => setShowAllMobile(true)}
-              className="w-full py-4 px-6 rounded-2xl bg-[#161C27] border border-amber-500/50 text-amber-400 font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:bg-[#161C27]/80 transition-all active:scale-[0.98]"
+              onClick={() => setShowAll(!showAll)}
+              className="py-3.5 px-8 rounded-full bg-[#161C27] border border-amber-500/50 text-amber-400 font-extrabold text-xs sm:text-sm inline-flex items-center gap-2 shadow-mint-glow hover:bg-amber-500 hover:text-black transition-all active:scale-[0.98] group"
             >
-              <span>⚡ Load All 10 Creatives</span>
-              <ChevronDown className="w-4 h-4 animate-bounce" />
+              <span>
+                {showAll ? 'Show Less ↑' : `⚡ Show All ${filteredCreatives.length} Creatives`}
+              </span>
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : 'animate-bounce'}`} />
             </button>
           </div>
         )}
