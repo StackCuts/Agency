@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <rect width="100" height="100" rx="24" fill="#0B0F17" />
-  <rect width="94" height="94" x="3" y="3" rx="22" fill="#161C27" stroke="#2A3447" stroke-width="2" />
-  <!-- Lightning Bolt Symbol -->
-  <polygon points="56,14 24,54 48,54 44,86 76,46 52,46" fill="#00E599" stroke="#00E599" stroke-width="2" stroke-linejoin="round" />
+  <rect width="100" height="100" rx="28" fill="#0B0F17" />
+  <rect width="90" height="90" x="5" y="5" rx="22" fill="#161C27" stroke="#00E599" stroke-opacity="0.5" stroke-width="3" />
+  <!-- Electric Mint Zap Icon -->
+  <polygon points="54,16 26,52 48,52 44,84 74,48 52,48" fill="#00E599" stroke="#00E599" stroke-width="3" stroke-linejoin="round" />
 </svg>

@@ -26,10 +26,10 @@ export default function Navbar({ onOpenModal }) {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
         ? 'bg-[#0B0F17]/90 backdrop-blur-md border-b border-[#2A3447]/60 py-3 shadow-xl' 
-        : 'bg-transparent py-4'
+        : 'bg-transparent py-4 sm:py-5'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 lg:gap-8">
+        <div className="flex items-center justify-between gap-4 lg:gap-6">
           
           {/* Logo (Inter Font: font-sans font-black) */}
           <a href="#" className="flex items-center gap-2.5 group shrink-0">
@@ -55,8 +55,8 @@ export default function Navbar({ onOpenModal }) {
           </nav>
 
           {/* Right Action CTA */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
-            <div className="hidden lg:flex items-center gap-2 text-xs text-[#94A3B8] font-mono whitespace-nowrap">
+          <div className="hidden md:flex items-center gap-4 lg:gap-5 shrink-0">
+            <div className="hidden xl:flex items-center gap-2 text-xs text-[#94A3B8] font-mono whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-[#00E599] animate-pulse"></span>
               <span>Available for Upwork Contracts</span>
             </div>
