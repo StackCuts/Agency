@@ -37,7 +37,7 @@ export default function Navbar({ onOpenModal }) {
               <Zap className="w-5 h-5 text-[#00E599] fill-[#00E599]/20 group-hover:scale-110 transition-transform" />
             </div>
             <span className="font-sans font-black text-xl sm:text-2xl tracking-tight text-white flex items-center">
-              STACK<span className="text-[#00E599]">CUTS</span>
+              Stack<span className="text-[#00E599]">Cuts</span>
             </span>
           </a>
 

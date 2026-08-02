@@ -14,8 +14,8 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-[#161C27] border border-[#00E599]/40 flex items-center justify-center">
                 <Zap className="w-4 h-4 text-[#00E599]" />
               </div>
-              <span className="font-display font-extrabold text-lg tracking-tight text-white">
-                STACK<span className="text-[#00E599]">CUTS</span>
+              <span className="font-sans font-black text-lg tracking-tight text-white">
+                Stack<span className="text-[#00E599]">Cuts</span>
               </span>
             </div>
             <p className="text-xs text-[#94A3B8] leading-relaxed max-w-sm">
