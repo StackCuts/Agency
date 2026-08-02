@@ -303,16 +303,16 @@ export default function PortfolioGrid({ onOpenModal }) {
         )}
 
         {/* CTA Box At Bottom of Grid */}
-        <div className="mt-14 sm:mt-16 rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-amber-500/40 p-6 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="mt-14 sm:mt-16 rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-amber-500/40 p-6 sm:p-8 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
               ⚡ READY TO FIX AD FATIGUE?
             </span>
             <h3 className="text-lg sm:text-2xl font-display font-extrabold text-white">
-              Need these high-converting split-grids customized for your ad account?
+              Need these high-converting ad creatives & funnels customized for your brand?
             </h3>
             <p className="text-xs sm:text-sm text-[#94A3B8] max-w-2xl">
-              Get 2x high-contrast static split-grids + 1x multi-frame carousel engineered for your offer in 48 hours.
+              Get bespoke split-grids, multi-frame carousels, or custom landing page funnels engineered for your specific offer via Upwork.
             </p>
           </div>
 
