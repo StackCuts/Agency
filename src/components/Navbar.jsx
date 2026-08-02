@@ -31,12 +31,12 @@ export default function Navbar({ onOpenModal }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 lg:gap-6">
           
-          {/* Logo (Inter Font: font-sans font-black) */}
+          {/* Logo (Original Display Font) */}
           <a href="#" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#161C27] to-[#0B0F17] border border-[#00E599]/40 flex items-center justify-center shadow-mint-glow group-hover:border-[#00E599] transition-all">
               <Zap className="w-5 h-5 text-[#00E599] fill-[#00E599]/20 group-hover:scale-110 transition-transform" />
             </div>
-            <span className="font-sans font-black text-xl sm:text-2xl tracking-tight text-white flex items-center">
+            <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white flex items-center">
               Stack<span className="text-[#00E599]">Cuts</span>
             </span>
           </a>
