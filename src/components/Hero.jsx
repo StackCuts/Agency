@@ -1,15 +1,15 @@
 import React from 'react';
-import { Zap, Clock, Shield, Play, Layers, TrendingUp, CheckCircle, Eye, Sparkles, ArrowRight } from 'lucide-react';
+import { Zap, Clock, Shield, Layers, TrendingUp, CheckCircle, Eye, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Hero({ onOpenModal }) {
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section className="relative pt-28 pb-16 md:pt-40 md:pb-28 overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-[#00E599]/10 via-[#3B82F6]/10 to-transparent blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute top-10 right-10 w-96 h-96 bg-[#00E599]/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Headlines & CTAs */}
           <div className="lg:col-span-7 space-y-6 text-left">
@@ -20,11 +20,11 @@ export default function Hero({ onOpenModal }) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E599] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00E599]"></span>
               </span>
-              <span>⚡ 48-Hour Asynchronous Delivery | Meta Ad Creative Studio</span>
+              <span>⚡ Meta Ad Creatives & High-Converting Funnels</span>
             </div>
 
             {/* Main H1 */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.15]">
               Fix Meta Ad Fatigue & <br />
               <span className="bg-gradient-to-r from-white via-[#F8FAFC] to-[#00E599] bg-clip-text text-transparent">
                 Boost CTR with Direct-Response
@@ -32,49 +32,52 @@ export default function Hero({ onOpenModal }) {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg sm:text-xl text-[#94A3B8] leading-relaxed max-w-2xl font-normal">
-              We engineer high-contrast static split-grids, multi-frame carousels, and thumb-stopping motion video assets designed to lower CPL and scale Meta campaigns—delivered in 48 hours without scheduling friction.
+            <p className="text-base sm:text-xl text-[#94A3B8] leading-relaxed max-w-2xl font-normal">
+              We engineer high-contrast static split-grids, multi-frame carousels, and custom landing page funnels designed to lower CPL and scale Meta campaigns—delivered with rapid turnaround via seamless Upwork collaboration.
             </p>
 
             {/* CTAs */}
             <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <button
-                onClick={() => onOpenModal('Growth Pack ($495 Trial)')}
-                className="btn-shimmer px-8 py-4 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-base hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-xl flex items-center justify-center gap-3 group"
+                onClick={() => {
+                  if (onOpenModal) {
+                    onOpenModal('Discuss Project on Upwork');
+                  }
+                }}
+                className="btn-shimmer px-8 py-4 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-sm sm:text-base hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-xl flex items-center justify-center gap-3 group"
               >
-                <span>Claim a $495 Trial Pack</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span>Discuss Project on Upwork →</span>
               </button>
 
               <a
                 href="#portfolio"
-                className="px-8 py-4 rounded-full bg-[#161C27] border border-[#2A3447] text-white font-semibold text-base hover:border-[#00E599]/50 hover:bg-[#161C27]/80 transition-all flex items-center justify-center gap-2 group"
+                className="px-8 py-4 rounded-full bg-[#161C27] border border-[#2A3447] text-white font-semibold text-sm sm:text-base hover:border-[#00E599]/50 hover:bg-[#161C27]/80 transition-all flex items-center justify-center gap-2 group text-center"
               >
                 <Eye className="w-5 h-5 text-[#3B82F6] group-hover:text-[#00E599] transition-colors" />
-                <span>Inspect Live Visuals ↓</span>
+                <span>View Portfolio & Funnels ↓</span>
               </a>
             </div>
 
             {/* Value Highlights Under CTAs */}
-            <div className="pt-6 border-t border-[#2A3447]/60 grid grid-cols-3 gap-4 text-xs sm:text-sm text-[#94A3B8] font-mono">
+            <div className="pt-6 border-t border-[#2A3447]/60 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-[#94A3B8] font-mono">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-[#00E599]" />
-                <span>100% Asynchronous</span>
+                <CheckCircle className="w-4 h-4 text-[#00E599] shrink-0" />
+                <span>✓ 100% Upwork Escrow Protected</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#3B82F6]" />
-                <span>48H Turnaround</span>
+                <Clock className="w-4 h-4 text-[#3B82F6] shrink-0" />
+                <span>✓ 48H - 5D Rapid Turnaround</span>
               </div>
               <div className="flex items-center gap-2">
-                <Shield className="w-4 h-4 text-[#00E599]" />
-                <span>Zero Zoom Calls</span>
+                <Shield className="w-4 h-4 text-[#00E599] shrink-0" />
+                <span>✓ Direct Async Collaboration</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Floating 3D Showcase */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Hero Floating 3D Showcase (Optimized for Desktop & Mobile) */}
+          <div className="lg:col-span-5 relative mt-6 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Outer Card Wrapper */}
@@ -86,9 +89,9 @@ export default function Hero({ onOpenModal }) {
                     <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-                    <span className="text-xs text-[#94A3B8] font-mono ml-2">Meta Ads Manager Ready</span>
+                    <span className="text-[11px] text-[#94A3B8] font-mono ml-2">Meta Ads Manager Ready</span>
                   </div>
-                  <span className="text-xs px-2.5 py-1 rounded-md bg-[#00E599]/10 text-[#00E599] font-mono border border-[#00E599]/30">
+                  <span className="text-[11px] px-2.5 py-1 rounded-md bg-[#00E599]/10 text-[#00E599] font-mono border border-[#00E599]/30">
                     Live Concept Mockup
                   </span>
                 </div>
@@ -120,7 +123,7 @@ export default function Hero({ onOpenModal }) {
                           SOLUTION
                         </span>
                         <div className="text-xs font-extrabold text-white leading-tight">
-                          48H Direct-Response Split-Grids.
+                          Direct-Response Split-Grids.
                         </div>
                       </div>
                     </div>
@@ -156,7 +159,7 @@ export default function Hero({ onOpenModal }) {
                 </div>
 
                 {/* Floating Metric Badges */}
-                <div className="absolute -top-4 -left-4 bg-[#161C27] border border-[#00E599] rounded-xl px-3 py-2 shadow-mint-glow flex items-center gap-2 text-xs font-mono text-white animate-float-slow">
+                <div className="absolute -top-3 -left-2 sm:-top-4 sm:-left-4 bg-[#161C27] border border-[#00E599] rounded-xl px-3 py-2 shadow-mint-glow flex items-center gap-2 text-xs font-mono text-white animate-float-slow">
                   <TrendingUp className="w-4 h-4 text-[#00E599]" />
                   <div>
                     <div className="text-[10px] text-[#94A3B8]">AVERAGE CTR BOOST</div>
@@ -164,11 +167,11 @@ export default function Hero({ onOpenModal }) {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-4 -right-4 bg-[#161C27] border border-[#3B82F6] rounded-xl px-3 py-2 shadow-blue-glow flex items-center gap-2 text-xs font-mono text-white animate-float-delayed">
+                <div className="absolute -bottom-3 -right-2 sm:-bottom-4 sm:-right-4 bg-[#161C27] border border-[#3B82F6] rounded-xl px-3 py-2 shadow-blue-glow flex items-center gap-2 text-xs font-mono text-white animate-float-delayed">
                   <Clock className="w-4 h-4 text-[#3B82F6]" />
                   <div>
-                    <div className="text-[10px] text-[#94A3B8]">PRODUCTION SPEED</div>
-                    <div className="font-bold text-[#3B82F6]">48 Hours Fixed</div>
+                    <div className="text-[10px] text-[#94A3B8]">RAPID TURNAROUND</div>
+                    <div className="font-bold text-[#3B82F6]">Upwork Milestones</div>
                   </div>
                 </div>
 
