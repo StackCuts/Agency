@@ -36,14 +36,9 @@ export default function Navbar({ onOpenModal }) {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#161C27] to-[#0B0F17] border border-[#00E599]/40 flex items-center justify-center shadow-mint-glow group-hover:border-[#00E599] transition-all">
               <Zap className="w-5 h-5 text-[#00E599] fill-[#00E599]/20 group-hover:scale-110 transition-transform" />
             </div>
-            <div className="flex flex-col">
-              <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center">
-                STACK<span className="text-[#00E599]">CUTS</span>
-              </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#94A3B8] -mt-1 font-bold">
-                STACKCUTS.COM
-              </span>
-            </div>
+            <span className="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-white flex items-center">
+              STACK<span className="text-[#00E599]">CUTS</span>
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
