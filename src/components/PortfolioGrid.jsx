@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Brain, Sparkles, ArrowUpRight, X, Zap, ArrowRight, LayoutGrid, Target } from 'lucide-react';
+import { Brain, Sparkles, ArrowUpRight, X, Zap, LayoutGrid, Target, ChevronDown } from 'lucide-react';
 
 export default function PortfolioGrid({ onOpenModal }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectedCreative, setSelectedCreative] = useState(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
 
   const staticCreatives = [
     // ⚡ SPLIT-GRID COMPARISONS (6 Items)
@@ -143,12 +144,17 @@ export default function PortfolioGrid({ onOpenModal }) {
     }
   ];
 
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+    setShowAllMobile(false);
+  };
+
   const filteredCreatives = selectedFilter === 'all'
     ? staticCreatives
     : staticCreatives.filter(c => c.category === selectedFilter);
 
   return (
-    <section id="portfolio" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
+    <section id="portfolio" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       
       {/* Background Radial Glow */}
       <div className="absolute top-1/4 right-1/4 w-[700px] h-[350px] bg-amber-500/10 blur-[140px] pointer-events-none rounded-full" />
@@ -175,12 +181,12 @@ export default function PortfolioGrid({ onOpenModal }) {
           </p>
         </div>
 
-        {/* 4 Category Filter Tabs */}
-        <div className="mt-10 flex justify-center">
-          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-md">
+        {/* 4 Category Filter Tabs (Single-Line Horizontal Scroll on Mobile) */}
+        <div className="mt-8 sm:mt-10 flex justify-center w-full">
+          <div className="flex flex-nowrap md:flex-wrap overflow-x-auto no-scrollbar py-2 px-2 gap-2 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-md max-w-full">
             <button
-              onClick={() => setSelectedFilter('all')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              onClick={() => handleFilterChange('all')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap flex items-center gap-1.5 ${
                 selectedFilter === 'all'
                   ? 'bg-amber-500 text-black shadow-lg font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
@@ -191,8 +197,8 @@ export default function PortfolioGrid({ onOpenModal }) {
             </button>
 
             <button
-              onClick={() => setSelectedFilter('split-grid')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              onClick={() => handleFilterChange('split-grid')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap flex items-center gap-1.5 ${
                 selectedFilter === 'split-grid'
                   ? 'bg-amber-500 text-black shadow-lg font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
@@ -203,8 +209,8 @@ export default function PortfolioGrid({ onOpenModal }) {
             </button>
 
             <button
-              onClick={() => setSelectedFilter('editorial')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              onClick={() => handleFilterChange('editorial')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap flex items-center gap-1.5 ${
                 selectedFilter === 'editorial'
                   ? 'bg-amber-500 text-black shadow-lg font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
@@ -215,8 +221,8 @@ export default function PortfolioGrid({ onOpenModal }) {
             </button>
 
             <button
-              onClick={() => setSelectedFilter('floating-offer')}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
+              onClick={() => handleFilterChange('floating-offer')}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shrink-0 whitespace-nowrap flex items-center gap-1.5 ${
                 selectedFilter === 'floating-offer'
                   ? 'bg-amber-500 text-black shadow-lg font-extrabold'
                   : 'text-[#94A3B8] hover:text-white'
@@ -228,64 +234,83 @@ export default function PortfolioGrid({ onOpenModal }) {
           </div>
         </div>
 
-        {/* Responsive Grid Layout (2 col tablet, 3 col desktop) */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCreatives.map((creative) => (
-            <div
-              key={creative.id}
-              onClick={() => setSelectedCreative(creative)}
-              className="bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer flex flex-col justify-between"
-            >
-              <div>
-                {/* Header Tag Bar */}
-                <div className="p-4 pb-3 border-b border-slate-800 flex flex-col gap-1.5">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20">
-                      {creative.psychologyTag}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-[#00E599] shrink-0 ml-2">
-                      {creative.metric}
-                    </span>
+        {/* Responsive Grid Layout (Strict Equal Height Desktop Cards & Mobile 4-Item Limit) */}
+        <div className="mt-10 sm:mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+          {filteredCreatives.map((creative, idx) => {
+            const isHiddenOnMobile = !showAllMobile && selectedFilter === 'all' && idx >= 4;
+
+            return (
+              <div
+                key={creative.id}
+                onClick={() => setSelectedCreative(creative)}
+                className={`bg-[#121824] border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 shadow-xl cursor-pointer h-full flex-col justify-between ${
+                  isHiddenOnMobile ? 'hidden md:flex' : 'flex'
+                }`}
+              >
+                <div className="flex flex-col flex-grow justify-between">
+                  <div>
+                    {/* Header Tag Bar */}
+                    <div className="p-4 pb-3 border-b border-slate-800 flex items-center justify-between">
+                      <span className="text-[10px] sm:text-[11px] font-mono text-amber-400 font-bold bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/20 truncate max-w-[70%]">
+                        {creative.psychologyTag}
+                      </span>
+                      <span className="text-xs font-mono font-bold text-[#00E599] shrink-0 ml-2">
+                        {creative.metric}
+                      </span>
+                    </div>
+
+                    {/* Clean Image Container */}
+                    <div className="relative h-64 sm:h-80 overflow-hidden bg-[#0B0F17]">
+                      <img
+                        src={creative.image}
+                        alt={creative.title}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+
+                    {/* Content Info */}
+                    <div className="p-4 sm:p-5 space-y-2">
+                      <h3 className="text-sm sm:text-base font-display font-bold text-white hover:text-amber-400 transition-colors flex items-center justify-between">
+                        <span>{creative.title}</span>
+                        <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
+                      </h3>
+                      <p className="text-xs text-[#94A3B8] line-clamp-2">
+                        {creative.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* Clean Image Container - NO HOVER BLUR, NO POPUP PILL */}
-                <div className="relative h-72 sm:h-80 overflow-hidden bg-[#0B0F17]">
-                  <img
-                    src={creative.image}
-                    alt={creative.title}
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-
-                {/* Content Info */}
-                <div className="p-5 space-y-2">
-                  <h3 className="text-base font-display font-bold text-white hover:text-amber-400 transition-colors flex items-center justify-between">
-                    <span>{creative.title}</span>
-                    <ArrowUpRight className="w-4 h-4 text-slate-400 shrink-0 ml-2" />
-                  </h3>
-                  <p className="text-xs text-[#94A3B8] line-clamp-2">
-                    {creative.description}
-                  </p>
+                {/* Card Footer Micro Badges (Pinned to Bottom) */}
+                <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8] mt-auto">
+                  <span>1:1 Meta Feed Spec</span>
+                  <span className="text-slate-300 font-semibold">{creative.framework}</span>
                 </div>
               </div>
-
-              {/* Card Footer Micro Badges */}
-              <div className="p-4 pt-3 border-t border-slate-800/80 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] font-mono text-[#94A3B8]">
-                <span>1:1 Meta Feed Spec</span>
-                <span className="text-slate-300 font-semibold">{creative.framework}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
+        {/* Mobile Load More Button (Only Visible on Mobile when 'ALL CREATIVES' has > 4 items) */}
+        {!showAllMobile && selectedFilter === 'all' && (
+          <div className="mt-8 text-center md:hidden">
+            <button
+              onClick={() => setShowAllMobile(true)}
+              className="w-full py-4 px-6 rounded-2xl bg-[#161C27] border border-amber-500/50 text-amber-400 font-bold text-sm flex items-center justify-center gap-2 shadow-lg hover:bg-[#161C27]/80 transition-all active:scale-[0.98]"
+            >
+              <span>⚡ Load All 10 Creatives</span>
+              <ChevronDown className="w-4 h-4 animate-bounce" />
+            </button>
+          </div>
+        )}
+
         {/* CTA Box At Bottom of Grid */}
-        <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-amber-500/40 p-8 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="mt-14 sm:mt-16 rounded-3xl bg-gradient-to-r from-[#161C27] via-[#161C27] to-[#0B0F17] border border-amber-500/40 p-6 sm:p-10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
               ⚡ READY TO FIX AD FATIGUE?
             </span>
-            <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
+            <h3 className="text-lg sm:text-2xl font-display font-extrabold text-white">
               Need these high-converting split-grids customized for your ad account?
             </h3>
             <p className="text-xs sm:text-sm text-[#94A3B8] max-w-2xl">
@@ -296,16 +321,16 @@ export default function PortfolioGrid({ onOpenModal }) {
           <button
             onClick={() => {
               if (onOpenModal) {
-                onOpenModal('Growth Pack ($495 Trial)');
+                onOpenModal('Discuss Project on Upwork');
               } else {
                 const el = document.getElementById('packages');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="btn-shimmer bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-8 rounded-full text-xs sm:text-sm tracking-wide uppercase shadow-lg transition-all shrink-0 flex items-center gap-2 group"
+            className="btn-shimmer bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-8 rounded-full text-xs sm:text-sm tracking-wide uppercase shadow-lg transition-all shrink-0 flex items-center gap-2 group w-full md:w-auto justify-center"
           >
-            <span>CLAIM YOUR $495 GROWTH PACK</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>DISCUSS PROJECT ON UPWORK</span>
+            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 
@@ -332,7 +357,7 @@ export default function PortfolioGrid({ onOpenModal }) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               
               {/* LEFT COLUMN: Large High-Res Ad Post Creative (~7 cols on desktop) */}
-              <div className="lg:col-span-7 bg-[#0B0F17] rounded-2xl border border-[#2A3447] p-3 flex items-center justify-center min-h-[380px] lg:min-h-[500px] shadow-inner">
+              <div className="lg:col-span-7 bg-[#0B0F17] rounded-2xl border border-[#2A3447] p-3 flex items-center justify-center min-h-[350px] lg:min-h-[500px] shadow-inner">
                 <img
                   src={selectedCreative.image}
                   alt={selectedCreative.title}
@@ -387,11 +412,11 @@ export default function PortfolioGrid({ onOpenModal }) {
                   <button
                     onClick={() => {
                       setSelectedCreative(null);
-                      if (onOpenModal) onOpenModal('Growth Pack ($495 Trial)');
+                      if (onOpenModal) onOpenModal('Discuss Project on Upwork');
                     }}
                     className="btn-shimmer w-full py-3.5 px-6 rounded-full bg-amber-500 text-black font-extrabold text-xs uppercase tracking-wide hover:bg-amber-400 transition-all text-center shadow-lg"
                   >
-                    Request Custom Version For Your Brand ($495)
+                    Discuss Project on Upwork →
                   </button>
                   <button
                     onClick={() => setSelectedCreative(null)}
