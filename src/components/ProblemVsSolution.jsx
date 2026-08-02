@@ -17,7 +17,7 @@ export default function ProblemVsSolution() {
   ];
 
   return (
-    <section id="why-us" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
+    <section id="why-us" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -35,65 +35,65 @@ export default function ProblemVsSolution() {
           </p>
         </div>
 
-        {/* 2-Column Comparison Layout */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* 2-Column Comparison Layout (Vertical Stack on Mobile, Equal Height Side-by-Side on Desktop) */}
+        <div className="mt-12 sm:mt-16 flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
           
           {/* Column A: Traditional Agencies */}
-          <div className="bg-[#161C27]/40 border border-red-500/30 rounded-2xl p-6 sm:p-8 space-y-6 backdrop-blur-md relative overflow-hidden flex flex-col justify-between">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between pb-6 border-b border-red-500/20">
+          <div className="bg-[#161C27]/40 border border-red-500/30 rounded-2xl p-5 sm:p-6 md:p-8 backdrop-blur-md relative overflow-hidden h-full flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="flex items-center justify-between pb-5 border-b border-red-500/20">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-wider text-red-400 font-bold block mb-1">
                     THE OLD WAY
                   </span>
-                  <h3 className="text-2xl font-display font-bold text-white">Traditional Creative Agencies</h3>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white">Traditional Creative Agencies</h3>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
+                <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 shrink-0">
                   <XCircle className="w-6 h-6" />
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {traditionalPainPoints.map((text, idx) => (
-                  <div key={idx} className="flex items-start gap-3.5 p-4 rounded-xl bg-[#0B0F17]/60 border border-[#2A3447]/80">
+                  <div key={idx} className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0B0F17]/60 border border-[#2A3447]/80">
                     <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
-                    <p className="text-sm text-slate-300 leading-relaxed">{text}</p>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-red-500/20 text-center text-xs font-mono text-red-400">
+            <div className="mt-6 pt-4 border-t border-red-500/20 text-center text-xs font-mono text-red-400">
               ⚠️ Result: High CPL, Creative Fatigue, Lost Scale Momentum
             </div>
           </div>
 
-          {/* Column B: The StackCuts System */}
-          <div className="bg-[#161C27] border border-[#00E599]/50 rounded-2xl p-6 sm:p-8 space-y-6 shadow-mint-glow relative overflow-hidden flex flex-col justify-between">
-            <div className="space-y-6">
-              <div className="flex items-center justify-between pb-6 border-b border-[#00E599]/30">
+          {/* Column B: The StackCuts System (Green Accent Glow & Gradient) */}
+          <div className="bg-gradient-to-b from-[#161C27] to-[#0B0F17] border border-emerald-500/40 rounded-2xl p-5 sm:p-6 md:p-8 shadow-[0_0_30px_rgba(16,185,129,0.15)] relative overflow-hidden h-full flex flex-col justify-between">
+            <div className="space-y-5">
+              <div className="flex items-center justify-between pb-5 border-b border-[#00E599]/30">
                 <div>
                   <span className="text-xs font-mono uppercase tracking-wider text-[#00E599] font-bold block mb-1">
                     THE STACKCUTS ENGINE
                   </span>
-                  <h3 className="text-2xl font-display font-bold text-white">High-Performance Growth System</h3>
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white">High-Performance Growth System</h3>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-[#00E599]/10 border border-[#00E599]/40 flex items-center justify-center text-[#00E599]">
+                <div className="w-10 h-10 rounded-xl bg-[#00E599]/10 border border-[#00E599]/40 flex items-center justify-center text-[#00E599] shrink-0">
                   <Zap className="w-6 h-6" />
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {stackcutsEnginePoints.map((text, idx) => (
-                  <div key={idx} className="flex items-start gap-3.5 p-4 rounded-xl bg-[#0B0F17] border border-[#00E599]/30">
+                  <div key={idx} className="flex items-start gap-3 p-3.5 sm:p-4 rounded-xl bg-[#0B0F17] border border-[#00E599]/30">
                     <CheckCircle2 className="w-5 h-5 text-[#00E599] shrink-0 mt-0.5" />
-                    <p className="text-sm text-white font-medium leading-relaxed">{text}</p>
+                    <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-[#00E599]/30 text-center text-xs font-mono text-[#00E599] font-bold">
+            <div className="mt-6 pt-4 border-t border-[#00E599]/30 text-center text-xs font-mono text-[#00E599] font-bold">
               ⚡ Result: Lower CPL, Higher CTR & Scalable Conversion Infrastructure
             </div>
           </div>
