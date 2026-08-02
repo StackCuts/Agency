@@ -65,7 +65,7 @@ export default function App() {
       <PricingSection onOpenModal={handleOpenModal} />
 
       {/* 10. Frequently Asked Questions */}
-      <FAQSection />
+      <FAQSection onOpenModal={handleOpenModal} />
 
       {/* 11. Final CTA */}
       <FinalCTA onOpenModal={handleOpenModal} />

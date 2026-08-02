@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 
-export default function FAQSection() {
+export default function FAQSection({ onOpenModal }) {
   const [openIdx, setOpenIdx] = useState(0);
 
   const faqs = [
@@ -28,11 +28,11 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
+    <section id="faq" className="py-20 sm:py-24 bg-[#0B0F17] relative border-t border-[#2A3447]/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
+        <div className="text-center max-w-2xl mx-auto space-y-4 mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161C27] border border-[#3B82F6]/30 text-xs font-mono text-[#3B82F6]">
             <HelpCircle className="w-3.5 h-3.5" />
             <span>FREQUENTLY ASKED QUESTIONS</span>
@@ -60,13 +60,13 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-xs font-mono text-[#00E599] bg-[#00E599]/10 px-2 py-1 rounded border border-[#00E599]/20">
+                    <span className="text-xs font-mono text-[#00E599] bg-[#00E599]/10 px-2 py-1 rounded border border-[#00E599]/20 shrink-0">
                       0{idx + 1}
                     </span>
-                    {faq.q}
+                    <span>{faq.q}</span>
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 text-[#94A3B8] shrink-0 transition-transform duration-300 ${
@@ -76,7 +76,7 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-2 border-t border-[#2A3447]/60 text-sm text-[#94A3B8] leading-relaxed">
+                  <div className="px-5 sm:px-6 pb-6 pt-2 border-t border-[#2A3447]/60 text-sm text-[#94A3B8] leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -85,10 +85,30 @@ export default function FAQSection() {
           })}
         </div>
 
-        {/* Direct Support Box */}
-        <div className="mt-12 text-center p-6 rounded-2xl bg-[#161C27]/40 border border-[#2A3447] font-mono text-xs text-[#94A3B8]">
-          Have a unique requirement or custom agency volume need? <br />
-          Contact our lead strategist directly: <a href="mailto:team@stackcuts.agency" className="text-[#00E599] font-bold underline hover:text-white ml-1">team@stackcuts.agency</a>
+        {/* Bottom Custom Requirement Box */}
+        <div className="mt-12 text-center p-6 sm:p-8 rounded-2xl bg-[#161C27]/60 border border-[#2A3447] max-w-3xl mx-auto space-y-4 shadow-xl">
+          <div className="space-y-1.5">
+            <h3 className="text-base sm:text-lg font-display font-bold text-white">
+              Have a unique requirement or custom agency volume need?
+            </h3>
+            <p className="text-xs text-[#94A3B8] font-mono">
+              We build custom proposals and milestone scopes tailored for high-volume media buyers and brands.
+            </p>
+          </div>
+
+          <div className="pt-1 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button
+              onClick={() => onOpenModal && onOpenModal('Request Custom Upwork Proposal')}
+              className="btn-shimmer px-6 py-3.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs uppercase tracking-wide hover:bg-[#00E599]/90 transition-all shadow-mint-glow flex items-center justify-center gap-2 group w-full sm:w-auto"
+            >
+              <span>Request Custom Upwork Proposal</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          <div className="text-xs text-[#94A3B8] font-mono pt-1">
+            Or email us directly at: <a href="mailto:team@stackcuts.agency" className="text-[#00E599] font-bold underline hover:text-white ml-1">team@stackcuts.agency</a>
+          </div>
         </div>
 
       </div>
