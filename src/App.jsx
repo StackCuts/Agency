@@ -12,10 +12,55 @@ import FAQSection from './components/FAQSection';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import BriefModal from './components/BriefModal';
+import ArborPulseScrollytelling from './components/cases/ArborPulseScrollytelling';
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPkg, setSelectedPkg] = useState('Growth Pack ($495 Trial)');
+  const [currentView, setCurrentView] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.toLowerCase();
+      const path = window.location.pathname.toLowerCase();
+      if (hash === '#arborpulse' || hash.includes('arborpulse') || path.includes('arborpulse')) {
+        return 'arborpulse';
+      }
+    }
+    return 'home';
+  });
+
+  // Listen to hash and popstate for smooth back/forward navigation
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const hash = window.location.hash.toLowerCase();
+      const path = window.location.pathname.toLowerCase();
+      if (hash === '#arborpulse' || hash.includes('arborpulse') || path.includes('arborpulse')) {
+        setCurrentView('arborpulse');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else {
+        setCurrentView('home');
+      }
+    };
+
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, []);
+
+  const navigateTo = (view) => {
+    if (view === 'arborpulse') {
+      window.location.hash = '#arborpulse';
+      setCurrentView('arborpulse');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else {
+      window.history.pushState(null, '', window.location.pathname);
+      window.location.hash = '';
+      setCurrentView('home');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
 
   // Mouse spotlight position listener
   useEffect(() => {
@@ -28,9 +73,25 @@ export default function App() {
   }, []);
 
   const handleOpenModal = (pkgName) => {
-    setSelectedPkg(pkgName || 'Growth Pack ($495 Trial)');
-    setModalOpen(true);
+    window.open('https://www.upwork.com/freelancers/mayurstackcuts?mp_source=share', '_blank');
   };
+
+  if (currentView === 'arborpulse') {
+    return (
+      <div className="relative min-h-screen bg-[#070A0F] text-[#F8FAFC] font-sans selection:bg-[#00E599] selection:text-[#0B0F17]">
+        <div className="mouse-spotlight" />
+        <ArborPulseScrollytelling
+          onBack={() => navigateTo('home')}
+          onOpenModal={handleOpenModal}
+        />
+        <BriefModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          selectedPackageName={selectedPkg}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="relative min-h-screen bg-[#0B0F17] text-[#F8FAFC] font-sans selection:bg-[#00E599] selection:text-[#0B0F17]">
@@ -52,8 +113,11 @@ export default function App() {
       {/* 5. Carousel Showcase (3 Multi-Frame Meta Carousels - Positioned Directly After Static Portfolio) */}
       <CarouselShowcase onOpenModal={handleOpenModal} />
 
-      {/* 6. Featured Live Case Study (CellMatrix.tech & Mathify.tech) */}
-      <FeaturedCaseStudy onOpenModal={handleOpenModal} />
+      {/* 6. Featured Live Case Study (ArborPulse, CellMatrix.tech & Mathify.tech) */}
+      <FeaturedCaseStudy
+        onOpenModal={handleOpenModal}
+        onNavigateCaseStudy={navigateTo}
+      />
 
       {/* 7. 100% Asynchronous Workflow */}
       <WorkflowSection onOpenModal={handleOpenModal} />

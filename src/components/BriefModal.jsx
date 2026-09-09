@@ -5,7 +5,7 @@ export default function BriefModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const handleOpenUpwork = () => {
-    window.open('https://www.upwork.com', '_blank');
+    window.open('https://www.upwork.com/freelancers/mayurstackcuts?mp_source=share', '_blank');
     onClose();
   };
 

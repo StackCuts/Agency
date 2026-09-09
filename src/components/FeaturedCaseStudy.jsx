@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, ExternalLink, Sparkles, CheckCircle2, Zap, CreditCard, Layers, ArrowUpRight, ShieldCheck, Activity, Globe, Lock, Cpu, Stethoscope, BookOpen } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ExternalLink, Sparkles, CheckCircle2, Zap, CreditCard, Layers, ArrowUpRight, ShieldCheck, Activity, Globe, Lock, Cpu, Stethoscope, BookOpen, TreePine, ShoppingBag } from 'lucide-react';
 
-export default function FeaturedCaseStudy({ onOpenModal }) {
-  const [activeTab, setActiveTab] = useState('cellmatrix'); // 'cellmatrix' | 'mathify'
+export default function FeaturedCaseStudy({ onOpenModal, onNavigateCaseStudy }) {
+  const [activeTab, setActiveTab] = useState('arborpulse'); // 'arborpulse' | 'cellmatrix' | 'mathify'
 
   // Mathify Carousel Slides
   const mathifySlides = [
@@ -84,8 +84,20 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
 
         {/* Interactive Case Study Switcher (Tabs - Prominently Displayed on Mobile & Desktop) */}
         <div className="mt-8 sm:mt-10 flex justify-center w-full px-2 sm:px-4">
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-2.5 p-2 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-xl shadow-2xl w-full max-w-2xl">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2.5 p-2 rounded-2xl bg-[#161C27] border border-[#2A3447] backdrop-blur-xl shadow-2xl w-full max-w-3xl">
             
+            <button
+              onClick={() => setActiveTab('arborpulse')}
+              className={`w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                activeTab === 'arborpulse'
+                  ? 'bg-gradient-to-r from-emerald-400 to-teal-400 text-black shadow-lg shadow-emerald-500/20 font-extrabold'
+                  : 'text-[#94A3B8] hover:text-white'
+              }`}
+            >
+              <TreePine className="w-4 h-4 shrink-0" />
+              <span>🌿 ArborPulse™ — DTC E-Com & PDP</span>
+            </button>
+
             <button
               onClick={() => setActiveTab('cellmatrix')}
               className={`w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
@@ -95,7 +107,7 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
               }`}
             >
               <Stethoscope className="w-4 h-4 shrink-0" />
-              <span>💉 CellMatrix.tech — MedSpa Platform</span>
+              <span>💉 CellMatrix.tech — MedSpa</span>
             </button>
 
             <button
@@ -116,6 +128,150 @@ export default function FeaturedCaseStudy({ onOpenModal }) {
         {/* Main Content Showcase Area */}
         <div className="mt-8 sm:mt-12">
           
+          {/* ================= TAB 0: ARBORPULSE DTC CONVERSION ARCHITECTURE ================= */}
+          {activeTab === 'arborpulse' && (
+            <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-emerald-500/30 p-4 sm:p-8 lg:p-12 shadow-2xl space-y-6 sm:space-y-8 animate-fadeIn">
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+                
+                {/* LEFT COLUMN: Interactive Browser Window Mockup Frame */}
+                <div className="lg:col-span-7 flex flex-col">
+                  
+                  {/* Browser Mockup Wrapper */}
+                  <div className="w-full max-h-[350px] sm:max-h-[500px] bg-[#0B0F17] rounded-2xl border border-emerald-500/30 overflow-hidden shadow-2xl flex flex-col relative group">
+                    
+                    {/* Browser Header Bar */}
+                    <div className="bg-[#121824] px-3.5 py-2.5 border-b border-[#2A3447] flex items-center justify-between shrink-0">
+                      <div className="flex items-center gap-1.5 sm:gap-2">
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80 inline-block"></span>
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                        <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80 inline-block"></span>
+                      </div>
+
+                      {/* SSL URL Address Bar */}
+                      <div className="flex-1 max-w-md mx-2 sm:mx-4 bg-[#0B0F17] border border-[#2A3447] rounded-full px-3 py-1 text-[10px] sm:text-[11px] font-mono text-emerald-400 flex items-center justify-center gap-1.5 shadow-inner truncate">
+                        <Lock className="w-3 h-3 text-emerald-400 shrink-0" />
+                        <span className="text-white font-medium truncate">https://arborpulse-store.myshopify.com</span>
+                      </div>
+
+                      <div className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        LIVE STORE
+                      </div>
+                    </div>
+
+                    {/* Interactive Live Website iframe / Mockup View */}
+                    <div className="relative flex-1 bg-[#0B0F17] overflow-hidden min-h-[280px] sm:min-h-[440px]">
+                      <iframe
+                        src="https://arborpulse-store.myshopify.com"
+                        title="ArborPulse Shopify Storefront"
+                        className="w-full h-full min-h-[280px] sm:min-h-[440px] border-0 pointer-events-auto origin-top transform scale-95 sm:scale-100"
+                        loading="lazy"
+                      />
+
+                      {/* Floating Password Pill Overlay */}
+                      <div className="absolute top-3 right-3 z-20 bg-[#0B0F17]/95 backdrop-blur-md border border-amber-500/50 px-3 py-1.5 rounded-xl text-[11px] font-mono shadow-xl flex items-center gap-2">
+                        <span className="text-amber-400 font-bold">Store Password:</span>
+                        <span className="bg-amber-500/20 text-white font-black px-1.5 py-0.5 rounded">StackCuts</span>
+                      </div>
+
+                      {/* Floating Badge overlay */}
+                      <div className="absolute bottom-3 left-3 z-20 bg-[#0B0F17]/90 backdrop-blur-md border border-emerald-500/40 px-3 py-1 rounded-full text-[11px] font-mono text-emerald-400 font-bold shadow-xl flex items-center gap-1.5 pointer-events-none">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>⚡ Andromeda-Aligned DTC Architecture</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* RIGHT COLUMN: Strategy Teardown & Navigation to Full Showcase */}
+                <div className="lg:col-span-5 flex flex-col justify-between space-y-5 sm:space-y-6">
+                  
+                  <div className="space-y-4 sm:space-y-5">
+                    
+                    {/* Title & Niche Tag */}
+                    <div className="space-y-2">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[11px] font-mono font-bold">
+                        <span>DTC E-Com • Tree Biology • Andromeda Meta AI</span>
+                      </div>
+                      
+                      <h3 className="text-xl sm:text-3xl font-display font-extrabold text-white leading-tight">
+                        ArborPulse™ — Full-Funnel DTC Conversion Engine
+                      </h3>
+                    </div>
+
+                    {/* Strategy Highlight */}
+                    <div className="bg-[#0B0F17] p-3.5 sm:p-4 rounded-2xl border border-emerald-500/30 space-y-1.5">
+                      <span className="text-[10px] sm:text-[11px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                        $10k Full-Funnel Retainer Architecture
+                      </span>
+                      <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                        "Solved 120-day competitor ad fatigue by mining 14,000+ Reddit comments, aligning with Meta's Andromeda retrieval engine across 3 angles, and building a live Shopify PDP."
+                      </p>
+                    </div>
+
+                    {/* 4 Specs Grid */}
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-3 text-xs font-mono">
+                      
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-emerald-500/30 transition-colors">
+                        <div className="text-emerald-400 font-bold mb-0.5 text-xs truncate">🔬 3-Pillar Mining</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Meta Library + Reddit VoC + Soil Science.</p>
+                      </div>
+
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-emerald-500/30 transition-colors">
+                        <div className="text-emerald-400 font-bold mb-0.5 text-xs truncate">🎯 3 Meta Angles</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Taproot hydration, $800 insurance, anti-algae.</p>
+                      </div>
+
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-emerald-500/30 transition-colors">
+                        <div className="text-emerald-400 font-bold mb-0.5 text-xs truncate">⚡ 4:5 Split-Grids</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">41.8% 3s hold rate with high color contrast.</p>
+                      </div>
+
+                      <div className="bg-[#0B0F17] p-2.5 sm:p-3 rounded-xl border border-[#2A3447] hover:border-emerald-500/30 transition-colors">
+                        <div className="text-emerald-400 font-bold mb-0.5 text-xs truncate">🛒 Live Shopify PDP</div>
+                        <p className="text-[#94A3B8] text-[10px] sm:text-[11px] leading-tight line-clamp-2">Tiered bundles ($39/$99/$149) & sticky ATC.</p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="pt-3 border-t border-[#2A3447] space-y-2.5">
+                    <button
+                      onClick={() => {
+                        if (onNavigateCaseStudy) {
+                          onNavigateCaseStudy('arborpulse');
+                        } else {
+                          window.location.hash = '#arborpulse';
+                        }
+                      }}
+                      className="btn-shimmer bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-black font-extrabold py-3.5 px-6 rounded-xl w-full text-center shadow-lg transition-all flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wide cursor-pointer"
+                    >
+                      <span>✨ LAUNCH FULL INTERACTIVE SCROLLYTELLING TEARDOWN</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </button>
+
+                    <a
+                      href="https://arborpulse-store.myshopify.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full py-3 px-6 rounded-xl bg-[#0B0F17] border border-[#2A3447] text-white font-bold text-xs hover:border-emerald-500/50 transition-colors flex items-center justify-center gap-2"
+                    >
+                      <span>Visit Live Shopify Demo (Pass: StackCuts) →</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                    </a>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          )}
+
           {/* ================= TAB 1: CELLMATRIX.TECH ================= */}
           {activeTab === 'cellmatrix' && (
             <div className="rounded-3xl bg-[#161C27]/90 backdrop-blur-xl border border-cyan-500/30 p-4 sm:p-8 lg:p-12 shadow-2xl space-y-6 sm:space-y-8 animate-fadeIn">

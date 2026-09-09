@@ -18,7 +18,8 @@ export default {
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-        display: ['Sora', '"Plus Jakarta Sans"', 'sans-serif'],
+        display: ['"Cabinet Grotesk"', 'Sora', '"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
         'mint-glow': '0 0 25px -5px rgba(0, 229, 153, 0.4)',

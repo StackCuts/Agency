@@ -62,7 +62,7 @@ export default function Navbar({ onOpenModal }) {
             </div>
             <button
               onClick={() => onOpenModal && onOpenModal('Hire on Upwork')}
-              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs lg:text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group shrink-0 whitespace-nowrap"
+              className="btn-shimmer relative px-5 py-2.5 rounded-full bg-[#00E599] text-[#0B0F17] font-extrabold text-xs lg:text-sm hover:bg-[#00E599]/90 transition-all shadow-mint-glow hover:shadow-lg flex items-center gap-2 group shrink-0 whitespace-nowrap cursor-pointer"
             >
               <span>Hire on Upwork →</span>
             </button>
@@ -72,7 +72,7 @@ export default function Navbar({ onOpenModal }) {
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-[#161C27] border border-[#2A3447] text-[#94A3B8] hover:text-white"
+              className="p-2.5 rounded-xl bg-[#161C27] border border-[#2A3447] text-[#94A3B8] hover:text-white cursor-pointer"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-[#00E599]" /> : <Menu className="w-6 h-6" />}
