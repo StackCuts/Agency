@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArborPulse™ Carousel 02 - Slide 05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    width: 1080px;
+    height: 1350px;
+    background-color: #03140C;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+  .canvas {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 44px 44px 36px 44px;
+    background: radial-gradient(circle at 50% 15%, rgba(10, 45, 28, 0.92) 0%, #03140C 75%);
+  }
+  
+  /* Top Header Navigation */
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: #FFFFFF;
+  }
+  .brand-name span {
+    color: #22C55E;
+  }
+  .slide-tracker {
+    background: rgba(4, 25, 15, 0.88);
+    border: 1.5px solid rgba(34, 197, 94, 0.4);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #4ade80;
+    backdrop-filter: blur(12px);
+  }
+  
+  /* Main Headline & Context Area */
+  .copy-section {
+    z-index: 10;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tag-pill {
+    align-self: flex-start;
+    background: rgba(245, 158, 11, 0.25);
+    color: #fbbf24;
+    border: 1.5px solid #fbbf2450;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+  .headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    color: #FFFFFF;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+  }
+  .subheadline {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.38;
+    color: #A3B899;
+    max-width: 960px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Hero Image / Card Stage */
+  .image-stage {
+    position: relative;
+    width: 100%;
+    height: 575px;
+    border-radius: 26px;
+    overflow: hidden;
+    margin: 14px 0;
+    border: 1.5px solid rgba(34, 197, 94, 0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+    background: rgba(4, 25, 15, 0.95);
+  }
+  .stage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .image-overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3, 20, 12, 0.05) 0%, rgba(3, 20, 12, 0.2) 50%, rgba(3, 20, 12, 0.88) 100%);
+    pointer-events: none;
+  }
+  
+  /* Story Note Badge */
+  .story-note {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    background: rgba(4, 25, 15, 0.92);
+    border: 1.5px solid rgba(34, 197, 94, 0.4);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 18px 24px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #F1F5F9;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.3;
+  }
+  .error-note {
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+  }
+  .bullet {
+    font-size: 28px;
+  }
+  
+  /* Option 1: Horizontal 3-Pill Bottom Dock on Slide 2 */
+  .flaws-pills-row {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 5;
+  }
+  .flaw-pill {
+    flex: 1;
+    background: rgba(3, 20, 12, 0.92);
+    border: 1.5px solid rgba(239, 68, 68, 0.5);
+    padding: 14px 10px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+  }
+  .flaw-badge-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: #f87171;
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+  .flaw-badge-desc {
+    font-size: 15.5px;
+    font-weight: 500;
+    color: #CBD5E1;
+    line-height: 1.25;
+  }
+  
+  /* Specs Grid on Slide 3 */
+  .specs-grid {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    z-index: 5;
+  }
+  .spec-card {
+    background: rgba(4, 25, 15, 0.94);
+    border: 1.5px solid rgba(56, 189, 248, 0.45);
+    padding: 18px 12px;
+    border-radius: 18px;
+    text-align: center;
+    backdrop-filter: blur(16px);
+  }
+  .spec-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    color: #38bdf8;
+    margin-bottom: 4px;
+  }
+  .spec-label {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: #CBD5E1;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  
+  /* Slide 4: Clean High-Contrast 5-Row Battle Table on Solid Card */
+  .comparison-table-container {
+    position: absolute;
+    inset: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 5;
+  }
+  .battle-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-family: 'Inter', sans-serif;
+  }
+  .battle-table th {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    padding: 10px 8px;
+    text-align: center;
+    color: #94A3B8;
+    letter-spacing: 0.3px;
+  }
+  .battle-table th.th-metric {
+    text-align: left;
+    padding-left: 16px;
+    color: #E2E8F0;
+  }
+  .battle-table th.th-winner {
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.25);
+    border-radius: 12px 12px 0 0;
+    border: 1.5px solid rgba(34, 197, 94, 0.5);
+    border-bottom: none;
+  }
+  .battle-table td {
+    padding: 13px 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    background: rgba(8, 38, 24, 0.85);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .battle-table td.td-metric {
+    text-align: left;
+    padding-left: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 18.5px;
+    font-weight: 800;
+    color: #FFFFFF;
+    border-radius: 14px 0 0 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .battle-table td.td-bad {
+    color: #fca5a5;
+    background: rgba(239, 68, 68, 0.12);
+  }
+  .battle-table td.td-winner {
+    color: #4ade80;
+    font-weight: 800;
+    background: rgba(34, 197, 94, 0.28);
+    border-left: 1.5px solid rgba(34, 197, 94, 0.5);
+    border-right: 1.5px solid rgba(34, 197, 94, 0.5);
+  }
+  .battle-table tr:last-child td.td-winner {
+    border-bottom: 1.5px solid rgba(34, 197, 94, 0.5);
+    border-radius: 0 0 14px 0;
+  }
+  .battle-table tr:last-child td:last-child {
+    border-radius: 0 0 14px 0;
+  }
+  
+  /* Slide 5 Option 1: Floating Top Badge + Open Watering Bag Stage */
+  .bundle-floating-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(3, 20, 12, 0.9);
+    border: 1.5px solid rgba(245, 158, 11, 0.6);
+    padding: 12px 18px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65);
+    z-index: 5;
+  }
+  .bundle-tag {
+    background: #F59E0B;
+    color: #03140C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 900;
+    padding: 4px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+  }
+  .bundle-title-text {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  .bundle-price-text strong {
+    font-size: 24px;
+    font-weight: 900;
+    color: #4ade80;
+  }
+  .bundle-price-text .old-price {
+    font-size: 17px;
+    color: #94A3B8;
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+  .save-pill {
+    background: rgba(34, 197, 94, 0.25);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.5);
+    font-size: 14px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+  
+  .cta-stage-bottom {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+  }
+  .offer-strip {
+    font-size: 17.5px;
+    font-weight: 700;
+    color: #FBBF24;
+    text-align: center;
+  }
+  .cta-btn {
+    background: #22C55E;
+    color: #03140C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    text-align: center;
+    padding: 18px 26px;
+    border-radius: 16px;
+    letter-spacing: -0.4px;
+    box-shadow: 0 10px 28px rgba(34, 197, 94, 0.45);
+  }
+  
+  /* Mobile-First Bottom Bar */
+  .bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+    padding-top: 10px;
+  }
+  .bottom-left-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #CBD5E1;
+    letter-spacing: 0.2px;
+  }
+  .bottom-right-action {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #4ade80;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <!-- Header -->
+  <div class="top-header">
+    <div class="brand">
+      <div class="brand-name">Arbor<span>Pulse</span>™</div>
+    </div>
+    <div class="slide-tracker">05 / 05</div>
+  </div>
+  
+  <!-- Headline Section -->
+  <div class="copy-section">
+    <div class="tag-pill">🏷️ 50% OFF HEATWAVE BUNDLE</div>
+    <h1 class="headline">Protect your mature trees for less than $1.20 / month.</h1>
+    <p class="subheadline">Replacing a mature tree costs $250+ in sapling and labor. Guard your investment today.</p>
+  </div>
+  
+  <!-- Hero Visual / Card Stage -->
+  <div class="image-stage">
+    <img src="../assets/arborpulse_hero_tree_installed.jpg" alt="Slide visual" class="stage-img">
+    <div class="image-overlay-vignette"></div>
+    
+        <!-- Top Floating Price Badge (Revealing the Central Bag) -->
+        <div class="bundle-floating-badge">
+            <span class="bundle-tag">BEST VALUE</span>
+            <span class="bundle-title-text">3x ArborPulse™ 75L Pack:</span>
+            <span class="bundle-price-text"><strong>$74.50</strong> <span class="old-price">$149.00</span></span>
+            <span class="save-pill">SAVE 50%</span>
+        </div>
+        
+        <!-- Bottom Floating CTA Stage -->
+        <div class="cta-stage-bottom">
+            <div class="offer-strip">🎁 FREE Rapid Hose Fill Nozzle + Free AU Shipping</div>
+            <div class="cta-btn">Claim 50% Off Heatwave Bundle ➔</div>
+        </div>
+        
+  </div>
+  
+  <!-- Mobile-First Bottom Bar -->
+  <div class="bottom-footer">
+    <div class="bottom-left-info">🛡️ 30-Day 100% Tree Survival Guarantee</div>
+    <div class="bottom-right-action">● Limited Summer Stock</div>
+  </div>
+</div>
+</body>
+</html>

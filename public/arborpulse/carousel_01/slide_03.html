@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArborPulse™ Carousel 01 - Slide 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    width: 1080px;
+    height: 1350px;
+    background-color: #03140C;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+  .canvas {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 44px 44px 36px 44px;
+    background: radial-gradient(circle at 50% 15%, rgba(10, 45, 28, 0.92) 0%, #03140C 75%);
+  }
+  
+  /* Top Header Navigation */
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+    color: #FFFFFF;
+  }
+  .brand-name span {
+    color: #22C55E;
+  }
+  .slide-tracker {
+    background: rgba(4, 25, 15, 0.88);
+    border: 1.5px solid rgba(34, 197, 94, 0.4);
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #4ade80;
+    backdrop-filter: blur(12px);
+  }
+  
+  /* Main Headline & Context Area */
+  .copy-section {
+    z-index: 10;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .tag-pill {
+    align-self: flex-start;
+    background: rgba(245, 158, 11, 0.25);
+    color: #fbbf24;
+    border: 1.5px solid #fbbf2450;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+  }
+  .headline {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    color: #FFFFFF;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+  }
+  .subheadline {
+    font-size: 27px;
+    font-weight: 500;
+    line-height: 1.38;
+    color: #A3B899;
+    max-width: 960px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Hero Image Stage */
+  .image-stage {
+    position: relative;
+    width: 100%;
+    height: 575px;
+    border-radius: 26px;
+    overflow: hidden;
+    margin: 14px 0;
+    border: 1.5px solid rgba(34, 197, 94, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
+    background: #020b06;
+  }
+  .stage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  .image-overlay-vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3, 20, 12, 0.05) 0%, rgba(3, 20, 12, 0.25) 50%, rgba(3, 20, 12, 0.85) 100%);
+    pointer-events: none;
+  }
+  
+  /* Story notes & Badges (Mobile Legibility) */
+  .story-note {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    background: rgba(4, 25, 15, 0.92);
+    border: 1.5px solid rgba(34, 197, 94, 0.4);
+    backdrop-filter: blur(16px);
+    border-radius: 18px;
+    padding: 18px 24px;
+    font-size: 23px;
+    font-weight: 600;
+    color: #F1F5F9;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.3;
+  }
+  .error-note {
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #fca5a5;
+  }
+  .warn-note {
+    border-color: rgba(245, 158, 11, 0.5);
+    color: #fde68a;
+  }
+  .bullet {
+    font-size: 28px;
+  }
+  
+  /* Science 2-Column Grid (Mobile Legibility) */
+  .science-grid {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .science-card {
+    background: rgba(4, 25, 15, 0.94);
+    border-radius: 16px;
+    padding: 16px 18px;
+    backdrop-filter: blur(16px);
+  }
+  .science-card.fail {
+    border: 1.5px solid rgba(239, 68, 68, 0.5);
+  }
+  .science-card.pass {
+    border: 1.5px solid rgba(34, 197, 94, 0.5);
+  }
+  .card-h {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .fail .card-h { color: #f87171; }
+  .pass .card-h { color: #4ade80; }
+  .card-p {
+    font-size: 18px;
+    line-height: 1.34;
+    color: #E2E8F0;
+    font-weight: 450;
+  }
+  
+  /* Badges Row (Mobile Legibility) */
+  .badges-row {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+  }
+  .badge-pill {
+    flex: 1;
+    background: rgba(4, 25, 15, 0.94);
+    border: 1.5px solid rgba(34, 197, 94, 0.45);
+    padding: 16px 12px;
+    border-radius: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 21px;
+    font-weight: 800;
+    color: #4ade80;
+    text-align: center;
+    backdrop-filter: blur(16px);
+  }
+  
+  /* Compact Floating Review Badge on Slide 7 (Revealing Watering Bag) */
+  .review-floating-card {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 540px;
+    background: rgba(3, 20, 12, 0.88);
+    border: 1.5px solid rgba(34, 197, 94, 0.45);
+    border-radius: 18px;
+    padding: 16px 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+    z-index: 5;
+  }
+  .stars {
+    color: #F59E0B;
+    font-size: 20px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .verified-tag {
+    color: #4ade80;
+    font-size: 14.5px;
+    background: rgba(34, 197, 94, 0.2);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .quote {
+    font-size: 19.5px;
+    font-style: italic;
+    color: #F8FAFC;
+    line-height: 1.32;
+    margin-bottom: 4px;
+  }
+  .author {
+    font-size: 16px;
+    font-weight: 700;
+    color: #94A3B8;
+  }
+  .cta-container {
+    position: absolute;
+    bottom: 16px;
+    left: 22px;
+    right: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 5;
+  }
+  .offer-strip {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FBBF24;
+    text-align: center;
+  }
+  .cta-btn {
+    background: #22C55E;
+    color: #03140C;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    text-align: center;
+    padding: 18px 26px;
+    border-radius: 16px;
+    letter-spacing: -0.4px;
+    box-shadow: 0 10px 28px rgba(34, 197, 94, 0.45);
+  }
+  
+  /* Mobile-First Bottom Bar */
+  .bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 10;
+    padding-top: 10px;
+  }
+  .bottom-left-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    font-weight: 600;
+    color: #CBD5E1;
+    letter-spacing: 0.2px;
+  }
+  .bottom-right-action {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #4ade80;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <!-- Header -->
+  <div class="top-header">
+    <div class="brand">
+      <div class="brand-name">Arbor<span>Pulse</span>™</div>
+    </div>
+    <div class="slide-tracker">03 / 07</div>
+  </div>
+  
+  <!-- Headline Section -->
+  <div class="copy-section">
+    <div class="tag-pill">💧 THE EVAPORATION TRAP</div>
+    <h1 class="headline">Even 30 mins of daily hose watering evaporated in 2 hours.</h1>
+    <p class="subheadline">Water puddled on baked topsoil and vaporized before reaching deep roots.</p>
+  </div>
+  
+  <!-- Hero Visual Stage -->
+  <div class="image-stage">
+    <img src="../assets/story_slide_03_hose_runoff.jpg" alt="Slide visual" class="stage-img">
+    <div class="image-overlay-vignette"></div>
+    
+        <div class="story-note warn-note">
+            <span class="bullet">💦</span>
+            <span>Surface Mud Runoff • 0% Deep Penetration • High Water Bills</span>
+        </div>
+        
+  </div>
+  
+  <!-- Mobile-First Bottom Bar -->
+  <div class="bottom-footer">
+    <div class="bottom-left-info">⏱️ Manual Hose Time: 30 Mins • 70% Lost</div>
+    <div class="bottom-right-action">Root Science ➔</div>
+  </div>
+</div>
+</body>
+</html>
