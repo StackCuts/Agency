@@ -28,7 +28,13 @@ import {
   Code2,
   Share2,
   Maximize2,
-  CheckCheck
+  X,
+  CheckCheck,
+  Video,
+  Film,
+  ArrowRight,
+  FlaskConical,
+  Target
 } from 'lucide-react';
 
 export default function ArborPulseScrollytelling({ onBack, onOpenModal }) {
@@ -89,19 +95,28 @@ export default function ArborPulseScrollytelling({ onBack, onOpenModal }) {
       source: 'Reddit: r/BackyardOrchard (Upvoted 142 times)',
       tag: 'Product Failure Friction',
       quote: 'I spent $45 on two cheap green PVC tree bags from Amazon. Within 3 weeks under the Texas sun, the seams split open, algae clogged the pinholes, and the water rushed out in 15 minutes instead of a slow drip. Completely useless.',
-      takeaway: 'Buyers don\'t want "another cheap water bag." They want heavy-duty puncture-proof longevity and non-clogging emitter channels.'
+      takeaway: 'Buyers don\'t want "another cheap water bag." They want heavy-duty puncture-proof longevity and non-clogging emitter channels.',
+      hookHeadline: 'Tired of Green PVC Tree Bags Splitting and Clogging with Algae in 3 Weeks?',
+      targetAd: 'Ad 02 // Us vs. Them Battle & Carousel 02',
+      awareness: 'Solution-Aware (Frustrated Repeat Buyer)'
     },
     evap: {
       source: 'Amazon 1-Star Review Analysis (n=380)',
       tag: 'Biological Knowledge Gap',
       quote: 'My newly planted Japanese Maple died despite me running the garden hose every single evening. The nursery owner told me the top 2 inches were muddy but the taproots 14 inches below were bone dry and baked.',
-      takeaway: 'People assume surface watering works. The high-converting angle must educate on the 40°C Topsoil Evaporation Trap vs Deep Taproot Drip.'
+      takeaway: 'People assume surface watering works. The high-converting angle must educate on the 40°C Topsoil Evaporation Trap vs Deep Taproot Drip.',
+      hookHeadline: 'Can your garden hose survive a 45°C heatwave? Why 78% of water evaporates before reaching taproots.',
+      targetAd: 'Ad 01 // Heatwave Defense & Carousel 01',
+      awareness: 'Problem-Aware (Unaware of Sub-Soil Evaporation Physics)'
     },
     asset: {
       source: 'Suburban Homeowner Grower Forum',
       tag: 'Economic Loss Aversion',
       quote: 'We planted 8 mature privacy arborvitaes ($3,200 total investment). Losing just two to July drought would cost $800 to replace plus labor. A $35 automated slow-release bag is cheap insurance.',
-      takeaway: 'Frame ArborPulse not as a gardening gadget, but as an $800+ tree asset preservation policy.'
+      takeaway: 'Frame ArborPulse not as a gardening gadget, but as an $800+ tree asset preservation policy.',
+      hookHeadline: 'You spent $800+ on saplings. Don\'t let a 3-day summer heatwave kill your investment.',
+      targetAd: 'Ad 03 // 50% Off Bundle & Carousel 03',
+      awareness: 'Most-Aware (Cost-Sensitive Tree Preserver)'
     }
   };
 
@@ -155,6 +170,9 @@ export default function ArborPulseScrollytelling({ onBack, onOpenModal }) {
       badge: 'Ad 01 // Heatwave Defense',
       title: '45°C Heatwave Defense & Evaporation Trap',
       funnel: 'Top of Funnel (Cold Traffic / Scroll-Stopping)',
+      awarenessLevel: 'Problem-Aware (Unaware of Soil Evaporation Physics)',
+      angleType: 'Scientific Mechanism & Biological Agitation',
+      hypothesis: 'Exposing the hidden 40°C evaporation trap stops thumb-scroll faster (42.4% Hold Rate) than showing healthy trees, by making gardeners realize their current daily effort is failing.',
       hook: 'Can your garden hose survive a 45°C Australian heatwave?',
       holdRate: '42.4% (Top 1% Benchmark)',
       ctr: '3.18%',
@@ -183,6 +201,9 @@ ArborPulse™ 75L delivers 10 continuous hours of sub-soil slow-drip hydration d
       badge: 'Ad 02 // Us vs. Them Battle',
       title: 'Surface Hose Puddling vs. Sub-Soil Saturation',
       funnel: 'Middle of Funnel (Consideration / Comparative Proof)',
+      awarenessLevel: 'Solution-Aware (Seeking High-Performance Alternative)',
+      angleType: 'Cognitive Us vs. Them Comparison Matrix',
+      hypothesis: 'A side-by-side battle matrix (Hose vs ArborPulse) dismantles analytical objections across water loss, daily labor, and root depth, lifting CTR to 3.45%.',
       hook: 'Surface Hose Runoff vs Deep Root Drip Science',
       holdRate: '39.6%',
       ctr: '3.45%',
@@ -216,6 +237,9 @@ Protect your tree investment for just $1.20 / month.`,
       badge: 'Ad 03 // 5-Star Social Proof & Offer',
       title: '12,400+ Trees Saved & 50% Off Bundle Stack',
       funnel: 'Bottom of Funnel (Conversion / Retargeting)',
+      awarenessLevel: 'Most-Aware (Ready to Purchase / Risk Sensitive)',
+      angleType: 'Risk Reversal & Irresistible Bundle Stack',
+      hypothesis: 'Pairing high-density social proof (12,400+ trees saved) with a 50% off 3-pack bundle and free rapid nozzle drops CAC to an all-time low (5.4x ROAS).',
       hook: 'Over 12,400+ Aussie Trees Protected This Summer',
       holdRate: '36.2%',
       ctr: '4.12%',
@@ -249,6 +273,9 @@ No digging. No plumbing. Zero daily hose dragging.
       badge: 'Carousel 01 // 7 Slides',
       title: 'The 45°C Heatwave Tragedy (Swipe Story)',
       funnel: 'Top of Funnel (High Engagement / Narrative Arc)',
+      awarenessLevel: 'Problem-Aware (Cold Narrative Hook)',
+      angleType: '3-Act Cinematic Problem-to-Transformation Swipe Story',
+      hypothesis: "A serialized 7-slide emotional journey (David's dying orchard to 14-day recovery) drives 68.4% completion by validating user struggle before pitching the solution.",
       framework: 'Entering the Frame (3-Act Emotional Story)',
       avgSwipeRate: '68.4% Completion',
       cpmSavings: '43% vs Static Single Ad',
@@ -333,6 +360,9 @@ He spent $850 on new saplings, but daily hose watering was accidentally killing 
       badge: 'Carousel 02 // 5 Slides',
       title: 'Panoramic Mechanism & Us vs Them Battle',
       funnel: 'Middle of Funnel (Mechanism & Hard Comparative Proof)',
+      awarenessLevel: 'Solution-Aware (Comparison & Mechanism)',
+      angleType: 'Panoramic Seam Continuity + 5-Point Battle Grid',
+      hypothesis: 'Zero-gutter subterranean horizon continuity across 5 slides pulls the thumb through root physics into the battle table, achieving 49% CPM savings.',
       framework: 'Panoramic Seam Continuity + 5-Point Battle Grid',
       avgSwipeRate: '74.2% Completion',
       cpmSavings: '49% vs Static Single Ad',
@@ -397,6 +427,9 @@ Swipe through the 5-point benchmark table to see why 12,400+ trees are protected
       badge: 'Carousel 03 // 5 Slides',
       title: '60-Second Set & Forget + Social Proof',
       funnel: 'Bottom of Funnel (Friction Elimination & Conversion)',
+      awarenessLevel: 'Most-Aware (Conversion & Friction Removal)',
+      angleType: '3-Step 60-Second Autopilot + Verified Review Wall',
+      hypothesis: 'Visualizing extreme simplicity (15s Wrap ➔ 45s Fill ➔ 7 Days Relax) removes labor objections and drives an 81.1% swipe rate with retargeting efficiency.',
       framework: '3-Step Frictionless How-To + Verified Review Wall',
       avgSwipeRate: '81.1% Completion',
       cpmSavings: '54% vs Static Single Ad',
@@ -683,7 +716,7 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
             <div className="lg:col-span-6 space-y-4">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                 <span className="flex items-center gap-2 text-red-400 font-bold">
-                  <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
+                  <span className="w-2 h-2 rounded-full bg-red-400" />
                   Competitor Ad Diagnostic Wireframe
                 </span>
                 <span>Active 120+ Days • Meta Library</span>
@@ -816,6 +849,25 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                   </p>
                 </div>
 
+                {/* Direct Pipeline: Resulting Live Ad Hook (Phase 03) */}
+                <div className="p-3.5 rounded-xl bg-gradient-to-r from-emerald-950/30 via-[#0A121E] to-black/40 border border-emerald-500/30 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono">
+                    <span className="text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1.5">
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>Resulting Live Ad Hook (Phase 03 Pipeline):</span>
+                    </span>
+                    <span className="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-semibold">
+                      {vocQuotes[activeVocTab].targetAd}
+                    </span>
+                  </div>
+                  <div className="text-xs sm:text-sm font-sans font-bold text-white italic pl-5 border-l-2 border-emerald-400/50">
+                    "{vocQuotes[activeVocTab].hookHeadline}"
+                  </div>
+                  <div className="text-[10px] font-mono text-slate-400 pl-5">
+                    Target Awareness Level: <span className="text-emerald-300 font-bold">{vocQuotes[activeVocTab].awareness}</span>
+                  </div>
+                </div>
+
               </div>
 
               {/* Strategic Shift Toggle Matrix */}
@@ -881,6 +933,52 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
             <p className="text-sm text-slate-400 max-w-md font-sans">
               Instead of running 5 slight variations of the same ad, we built 3 diametrically opposed conceptual angles to capture diverse demographics.
             </p>
+          </div>
+
+          {/* Scientific Creative Testing Hierarchy Visual & Meta Andromeda Broad Advantage */}
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-[#0F1522] via-[#0D121D] to-[#0A0E17] border border-purple-500/30 space-y-5 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-purple-400" />
+                <span className="text-xs font-mono font-bold text-purple-300 uppercase tracking-widest">
+                  Scientific Creative Testing Hierarchy
+                </span>
+              </div>
+              <span className="text-[11px] font-mono text-slate-400">
+                Phase 02 Systematic Variable Isolation
+              </span>
+            </div>
+
+            {/* 5-Step Visual Pipeline Ribbon */}
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+              {[
+                { step: '01', title: 'Core Pain / Fear', desc: 'Topsoil Evaporation & Dead Investment' },
+                { step: '02', title: 'Target Persona', desc: 'Hobbyist vs Homeowner vs Repeat Buyer' },
+                { step: '03', title: 'Uncorrelated Angle', desc: 'Biology vs Economics vs Durability' },
+                { step: '04', title: 'Polar Visual Hook', desc: 'Scorched Earth vs Cyan Micro-Drip' },
+                { step: '05', title: 'Direct-Response Offer', desc: '50% Off 3-Pack + Free Nozzle' }
+              ].map((item, idx) => (
+                <div key={idx} className="relative p-3.5 rounded-2xl bg-black/40 border border-white/5 flex flex-col justify-between space-y-1">
+                  <div className="flex items-center justify-between text-[10px] font-mono">
+                    <span className="text-purple-400 font-bold">{item.step}</span>
+                    {idx < 4 && <ArrowRight className="hidden sm:inline w-3 h-3 text-purple-400/50 absolute -right-2.5 top-1/2 -translate-y-1/2 z-10" />}
+                  </div>
+                  <div className="text-xs font-bold text-white font-display">{item.title}</div>
+                  <div className="text-[10px] text-slate-400 font-sans leading-tight">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Andromeda AI Broad Advantage Callout */}
+            <div className="p-4 rounded-2xl bg-purple-950/20 border border-purple-500/20 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-xs">
+              <div className="w-8 h-8 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center shrink-0 text-purple-300">
+                <Target className="w-4 h-4" />
+              </div>
+              <p className="text-slate-300 leading-relaxed font-sans">
+                <strong className="text-purple-300 font-mono uppercase text-[11px]">The Meta Andromeda AI Broad Advantage: </strong>
+                Instead of micro-targeting or running slight copy tweaks, feeding Meta's Andromeda algorithm 3 diametrically opposed conceptual angles deploys them into 3 distinct, non-competing auction pools. This eliminates self-bidding ad fatigue and secures the lowest blended CAC across cold scale.
+              </p>
+            </div>
           </div>
 
           {/* Angle Cards Grid */}
@@ -950,25 +1048,25 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
             </p>
           </div>
 
-          {/* Master Creative Studio Container */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0F17] border border-emerald-500/30 space-y-8 shadow-2xl relative overflow-hidden">
+          {/* Master Creative Studio Container (Edge-to-Edge on Mobile, Padded Card on Desktop) */}
+          <div className="-mx-4 sm:mx-0 py-6 sm:p-8 rounded-none sm:rounded-3xl bg-[#0B0F17] border-y sm:border border-emerald-500/30 space-y-6 sm:space-y-8 shadow-2xl relative overflow-hidden">
             
             {/* Top Format Selector Switcher */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-white/10">
+            <div className="px-4 sm:px-0 flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-white/10">
               <div className="flex items-center gap-2 bg-black/50 p-1.5 rounded-2xl border border-white/10 w-full sm:w-auto">
                 <button
                   onClick={() => {
                     setActiveStudioTab('static');
                     setStudioViewMode('interactive');
                   }}
-                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
                     activeStudioTab === 'static'
                       ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20 font-extrabold'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   <Layers className="w-4 h-4" />
-                  <span>Static Meta Ads (1:1 & 4:5 Specs)</span>
+                  <span>Static Ads (1:1 & 4:5)</span>
                 </button>
                 <button
                   onClick={() => {
@@ -976,14 +1074,14 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                     setCarouselSlideIdx(0);
                     setStudioViewMode('interactive');
                   }}
-                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
                     activeStudioTab === 'carousel'
                       ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/20 font-extrabold'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   <Smartphone className="w-4 h-4" />
-                  <span>Multi-Slide Carousels (3 Suites // 17 Slides)</span>
+                  <span>Carousels (17 Slides)</span>
                 </button>
               </div>
 
@@ -1024,7 +1122,7 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
               <div className="lg:col-span-7 space-y-4">
                 
                 {/* Viewport Sub-Header Controls */}
-                <div className="flex items-center justify-between text-xs font-mono p-3 bg-black/40 rounded-2xl border border-white/5">
+                <div className="mx-4 sm:mx-0 flex items-center justify-between text-xs font-mono p-3 bg-black/40 rounded-2xl border border-white/5">
                   {activeStudioTab === 'static' ? (
                     <div className="flex items-center gap-2">
                       <span className="text-slate-400">Aspect Ratio:</span>
@@ -1062,30 +1160,39 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                     </div>
                   )}
 
-                  <div className="text-slate-400">
-                    {activeStudioTab === 'static' ? currentStatic.funnel.split(' ')[0] : `Slide ${carouselSlideIdx + 1} of ${currentCarousel.slides.length}`}
+                  <div className="text-slate-400 text-[11px] sm:text-xs font-mono">
+                    {activeStudioTab === 'static'
+                      ? currentStatic.funnel.split(' ')[0]
+                      : `Slide ${carouselSlideIdx + 1} of ${currentCarousel.slides.length}`
+                    }
                   </div>
                 </div>
 
-                {/* The Stage Screen Frame (100% Original Sharp Square Corners, Zero Added Borders) */}
-                <div className={`w-full bg-[#020B06] shadow-2xl relative flex items-center justify-center transition-all ${
-                  activeStudioTab === 'static' && staticRatio === '1x1'
-                    ? 'aspect-square max-w-[500px] mx-auto'
-                    : 'aspect-[4/5] max-w-[500px] mx-auto'
-                }`}>
+                {/* The Stage Screen Frame */}
+                <div 
+                  className={`w-full bg-[#020B06] relative flex items-center justify-center transition-all ${
+                    activeStudioTab === 'static'
+                      ? (staticRatio === '1x1' ? 'aspect-square w-full sm:max-w-[500px] mx-auto rounded-2xl sm:rounded-3xl border border-white/10 sm:shadow-2xl overflow-hidden' : 'aspect-[4/5] w-full sm:max-w-[500px] mx-auto rounded-2xl sm:rounded-3xl border border-white/10 sm:shadow-2xl overflow-hidden')
+                      : 'aspect-[4/5] w-full sm:max-w-[500px] mx-auto rounded-2xl sm:rounded-3xl border border-white/10 sm:shadow-2xl overflow-hidden'
+                  }`}
+                >
 
                   {/* Visual Renderer or Live Code Frame */}
                   {studioViewMode === 'interactive' ? (
-                    <div className="w-full h-full relative flex items-center justify-center bg-[#020B06]">
+                    <div className="w-full h-full relative flex items-center justify-center bg-[#020B06] overflow-hidden">
                       <img
                         src={
                           activeStudioTab === 'static'
                             ? (staticRatio === '4x5' ? currentStatic.ratio4x5 : currentStatic.ratio1x1)
                             : currentSlide.img
                         }
-                        alt={activeStudioTab === 'static' ? currentStatic.title : currentSlide.title}
-                        className="w-full h-full object-contain rounded-none border-0 select-none block"
-                        loading="lazy"
+                        alt={
+                          activeStudioTab === 'static'
+                            ? currentStatic.title
+                            : currentSlide.title
+                        }
+                        className="w-full h-full object-cover sm:object-contain select-none block"
+                        loading="eager"
                       />
                     </div>
                   ) : (
@@ -1111,7 +1218,7 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
 
                 {/* Carousel Swipe Controls (Only displayed in Carousel Mode) */}
                 {activeStudioTab === 'carousel' && (
-                  <div className="flex items-center justify-between p-3 bg-black/40 rounded-2xl border border-white/5">
+                  <div className="mx-4 sm:mx-0 flex items-center justify-between p-3 bg-black/40 rounded-2xl border border-white/5">
                     <button
                       onClick={() => setCarouselSlideIdx((prev) => (prev > 0 ? prev - 1 : currentCarousel.slides.length - 1))}
                       className="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-mono text-white flex items-center gap-1.5 transition-all cursor-pointer"
@@ -1147,13 +1254,21 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                 )}
 
                 {/* Quick-Switch Thumbnails Ribbon */}
-                <div className="pt-2">
+                <div className="px-4 sm:px-0 pt-2">
                   <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
-                    <span>{activeStudioTab === 'static' ? 'Switch Master Static Angle:' : 'Switch Master Carousel Suite:'}</span>
-                    <span className="text-emerald-400">{activeStudioTab === 'static' ? '3 Creative Angles' : '3 Full Suites'}</span>
+                    <span>
+                      {activeStudioTab === 'static'
+                        ? 'Switch Master Static Angle:'
+                        : 'Switch Master Carousel Suite:'}
+                    </span>
+                    <span className="text-emerald-400">
+                      {activeStudioTab === 'static'
+                        ? '3 Creative Angles'
+                        : '3 Full Suites'}
+                    </span>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-3">
+                  <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
                     {activeStudioTab === 'static'
                       ? staticAdsData.map((ad, idx) => (
                           <button
@@ -1207,8 +1322,7 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
 
 
               {/* RIGHT COLUMN: CREATIVE DIRECTOR TEARDOWN & COPY DECK (5 Cols) */}
-              <div className="lg:col-span-5 space-y-5">
-                
+              <div className="px-4 sm:px-0 lg:col-span-5 space-y-5">
                 {/* Active Ad Metadata Box */}
                 <div className="p-5 rounded-3xl bg-[#0D121D] border border-white/10 space-y-4 shadow-xl">
                   <div className="flex items-center justify-between text-xs font-mono">
@@ -1226,6 +1340,29 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                     </h3>
                     <p className="text-xs text-slate-400 font-sans">
                       {activeStudioTab === 'static' ? currentStatic.hook : currentCarousel.framework}
+                    </p>
+                  </div>
+
+                  {/* Strategic Metadata Pills: Awareness Level & Angle Type */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-[11px] font-mono font-bold text-emerald-400">
+                      <Target className="w-3 h-3 text-emerald-400 shrink-0" />
+                      <span>{activeStudioTab === 'static' ? currentStatic.awarenessLevel : currentCarousel.awarenessLevel}</span>
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-cyan-500/15 border border-cyan-500/30 text-[11px] font-mono font-bold text-cyan-300">
+                      <Sparkles className="w-3 h-3 text-cyan-400 shrink-0" />
+                      <span>{activeStudioTab === 'static' ? currentStatic.angleType : currentCarousel.angleType}</span>
+                    </span>
+                  </div>
+
+                  {/* Creative Test Hypothesis Box */}
+                  <div className="p-3.5 rounded-2xl bg-cyan-950/30 border border-cyan-500/30 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                      <FlaskConical className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>Creative Test Hypothesis & Win Condition</span>
+                    </div>
+                    <p className="text-xs text-slate-200 font-sans leading-relaxed italic pl-5 border-l-2 border-cyan-400/50">
+                      "{activeStudioTab === 'static' ? currentStatic.hypothesis : currentCarousel.hypothesis}"
                     </p>
                   </div>
 
@@ -1321,7 +1458,6 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
                     </div>
                   </div>
                 </div>
-
               </div>
 
             </div>
@@ -1386,6 +1522,75 @@ No digging. No tools. No plumbing. Here's how to setup 10 hours of root soaking 
             <p className="text-sm text-slate-400 max-w-md font-sans">
               An ad is only as good as the landing page it hits. We architected a complete Shopify PDP with tiered bundles, sticky add-to-cart, and instant checkout.
             </p>
+          </div>
+
+          {/* Strategic Hand-Off: Ad-to-PDP Message-Match Congruency Teardown */}
+          <div className="p-6 sm:p-8 rounded-3xl bg-[#0D121D] border border-amber-500/30 space-y-6 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold tracking-widest uppercase">
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                  The Conversion Hand-Off // Zero-Friction Message Match
+                </div>
+                <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white">
+                  Why 90% of Paid Traffic Bounces (And How Congruency Prevents It)
+                </h3>
+              </div>
+              <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full font-bold self-start sm:self-auto">
+                Blended ROAS: 2.1x ➔ 4.8x Lift
+              </span>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
+              When a Meta ad promises <em>"Stop 40°C Topsoil Evaporation with 10-Hour Taproot Drip"</em>, sending the buyer to a generic catalog page or mismatched headline causes instant cognitive friction and an 80%+ bounce rate. We engineered an airtight 3-stage message-match pipeline:
+            </p>
+
+            {/* 3-Stage Congruency Flow */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              
+              <div className="p-4 rounded-2xl bg-black/50 border border-white/10 space-y-2 relative">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-cyan-400 font-bold">Stage 01 // Meta Ad</span>
+                  <span className="text-[10px] text-slate-500">Phase 03</span>
+                </div>
+                <div className="text-sm font-bold text-white">"45°C Heatwave Defense & Evaporation Trap"</div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Cold hook agitates the hidden biological problem: 70% evaporation and starved taproots.
+                </p>
+                <div className="pt-2 text-[11px] font-mono text-cyan-300 font-semibold border-t border-white/5">
+                  ➔ Sets Expectation: Direct Root Hydration System
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-black/50 border border-amber-500/30 space-y-2 relative">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-amber-400 font-bold">Stage 02 // Shopify PDP Hero</span>
+                  <span className="text-[10px] text-slate-500">Phase 04 H1</span>
+                </div>
+                <div className="text-sm font-bold text-white">"ArborPulse™ 75L Sub-Soil Root Hydration System"</div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Exact same headline terminology, color palette, and root cross-section diagrams validate the click in 0.2s.
+                </p>
+                <div className="pt-2 text-[11px] font-mono text-amber-300 font-semibold border-t border-white/5">
+                  ➔ 0% Scent Mismatch / Zero Post-Click Drop-Off
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-black/50 border border-emerald-500/30 space-y-2 relative">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-emerald-400 font-bold">Stage 03 // Cart Friction Elimination</span>
+                  <span className="text-[10px] text-slate-500">Offer Congruency</span>
+                </div>
+                <div className="text-sm font-bold text-white">Pre-Selected 3-Pack Bundle ($99) + Free Nozzle</div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  Matches the exact 50% discount and free nozzle promised in Meta Ad copy. Sticky mobile bar anchors checkout.
+                </p>
+                <div className="pt-2 text-[11px] font-mono text-emerald-300 font-semibold border-t border-white/5">
+                  ➔ 34% Higher AOV + Sub-1s Checkout Path
+                </div>
+              </div>
+
+            </div>
           </div>
 
           {/* Interactive Live Store Launcher Card */}

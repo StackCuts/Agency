@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ArborPulse™ Video Ad Storyboard - Scene 04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    width: 1920px;
+    height: 1080px;
+    background: #0B0F19;
+    font-family: 'Inter', sans-serif;
+    color: #F8FAFC;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px 48px 24px 48px;
+    position: relative;
+  }
+
+  /* Background Grid Effect */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Top Navigation Bar */
+  .top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .logo-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #FFFFFF;
+  }
+  .brand-logo span {
+    color: #10B981;
+  }
+  .badge-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 20px;
+  }
+  .project-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #94A3B8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .scene-status-pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .scene-badge {
+    background: #064E3B;
+    border: 1.5px solid #059669;
+    color: #34D399;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 6px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+  }
+  .time-badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #FBBF24;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 750;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  /* Main Workspace Layout */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    gap: 44px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  /* Left Column: 100% Pure Raw 9:16 Video Frame Mockup */
+  .video-frame-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .phone-mockup {
+    width: 440px;
+    height: 782px;
+    background: #000000;
+    border-radius: 40px;
+    border: 5px solid #334155;
+    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(16, 185, 129, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 24px;
+    background: #000000;
+    border-radius: 20px;
+    z-index: 10;
+  }
+  .keyframe-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .frame-sublabel {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 750;
+    color: #34D399;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 5px 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pulse-dot {
+    color: #10B981;
+    font-size: 10px;
+  }
+
+  /* Right Column: Director Storyboard Details */
+  .details-col {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .scene-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .scene-main-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    color: #FFFFFF;
+  }
+  .scene-main-title span {
+    color: #34D399;
+  }
+  .scene-type-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    font-weight: 750;
+    color: #34D399;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    padding: 4px 14px;
+    border-radius: 999px;
+  }
+
+  /* Detail Card Styles */
+  .card-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 13px 20px;
+  }
+  .card-header-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .label-vo { color: #FBBF24; }
+  .label-cam { color: #38BDF8; }
+  .label-prompt { color: #34D399; }
+  .label-post { color: #EC4899; }
+
+  .card-content-text {
+    font-size: 17.5px;
+    line-height: 1.45;
+    color: #E2E8F0;
+    font-weight: 500;
+  }
+  .card-content-text strong {
+    color: #FFFFFF;
+    font-weight: 750;
+  }
+
+  /* Script Block Highlight */
+  .script-dialogue {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FEF3C7;
+    line-height: 1.4;
+    font-style: italic;
+    background: rgba(245, 158, 11, 0.08);
+    border-left: 4px solid #F59E0B;
+    padding: 10px 16px;
+    border-radius: 0 10px 10px 0;
+  }
+
+  /* Prompt Code Block */
+  .prompt-box {
+    background: #030712;
+    border: 1.5px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 11px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    color: #A7F3D0;
+    line-height: 1.45;
+  }
+
+  /* 2-Col Bottom Row */
+  .bottom-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* Footer Bar */
+  .bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-top: 14px;
+    font-size: 14px;
+    color: #64748B;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-domain {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 750;
+    color: #10B981;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Top Header Bar -->
+  <div class="top-header">
+    <div class="logo-group">
+      <div class="brand-logo">Stack<span>Cuts</span>™ Creative Studio</div>
+      <div class="badge-divider">/</div>
+      <div class="project-tag">AI UGC Video Ad Architect</div>
+      <div class="project-tag" style="color: #34D399;">ArborPulse™ DTC Campaign</div>
+    </div>
+    <div class="scene-status-pill">
+      <div class="scene-badge">SCENE 04 / 05 • THE 14-DAY RECOVERY</div>
+      <div class="time-badge">⏱️ 0:24 – 0:34 (10.0s)</div>
+    </div>
+  </div>
+
+  <!-- Main Grid Workspace -->
+  <div class="main-grid">
+    
+    <!-- Left Column: 100% Pure Raw 9:16 Video Frame Mockup -->
+    <div class="video-frame-container">
+      <div class="phone-mockup">
+        <div class="phone-notch"></div>
+        <img src="file:///C:/Upwork_Creative_Studio/02_Video_Ads/Showcase_01_ArborPulse_Apex_DTC_Video_Ads/02_Keyframes_9x16/Scene_04_Keyframe_9x16.jpg" class="keyframe-img" alt="Scene 04 Keyframe Raw Clean">
+      </div>
+      <div class="frame-sublabel">
+        <span class="pulse-dot">●</span> 100% RAW 9:16 KEYFRAME (ZERO EMBEDDED TEXT)
+      </div>
+    </div>
+
+    <!-- Right Column: Director Storyboard Metadata -->
+    <div class="details-col">
+      
+      <div class="scene-title-row">
+        <div class="scene-main-title">Scene 04: <span>The 14-Day Recovery & Proof (Transformation)</span></div>
+        <div class="scene-type-tag">9:16 Emotional Proof • Thriving Canopy</div>
+      </div>
+
+      <!-- Spoken Script / Dialogue -->
+      <div class="card-box" style="border-color: rgba(245, 158, 11, 0.3);">
+        <div class="card-header-label label-vo">
+          🗣️ Spoken Voiceover Dialogue (AI Voice in ElevenLabs)
+        </div>
+        <div class="script-dialogue">
+          "Within just two weeks, the scorched leaves completely recovered, the canopy came back lush green, and my trees didn't just survive the 45°C heat—they're thriving. Best part? It cut my garden water usage by over 70%."
+        </div>
+      </div>
+
+      <!-- Camera & Directing Instructions -->
+      <div class="card-box">
+        <div class="card-header-label label-cam">
+          🎥 Camera Motion & Acting Direction (Relief & Pride)
+        </div>
+        <div class="card-content-text">
+          <strong>Angle & Motion:</strong> Eye-level medium shot (f/2.0) with natural organic handheld smartphone motion, slowly zooming in as David smiles with genuine relief, touching the thriving glossy green foliage.<br>
+          <strong>Acting Cue:</strong> Warm, authentic smile; joyful eye contact with camera; healthy vibrant new shoots visible on citrus sapling.
+        </div>
+      </div>
+
+      <!-- AI Video Generation Prompt -->
+      <div class="card-box" style="border-color: rgba(16, 185, 129, 0.3);">
+        <div class="card-header-label label-prompt">
+          📝 AI Video Prompt (Image-to-Video in Kling / Runway Gen-3 / Luma)
+        </div>
+        <div class="prompt-box">
+          Cinematic medium shot of a 40-year-old male gardener in an olive linen shirt smiling proudly next to a healthy, revitalized young citrus tree with vibrant glossy green leaves in a sunny suburban backyard, gentle breeze rustling foliage, natural daylight, photorealistic 8k, 24fps.
+        </div>
+      </div>
+
+      <!-- Bottom Split: Post-Production Overlay + Sound Design -->
+      <div class="bottom-two-col">
+        <div class="card-box" style="border-color: rgba(236, 72, 153, 0.3);">
+          <div class="card-header-label label-post">
+            ✂️ Post-Production Kinetic Overlay (VN / Remotion)
+          </div>
+          <div class="card-content-text" style="font-size: 15.5px;">
+            • <strong>Kinetic Caption:</strong><br>
+            <span style="color: #34D399; font-weight: 800; font-family: 'JetBrains Mono', monospace;">"14-DAY FULL ROOT RECOVERY 🌳✨"</span><br>
+            • Blue animated stat tag: <strong>70% WATER SAVED 💧</strong>.
+          </div>
+        </div>
+
+        <div class="card-box" style="border-color: rgba(244, 114, 182, 0.3);">
+          <div class="card-header-label" style="color: #F472B6;">
+            🔊 Sound Design & SFX (AI Audio / Ambient)
+          </div>
+          <div class="card-content-text" style="font-size: 15.5px;">
+            • Fresh leaves rustling in a gentle breeze.<br>
+            • Cheerful garden birds ambience.<br>
+            • Uplifting acoustic guitar resolution chord.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="bottom-footer">
+    <div>ArborPulse™ DTC Conversion Architecture • Full-Funnel Creative Video Suite</div>
+    <div class="footer-domain">StackCuts™ Creative Studio • www.stackcuts.com</div>
+  </div>
+
+</body>
+</html>
