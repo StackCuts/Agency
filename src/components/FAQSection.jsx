@@ -10,8 +10,8 @@ export default function FAQSection({ onOpenModal }) {
       a: 'No. We operate asynchronously via Upwork messaging to save calendar friction, though quick milestone alignment chats are always available.'
     },
     {
-      q: 'Can we test with 1 Ad Pack before scaling?',
-      a: 'Yes! Our $495 Ad Pack is designed as a zero-friction trial with no lock-in contract. You get 2x high-contrast static split-grids and 1x multi-frame carousel ad framework to validate performance on your ad account.'
+      q: 'Can we test with a pilot project or single creative sprint before scaling?',
+      a: 'Yes! We offer zero-friction pilot creative sprints and standalone milestones via Upwork with no lock-in contract. You can validate creative performance directly on your ad account before committing to larger scopes.'
     },
     {
       q: 'How are revisions handled?',

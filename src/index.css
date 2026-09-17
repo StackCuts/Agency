@@ -78,3 +78,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00E599;
 }
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

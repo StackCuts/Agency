@@ -32,7 +32,7 @@ export default function Footer() {
             <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-2.5">
               <li><a href="#portfolio" className="hover:text-white transition-colors">Visual Portfolio</a></li>
               <li><a href="#why-us" className="hover:text-white transition-colors">Why StackCuts</a></li>
-              <li><a href="#packages" className="hover:text-white transition-colors">Pricing Packages</a></li>
+              <li><a href="#arborpulse" className="hover:text-white transition-colors">Featured Case Study</a></li>
               <li><a href="#system" className="hover:text-white transition-colors">Closed-Loop System</a></li>
               <li><a href="#workflow" className="hover:text-white transition-colors">Upwork Workflow</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>

@@ -265,8 +265,7 @@ export default function CarouselShowcase({ onOpenModal }) {
                       if (onOpenModal) {
                         onOpenModal('Discuss Carousel Campaign on Upwork');
                       } else {
-                        const el = document.getElementById('packages');
-                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                        window.open('https://www.upwork.com/freelancers/mayurstackcuts?mp_source=share', '_blank');
                       }
                     }}
                     className="w-full py-3.5 rounded-full bg-[#3B82F6] hover:bg-[#3B82F6]/90 text-white font-bold text-xs btn-shimmer transition-all shadow-blue-glow flex items-center justify-center gap-2"

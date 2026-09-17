@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Zap, Menu, X, ArrowRight } from 'lucide-react';
 
-export default function Navbar({ onOpenModal }) {
+export default function Navbar({ onOpenModal, onNavigateCaseStudy }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,8 +16,7 @@ export default function Navbar({ onOpenModal }) {
   const navLinks = [
     { name: 'Portfolio', href: '#portfolio' },
     { name: 'Why Us', href: '#why-us' },
-    { name: 'Packages', href: '#packages' },
-    { name: 'Case Studies', href: '#case-studies' },
+    { name: 'Case Study', href: '#arborpulse', isCaseStudy: true },
     { name: 'Workflow', href: '#workflow' },
     { name: 'FAQ', href: '#faq' },
   ];
@@ -44,13 +43,30 @@ export default function Navbar({ onOpenModal }) {
           {/* Desktop Nav Links (Clean single line whitespace-nowrap) */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#161C27]/80 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full border border-[#2A3447]/60 shadow-inner">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/60 rounded-full transition-all whitespace-nowrap"
-              >
-                {link.name}
-              </a>
+              link.isCaseStudy ? (
+                <button
+                  key={link.name}
+                  onClick={() => {
+                    if (onNavigateCaseStudy) {
+                      onNavigateCaseStudy('arborpulse');
+                    } else {
+                      window.location.hash = '#arborpulse';
+                    }
+                  }}
+                  className="inline-flex items-center gap-1.5 px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-semibold text-emerald-400 hover:text-white hover:bg-emerald-500/20 rounded-full transition-all whitespace-nowrap cursor-pointer"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Case Study</span>
+                </button>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="px-3 lg:px-3.5 py-1.5 text-xs lg:text-sm font-medium text-[#94A3B8] hover:text-white hover:bg-[#2A3447]/60 rounded-full transition-all whitespace-nowrap"
+                >
+                  {link.name}
+                </a>
+              )
             ))}
           </nav>
 
@@ -86,14 +102,37 @@ export default function Navbar({ onOpenModal }) {
       {mobileMenuOpen && (
         <div className="md:hidden bg-[#0B0F17]/95 backdrop-blur-xl border-b border-[#2A3447] px-4 pt-4 pb-6 mt-2 space-y-3">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2.5 text-base font-medium text-[#94A3B8] hover:text-white hover:bg-[#161C27] rounded-xl"
-            >
-              {link.name}
-            </a>
+            link.isCaseStudy ? (
+              <button
+                key={link.name}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (onNavigateCaseStudy) {
+                    onNavigateCaseStudy('arborpulse');
+                  } else {
+                    window.location.hash = '#arborpulse';
+                  }
+                }}
+                className="w-full text-left flex items-center justify-between px-4 py-2.5 text-base font-medium text-emerald-400 hover:text-white hover:bg-[#161C27] rounded-xl cursor-pointer"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Case Study (ArborPulse™)</span>
+                </span>
+                <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  FLAGSHIP
+                </span>
+              </button>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2.5 text-base font-medium text-[#94A3B8] hover:text-white hover:bg-[#161C27] rounded-xl"
+              >
+                {link.name}
+              </a>
+            )
           ))}
           <div className="pt-2 border-t border-[#2A3447]">
             <button

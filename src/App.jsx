@@ -7,7 +7,6 @@ import CarouselShowcase from './components/CarouselShowcase';
 import FeaturedCaseStudy from './components/FeaturedCaseStudy';
 import WorkflowSection from './components/WorkflowSection';
 import WhiteLabelSection from './components/WhiteLabelSection';
-import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
@@ -16,7 +15,6 @@ import ArborPulseScrollytelling from './components/cases/ArborPulseScrollytellin
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPkg, setSelectedPkg] = useState('Growth Pack ($495 Trial)');
   const [currentView, setCurrentView] = useState(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.toLowerCase();
@@ -87,7 +85,6 @@ export default function App() {
         <BriefModal
           isOpen={modalOpen}
           onClose={() => setModalOpen(false)}
-          selectedPackageName={selectedPkg}
         />
       </div>
     );
@@ -99,7 +96,7 @@ export default function App() {
       <div className="mouse-spotlight" />
 
       {/* 1. Navigation Header */}
-      <Navbar onOpenModal={handleOpenModal} />
+      <Navbar onOpenModal={handleOpenModal} onNavigateCaseStudy={navigateTo} />
 
       {/* 2. Hero Section */}
       <Hero onOpenModal={handleOpenModal} />
@@ -113,7 +110,7 @@ export default function App() {
       {/* 5. Carousel Showcase (3 Multi-Frame Meta Carousels - Positioned Directly After Static Portfolio) */}
       <CarouselShowcase onOpenModal={handleOpenModal} />
 
-      {/* 6. Featured Live Case Study (ArborPulse, CellMatrix.tech & Mathify.tech) */}
+      {/* 6. Featured Flagship DTC Case Study (ArborPulse DTC Conversion Engine) */}
       <FeaturedCaseStudy
         onOpenModal={handleOpenModal}
         onNavigateCaseStudy={navigateTo}
@@ -125,23 +122,19 @@ export default function App() {
       {/* 8. White-Label Agency Partnership */}
       <WhiteLabelSection onOpenModal={handleOpenModal} />
 
-      {/* 9. Core Offer & Pricing Packages */}
-      <PricingSection onOpenModal={handleOpenModal} />
-
-      {/* 10. Frequently Asked Questions */}
+      {/* 9. Frequently Asked Questions */}
       <FAQSection onOpenModal={handleOpenModal} />
 
-      {/* 11. Final CTA */}
+      {/* 10. Final CTA */}
       <FinalCTA onOpenModal={handleOpenModal} />
 
-      {/* 12. Footer */}
+      {/* 11. Footer */}
       <Footer />
 
-      {/* 13. Upwork Direct Action Modal */}
+      {/* 12. Upwork Direct Action Modal */}
       <BriefModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        selectedPackageName={selectedPkg}
       />
     </div>
   );

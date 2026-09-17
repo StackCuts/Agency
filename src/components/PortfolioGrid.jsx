@@ -321,8 +321,7 @@ export default function PortfolioGrid({ onOpenModal }) {
               if (onOpenModal) {
                 onOpenModal('Discuss Project on Upwork');
               } else {
-                const el = document.getElementById('packages');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                window.open('https://www.upwork.com/freelancers/mayurstackcuts?mp_source=share', '_blank');
               }
             }}
             className="btn-shimmer bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 px-8 rounded-full text-xs sm:text-sm tracking-wide uppercase shadow-lg transition-all shrink-0 flex items-center gap-2 group w-full md:w-auto justify-center"
