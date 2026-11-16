@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Sparkles, Play, ZoomIn, X, ChevronLeft, ChevronRight, ExternalLink, ShieldCheck, Copy, Check, Smartphone, Laptop, Lock, ArrowUpRight } from 'lucide-react';
 
 export default function CreativeVault() {
@@ -40,7 +40,48 @@ export default function CreativeVault() {
     } else {
       setGridCols(2);
     }
+    try {
+      if (window.location.hash !== `#${catId}`) {
+        window.history.replaceState(null, '', `#${catId}`);
+      }
+    } catch {
+      // Ignore if restricted
+    }
   };
+
+  // Handle URL hash deep linking (e.g. #ugc, #shopify, #motion, #static, #carousel, #photoshoot, #vault)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase().replace('#', '').trim();
+      const validTabs = ['static', 'motion', 'carousel', 'ugc', 'photoshoot', 'shopify'];
+
+      if (validTabs.includes(hash)) {
+        setActiveTab(hash);
+        setPlayingVideoId(null);
+        setMobileActiveIndex(0);
+        if (hash === 'ugc') {
+          setGridCols(4);
+        } else {
+          setGridCols(2);
+        }
+        setTimeout(() => {
+          const el = document.getElementById('vault');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      } else if (hash === 'vault') {
+        const el = document.getElementById('vault');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const handleScrollMobile = () => {
     if (mobileScrollRef.current) {
