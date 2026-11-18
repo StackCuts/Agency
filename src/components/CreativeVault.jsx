@@ -118,7 +118,7 @@ export default function CreativeVault() {
       const scrollLeft = mobileScrollRef.current.scrollLeft;
       const cardWidth = 320;
       const index = Math.round(scrollLeft / cardWidth);
-      setMobileActiveIndex(Math.min(Math.max(0, index), displayedItems.length - 1));
+      setMobileActiveIndex(Math.min(Math.max(0, index), filteredItems.length - 1));
     }
   };
 
@@ -790,9 +790,7 @@ export default function CreativeVault() {
     return true;
   });
 
-  // Smart Truncation for Static Tab (Curated initial preview of 6 creatives with "Show All" toggle)
-  const shouldTruncateStatic = activeTab === 'static' && !showAllStatics && filteredItems.length > 6;
-  const displayedItems = shouldTruncateStatic ? filteredItems.slice(0, 6) : filteredItems;
+
 
   // Helper for multi-slide carousel card navigation
   const handlePrevSlide = (e, itemId, totalSlides) => {
@@ -864,7 +862,7 @@ export default function CreativeVault() {
       {/* View Switcher Pill & Item Count (Desktop & Tablet) */}
       <div className="hidden sm:flex items-center justify-between mb-6 max-w-5xl mx-auto px-1">
         <span className="text-xs font-mono text-slate-400">
-          Showing <span className="font-bold text-[#0F172A]">{displayedItems.length}</span> {shouldTruncateStatic ? `of ${filteredItems.length} ` : ''}{activeTab === 'static' ? 'Static Creatives' : activeTab === 'carousel' ? 'Carousel Systems' : activeTab === 'ugc' ? 'AI UGC Systems (Incl. 3-Way Hook Split-Test)' : 'Production Assets'}
+          Showing <span className="font-bold text-[#0F172A]">{activeTab === 'static' && !showAllStatics && filteredItems.length > 6 ? 6 : filteredItems.length}</span> {activeTab === 'static' && !showAllStatics && filteredItems.length > 6 ? `of ${filteredItems.length} ` : ''}{activeTab === 'static' ? 'Static Creatives' : activeTab === 'carousel' ? 'Carousel Systems' : activeTab === 'ugc' ? 'AI UGC Systems (Incl. 3-Way Hook Split-Test)' : 'Production Assets'}
         </span>
         <div className="inline-flex items-center gap-1 p-1 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-mono">
           <button
@@ -1149,7 +1147,7 @@ export default function CreativeVault() {
                   : 'sm:grid-cols-2 lg:grid-cols-3 sm:gap-7 max-w-6xl mx-auto')
           }`}
         >
-        {displayedItems.map(item => {
+        {filteredItems.map((item, index) => {
           const isCarousel = item.category === 'carousel';
           const isVideo = item.category === 'ugc' || item.category === 'motion';
           const isSquare = item.category === 'carousel' || item.category === 'photoshoot' || item.category === 'shopify';
@@ -1161,10 +1159,15 @@ export default function CreativeVault() {
             ? item.slides[currentSlide] 
             : (item.poster || item.image);
 
+          // Desktop-only truncation: items beyond 6 are hidden in desktop grid, but 100% swipeable on mobile
+          const isDesktopHidden = activeTab === 'static' && !showAllStatics && index >= 6;
+
           return (
             <div
               key={item.id}
               className={`${
+                isDesktopHidden ? 'sm:hidden' : ''
+              } ${
                 isUGC 
                   ? 'w-[82vw] max-w-[310px]' 
                   : 'w-[91vw] max-w-[365px]'
@@ -1337,9 +1340,9 @@ export default function CreativeVault() {
         </div>
       )}
 
-      {/* Show All / Show Less Expansion CTA Button (Static Tab) */}
+      {/* Show All / Show Less Expansion CTA Button (Desktop Only — Mobile is 100% unrestricted swipe) */}
       {activeTab === 'static' && filteredItems.length > 6 && (
-        <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center space-y-2.5">
+        <div className="hidden sm:flex mt-8 sm:mt-10 flex-col items-center justify-center space-y-2.5">
           <button
             type="button"
             onClick={() => setShowAllStatics(!showAllStatics)}
@@ -1384,7 +1387,7 @@ export default function CreativeVault() {
           {/* Center Creative Counter & Hint */}
           <div className="flex flex-col items-center">
             <div className="text-xs font-mono font-bold text-[#0F172A]">
-              Creative {mobileActiveIndex + 1} of {displayedItems.length}
+              Creative {mobileActiveIndex + 1} of {filteredItems.length}
             </div>
             <div className="text-[10px] font-sans text-slate-400">
               Swipe or tap Prev / Next
@@ -1395,7 +1398,7 @@ export default function CreativeVault() {
           <button
             type="button"
             onClick={handleScrollNext}
-            disabled={mobileActiveIndex === displayedItems.length - 1}
+            disabled={mobileActiveIndex === filteredItems.length - 1}
             className={`px-3.5 py-1.5 rounded-full text-xs font-sans font-bold flex items-center gap-1 transition-all cursor-pointer ${
               mobileActiveIndex === filteredItems.length - 1
                 ? 'bg-slate-100 text-slate-400 cursor-not-allowed opacity-50'
