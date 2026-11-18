@@ -7,6 +7,7 @@ export default function CreativeVault() {
   const [isUpworkSource, setIsUpworkSource] = useState(false);
   const [staticBrandFilter, setStaticBrandFilter] = useState('all');
   const [staticAngleFilter, setStaticAngleFilter] = useState('all');
+  const [showAllStatics, setShowAllStatics] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [playingVideoId, setPlayingVideoId] = useState(null);
   const [carouselIndexMap, setCarouselIndexMap] = useState({});
@@ -35,6 +36,7 @@ export default function CreativeVault() {
     setActiveTab(catId);
     setPlayingVideoId(null);
     setMobileActiveIndex(0);
+    setShowAllStatics(false);
     if (mobileScrollRef.current) {
       mobileScrollRef.current.scrollTo({ left: 0, behavior: 'instant' });
     }
@@ -116,7 +118,7 @@ export default function CreativeVault() {
       const scrollLeft = mobileScrollRef.current.scrollLeft;
       const cardWidth = 320;
       const index = Math.round(scrollLeft / cardWidth);
-      setMobileActiveIndex(Math.min(Math.max(0, index), filteredItems.length - 1));
+      setMobileActiveIndex(Math.min(Math.max(0, index), displayedItems.length - 1));
     }
   };
 
@@ -775,6 +777,10 @@ export default function CreativeVault() {
     return true;
   });
 
+  // Smart Truncation for Static Tab (Curated initial preview of 6 creatives with "Show All" toggle)
+  const shouldTruncateStatic = activeTab === 'static' && !showAllStatics && filteredItems.length > 6;
+  const displayedItems = shouldTruncateStatic ? filteredItems.slice(0, 6) : filteredItems;
+
   const filteredItems = visibleVaultItems.filter(item => {
     if (item.category !== activeTab) return false;
 
@@ -861,7 +867,7 @@ export default function CreativeVault() {
       {/* View Switcher Pill & Item Count (Desktop & Tablet) */}
       <div className="hidden sm:flex items-center justify-between mb-6 max-w-5xl mx-auto px-1">
         <span className="text-xs font-mono text-slate-400">
-          Showing <span className="font-bold text-[#0F172A]">{filteredItems.length}</span> {activeTab === 'static' ? 'Static Creatives' : activeTab === 'carousel' ? 'Carousel Systems' : activeTab === 'ugc' ? 'AI UGC Systems (Incl. 3-Way Hook Split-Test)' : 'Production Assets'}
+          Showing <span className="font-bold text-[#0F172A]">{displayedItems.length}</span> {shouldTruncateStatic ? `of ${filteredItems.length} ` : ''}{activeTab === 'static' ? 'Static Creatives' : activeTab === 'carousel' ? 'Carousel Systems' : activeTab === 'ugc' ? 'AI UGC Systems (Incl. 3-Way Hook Split-Test)' : 'Production Assets'}
         </span>
         <div className="inline-flex items-center gap-1 p-1 rounded-full bg-slate-100 border border-slate-200/80 text-xs font-mono">
           <button
@@ -1146,7 +1152,7 @@ export default function CreativeVault() {
                   : 'sm:grid-cols-2 lg:grid-cols-3 sm:gap-7 max-w-6xl mx-auto')
           }`}
         >
-        {filteredItems.map(item => {
+        {displayedItems.map(item => {
           const isCarousel = item.category === 'carousel';
           const isVideo = item.category === 'ugc' || item.category === 'motion';
           const isSquare = item.category === 'carousel' || item.category === 'photoshoot' || item.category === 'shopify';
@@ -1334,6 +1340,31 @@ export default function CreativeVault() {
         </div>
       )}
 
+      {/* Show All / Show Less Expansion CTA Button (Static Tab) */}
+      {activeTab === 'static' && filteredItems.length > 6 && (
+        <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center space-y-2.5">
+          <button
+            type="button"
+            onClick={() => setShowAllStatics(!showAllStatics)}
+            className="group inline-flex items-center gap-2.5 px-6 sm:px-8 py-3 sm:py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white text-xs sm:text-[13.5px] font-sans font-bold shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-98"
+          >
+            <span>
+              {showAllStatics
+                ? `Show Fewer Creatives (Collapse to 6)`
+                : `View All ${filteredItems.length} Creatives (${filteredItems.length - 6} More Available)`}
+            </span>
+            <span className="text-[#EAA779] font-bold text-sm transition-transform duration-200 group-hover:translate-y-0.5">
+              {showAllStatics ? '↑' : '↓'}
+            </span>
+          </button>
+          <span className="text-[11px] font-mono text-slate-400">
+            {showAllStatics
+              ? `Currently displaying all ${filteredItems.length} production creatives`
+              : `Showing 6 of ${filteredItems.length} creatives • Tap above to load the full suite`}
+          </span>
+        </div>
+      )}
+
       {/* Dedicated Mobile Navigation Bar: Previous / Next Buttons + Counter */}
       {activeTab !== 'shopify' && (
         <div className="flex sm:hidden items-center justify-between px-3 py-2.5 mt-2 mb-4 bg-white border border-slate-200/90 shadow-2xs select-none">
@@ -1356,7 +1387,7 @@ export default function CreativeVault() {
           {/* Center Creative Counter & Hint */}
           <div className="flex flex-col items-center">
             <div className="text-xs font-mono font-bold text-[#0F172A]">
-              Creative {mobileActiveIndex + 1} of {filteredItems.length}
+              Creative {mobileActiveIndex + 1} of {displayedItems.length}
             </div>
             <div className="text-[10px] font-sans text-slate-400">
               Swipe or tap Prev / Next
@@ -1367,7 +1398,7 @@ export default function CreativeVault() {
           <button
             type="button"
             onClick={handleScrollNext}
-            disabled={mobileActiveIndex === filteredItems.length - 1}
+            disabled={mobileActiveIndex === displayedItems.length - 1}
             className={`px-3.5 py-1.5 rounded-full text-xs font-sans font-bold flex items-center gap-1 transition-all cursor-pointer ${
               mobileActiveIndex === filteredItems.length - 1
                 ? 'bg-slate-100 text-slate-400 cursor-not-allowed opacity-50'
