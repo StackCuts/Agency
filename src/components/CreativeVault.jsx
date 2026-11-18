@@ -777,10 +777,6 @@ export default function CreativeVault() {
     return true;
   });
 
-  // Smart Truncation for Static Tab (Curated initial preview of 6 creatives with "Show All" toggle)
-  const shouldTruncateStatic = activeTab === 'static' && !showAllStatics && filteredItems.length > 6;
-  const displayedItems = shouldTruncateStatic ? filteredItems.slice(0, 6) : filteredItems;
-
   const filteredItems = visibleVaultItems.filter(item => {
     if (item.category !== activeTab) return false;
 
@@ -796,6 +792,10 @@ export default function CreativeVault() {
 
     return true;
   });
+
+  // Smart Truncation for Static Tab (Curated initial preview of 6 creatives with "Show All" toggle)
+  const shouldTruncateStatic = activeTab === 'static' && !showAllStatics && filteredItems.length > 6;
+  const displayedItems = shouldTruncateStatic ? filteredItems.slice(0, 6) : filteredItems;
 
   // Helper for multi-slide carousel card navigation
   const handlePrevSlide = (e, itemId, totalSlides) => {
