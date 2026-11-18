@@ -785,9 +785,6 @@ export default function CreativeVault() {
       if (staticBrandFilter === 'auraflora' && item.brand !== 'auraflora') return false;
       if (staticBrandFilter === 'quietwake' && item.brand !== 'quietwake') return false;
       if (staticBrandFilter === 'quietwake' && staticAngleFilter !== 'all' && item.angleId !== staticAngleFilter) return false;
-      if (staticBrandFilter === 'all' && staticAngleFilter !== 'all') {
-        if (item.brand === 'quietwake' && item.angleId !== staticAngleFilter) return false;
-      }
     }
 
     return true;
@@ -937,8 +934,8 @@ export default function CreativeVault() {
             </span>
           </div>
 
-          {/* Row 2: 5-Angle Psychographic Sub-Filters */}
-          {(staticBrandFilter === 'quietwake' || staticBrandFilter === 'all') && (
+          {/* Row 2: 5-Angle Psychographic Sub-Filters (Rendered ONLY when QuietWake is selected) */}
+          {staticBrandFilter === 'quietwake' && (
             <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-xs space-y-2.5">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-700/60 pb-2">
                 <div className="flex items-center gap-2 flex-wrap">
