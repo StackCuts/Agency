@@ -4,6 +4,9 @@ import { Sparkles, Play, ZoomIn, X, ChevronLeft, ChevronRight, ExternalLink, Shi
 export default function CreativeVault() {
   // Default to first focused service tab (No cluttered "All" tab)
   const [activeTab, setActiveTab] = useState('static');
+  const [isUpworkSource, setIsUpworkSource] = useState(false);
+  const [staticBrandFilter, setStaticBrandFilter] = useState('all');
+  const [staticAngleFilter, setStaticAngleFilter] = useState('all');
   const [selectedItem, setSelectedItem] = useState(null);
   const [playingVideoId, setPlayingVideoId] = useState(null);
   const [carouselIndexMap, setCarouselIndexMap] = useState({});
@@ -48,6 +51,31 @@ export default function CreativeVault() {
       // Ignore if restricted
     }
   };
+
+  // Detect Upwork traffic to conditionally isolate client assets (Zero-Footprint in Upwork Mode)
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const refParam = params.get('ref')?.toLowerCase();
+      const sourceParam = params.get('source')?.toLowerCase();
+      const utmParam = params.get('utm_source')?.toLowerCase();
+      const referrer = typeof document !== 'undefined' ? (document.referrer?.toLowerCase() || '') : '';
+      const isFromUpwork = referrer.includes('upwork.com');
+
+      if (
+        refParam === 'upwork' ||
+        sourceParam === 'upwork' ||
+        utmParam === 'upwork' ||
+        isFromUpwork
+      ) {
+        setIsUpworkSource(true);
+      } else {
+        setIsUpworkSource(false);
+      }
+    } catch {
+      // Graceful fallback
+    }
+  }, []);
 
   // Handle URL hash deep linking (e.g. #ugc, #shopify, #motion, #static, #carousel, #photoshoot, #vault)
   useEffect(() => {
@@ -119,6 +147,7 @@ export default function CreativeVault() {
     // 1. STATIC META ADS (4:5 High-Converting Production Creatives)
     {
       id: 'static-01',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -131,6 +160,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-02',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -143,6 +173,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-03',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -155,6 +186,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-04',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -167,6 +199,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-05',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -179,6 +212,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-06',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -191,6 +225,7 @@ export default function CreativeVault() {
     },
     {
       id: 'static-07',
+      brand: 'auraflora',
       category: 'static',
       categoryLabel: 'Static Meta Ad',
       format: '4:5 Feed Creative',
@@ -201,6 +236,260 @@ export default function CreativeVault() {
       metric: 'High Retargeting ROAS',
       description: 'Directly obliterates the #1 silent customer fear ("Will this give me painful laxative cramps?") using a native social chat frame where stomach cramps and food baby leave the chat.'
     },
+
+    // =========================================================================
+    // 1B. QUIETWAKE™ AUSTRALIA — 5-ANGLE PSYCHOGRAPHIC AD MATRIX (15 Master Ads)
+    // =========================================================================
+    // ANGLE 01: Early Risers & Shift Workers (FIFO Miners, Healthcare, Trades)
+    {
+      id: 'qw-01',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-1',
+      angleName: 'Angle 01 // Shift Workers & Early Risers',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Shift Worker Lifestyle Dialogue',
+      hook: '"My 5:15 AM alarm used to wake my wife every single shift. QuietWake wakes only me."',
+      angle: 'Conversational Dialogue & Partner Empathy',
+      image: '/vault/quietwake/QW_Angle01_Ad01_ShiftWorker_4x5.jpg',
+      metric: 'Audience CTR Winner',
+      description: 'Australian healthcare worker in scrubs paired with an authentic speech bubble addressing early shift partner guilt. Inset hero packshot proves sleek form factor and zero acoustic noise.'
+    },
+    {
+      id: 'qw-02',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-1',
+      angleName: 'Angle 01 // Shift Workers & Early Risers',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Scorecard Minimal Showdown',
+      hook: '3-Row Us vs. Them: Blaring Phone Alarms vs. Silent Sensory Haptics',
+      angle: 'Direct Feature Comparison & Household Harmony',
+      image: '/vault/quietwake/QW_Angle01_Ad02_Scorecard_4x5.jpg',
+      metric: 'High AOV Battlecard',
+      description: 'Visceral comparison card contrasting blaring auditory alarms (wakes entire house, morning cortisol spike) against QuietWake silent direct wrist vibration ($79.90 AUD).'
+    },
+    {
+      id: 'qw-03',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-1',
+      angleName: 'Angle 01 // Shift Workers & Early Risers',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Radial Shockwave Mechanism',
+      hook: 'Gentle Radial Haptic Pulse // Zero Sound, 100% Awakening',
+      angle: 'Sensory Physics & Haptic Mechanism',
+      image: '/vault/quietwake/QW_Angle01_Ad03_RadialShock_4x5.jpg',
+      metric: 'Technical Mechanism Winner',
+      description: 'Minimalist studio lighting with concentric cyan vibration shockwave rings illustrating the silent motor mechanism waking only the wearer through direct tactile stimulation.'
+    },
+
+    // ANGLE 02: Anti-Cortisol & Alarm Trauma (Ending Morning Panic & Heart Spikes)
+    {
+      id: 'qw-04',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-2',
+      angleName: 'Angle 02 // Anti-Cortisol Alarm Shock',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // The Zombie Morning Diorama',
+      hook: '"Waking up with your heart racing at 140 BPM is NOT normal."',
+      angle: 'Anti-Cortisol & Fight-or-Flight Agitation',
+      image: '/vault/quietwake/QW_Angle02_Ad04_ZombieDiorama_4x5.jpg',
+      metric: 'Thumbstop Interrupt',
+      description: 'High-contrast cinematic bedroom diorama capturing the visceral exhaustion of blaring acoustic alarms vs the calm blue haptic sunrise awakening.'
+    },
+    {
+      id: 'qw-05',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-2',
+      angleName: 'Angle 02 // Anti-Cortisol Alarm Shock',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Serene Awakening Lifestyle Hero',
+      hook: 'End The Cortisol Spike: Wake Calmly, Naturally, and Silently',
+      angle: 'Wellness Ritual & Nervous System Protection',
+      image: '/vault/quietwake/QW_Angle02_Ad05_WellnessHero_4x5.jpg',
+      metric: 'Broad Female Wellness',
+      description: 'Soft morning daylight bedroom aesthetic showing gentle sensory wrist awakening, eliminating the traumatic acoustic shock of blaring iPhone alarms.'
+    },
+    {
+      id: 'qw-06',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-2',
+      angleName: 'Angle 02 // Anti-Cortisol Alarm Shock',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Bio-Haptic Sensory Blueprint',
+      hook: 'Engineered For Peaceful Sleep Architecture // Technical Teardown',
+      angle: 'Biometric Engineering & Soundless Mechanics',
+      image: '/vault/quietwake/QW_Angle02_Ad06_HapticBlueprint_4x5.jpg',
+      metric: 'Authority Blueprint',
+      description: 'Apothecary blueprint technical teardown breaking down the internal precision vibration motor, skin-safe silicone strap, and 10-day battery life.'
+    },
+
+    // ANGLE 03: Heavy Sleepers & The 10-Alarms Snooze Trap
+    {
+      id: 'qw-07',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-3',
+      angleName: 'Angle 03 // Heavy Sleepers Snooze Trap',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Hard vs. Smart Awakening Metaphor',
+      hook: 'Setting 10 Louder Alarms Doesn’t Work. Physical Touch Does.',
+      angle: 'Cognitive Shift & Sensory Physics',
+      image: '/vault/quietwake/QW_Angle03_Ad07_SmartMetaphor_4x5.jpg',
+      metric: 'Cognitive Reframing',
+      description: 'Visual metaphor contrasting ineffective auditory brute force against intelligent tactile stimulation that cuts straight through heavy sleep cycles.'
+    },
+    {
+      id: 'qw-08',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-3',
+      angleName: 'Angle 03 // Heavy Sleepers Snooze Trap',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // The 10-Alarm Lockscreen Chaos',
+      hook: 'Relatable Trap: 6:00 AM, 6:05 AM, 6:10 AM, 6:15 AM Alarm List',
+      angle: 'Native Problem Mirror & Snooze Agitation',
+      image: '/vault/quietwake/QW_Angle03_Ad08_LockscreenChaos_4x5.jpg',
+      metric: 'High Virality & Share Rate',
+      description: 'Pairs a chaotic iPhone alarm screen of 12 consecutive alarm triggers with the single, decisive QuietWake silent wristband that ends the snooze cycle on vibration 1.'
+    },
+    {
+      id: 'qw-09',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-3',
+      angleName: 'Angle 03 // Heavy Sleepers Snooze Trap',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // 3-Colorway Family Product Suite',
+      hook: 'Midnight Black, Arctic White, Electric Blue // Pick Your Awakening',
+      angle: 'Product Lineup & Aesthetic Variety',
+      image: '/vault/quietwake/QW_Angle03_Ad09_AllColorsFamily_4x5.jpg',
+      metric: 'Catalog Retargeting',
+      description: 'Clean studio packshot showcasing all three available band finishes ($79.90 AUD), targeted at retargeting mid-funnel shoppers deciding on color options.'
+    },
+
+    // ANGLE 04: Hearing-Impaired & Deaf Community (Batch 2 Client Approval Milestone)
+    {
+      id: 'qw-10',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-4',
+      angleName: 'Angle 04 // Hearing-Impaired Community',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Frosted Lens Tactile Awakening',
+      hook: 'When Sound Isn’t An Option // 100% Sensory Wrist Awakening',
+      angle: 'Deaf Community Accessibility & Independence',
+      image: '/vault/quietwake/QW_Angle04_Ad04_FrostedLens_4x5.jpg',
+      metric: 'Client Approved Winner',
+      description: 'Engineered specifically for hearing-impaired individuals who take off hearing aids at night. Frosted depth effect highlighting silent tactile wrist stimulation.'
+    },
+    {
+      id: 'qw-11',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-4',
+      angleName: 'Angle 04 // Hearing-Impaired Community',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Verified Deaf Community Review Teardown',
+      hook: '"As someone who is profoundly deaf, this replaced my bulky bed shaker."',
+      angle: 'Authentic Peer Social Proof & Mobility',
+      image: '/vault/quietwake/QW_Angle04_Ad05_SensoryReview_4x5.jpg',
+      metric: 'Highest Niche Trust',
+      description: '5-star customer review card with real deaf community testimonial highlighting travel convenience and independence from heavy wired bed-shaker units.'
+    },
+    {
+      id: 'qw-12',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-4',
+      angleName: 'Angle 04 // Hearing-Impaired Community',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Heavy Bed-Shaker vs. QuietWake Showdown',
+      hook: 'Clunky 240V Wired Bed Shakers vs. Featherlight Silicone Wristband',
+      angle: 'Modernization & Problem Replacement',
+      image: '/vault/quietwake/QW_Angle04_Ad06_BedShakerShowdown_4x5.jpg',
+      metric: 'Direct Displacement Battlecard',
+      description: 'Direct displacement comparison showing the outdated tangled wires of traditional hearing-impaired vibrating pillow pods against QuietWake sleek wearable tech.'
+    },
+
+    // ANGLE 05: Parents With Sleeping Babies (Batch 2 Client Approval Milestone)
+    {
+      id: 'qw-13',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-5',
+      angleName: 'Angle 05 // Parents & Sleeping Babies',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Nursery Cot Harmony & 0 dB Awakening',
+      hook: 'Wake at 5:30 AM Next to Baby’s Cot Without Making a Sound',
+      angle: 'Parental Empathy & Infant Sleep Protection',
+      image: '/vault/quietwake/QW_Angle05_Ad07_NurseryCotHarmony_4x5.jpg',
+      metric: 'Ultra-High Niche Relevancy',
+      description: 'Atmospheric warm nursery setting with sleeping infant cot in background. Demonstrates 0 dB silent haptic vibration allowing parents to start their day without waking the baby.'
+    },
+    {
+      id: 'qw-14',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-5',
+      angleName: 'Angle 05 // Parents & Sleeping Babies',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // The New Parents Alarm Showdown',
+      hook: 'One Loud Alarm = 45 Minutes of Re-Settling A Crying Infant',
+      angle: 'High-Stakes Cost of Failure & Parental Relief',
+      image: '/vault/quietwake/QW_Angle05_Ad08_ParentsShowdown_4x5.jpg',
+      metric: 'High Emotional Resonance',
+      description: 'Calculates the true cost of an auditory phone alarm (crying infant, lost sleep, morning chaos) vs QuietWake soundless sensory pulse.'
+    },
+    {
+      id: 'qw-15',
+      brand: 'quietwake',
+      isQuietWake: true,
+      category: 'static',
+      categoryLabel: 'Static Meta Ad',
+      angleId: 'angle-5',
+      angleName: 'Angle 05 // Parents & Sleeping Babies',
+      format: '4:5 Feed Creative',
+      title: 'QuietWake™ // Motherhood Testimonial & Real Nursery Proof',
+      hook: '"My baby stays asleep through every single 5:00 AM wake-up."',
+      angle: 'Word-of-Mouth Motherhood Authority',
+      image: '/vault/quietwake/QW_Angle05_Ad09_MotherReview_4x5.jpg',
+      metric: 'Client Approved Winner',
+      description: 'Authentic verified mother review card with nursery backdrop and pastel tones, validating the product as an essential postpartum household gadget.'
+    },
+
 
     // 2. MICRO-MOTION ADS (4:5 Kinetic Loop Ads)
     {
@@ -477,8 +766,30 @@ export default function CreativeVault() {
     },
   ];
 
-  // Filter items based on active tab
-  const filteredItems = vaultItems.filter(item => item.category === activeTab);
+  // Filter items based on active tab, dual-mode privacy, and angle sub-filters
+  const visibleVaultItems = vaultItems.filter(item => {
+    // Upwork Mode: Strictly hide QuietWake from DOM to protect client privacy
+    if (isUpworkSource && item.brand === 'quietwake') {
+      return false;
+    }
+    return true;
+  });
+
+  const filteredItems = visibleVaultItems.filter(item => {
+    if (item.category !== activeTab) return false;
+
+    // In static tab (Normal Mode), handle brand and angle filters
+    if (activeTab === 'static' && !isUpworkSource) {
+      if (staticBrandFilter === 'auraflora' && item.brand !== 'auraflora') return false;
+      if (staticBrandFilter === 'quietwake' && item.brand !== 'quietwake') return false;
+      if (staticBrandFilter === 'quietwake' && staticAngleFilter !== 'all' && item.angleId !== staticAngleFilter) return false;
+      if (staticBrandFilter === 'all' && staticAngleFilter !== 'all') {
+        if (item.brand === 'quietwake' && item.angleId !== staticAngleFilter) return false;
+      }
+    }
+
+    return true;
+  });
 
   // Helper for multi-slide carousel card navigation
   const handlePrevSlide = (e, itemId, totalSlides) => {
@@ -571,6 +882,102 @@ export default function CreativeVault() {
           </button>
         </div>
       </div>
+
+      {/* Contextual Brand & 5-Angle Testing Bar for Static Tab (Rendered ONLY in Normal Outreach Mode) */}
+      {activeTab === 'static' && !isUpworkSource && (
+        <div className="mb-7 max-w-5xl mx-auto space-y-3">
+          
+          {/* Row 1: Brand Switcher Pills */}
+          <div className="flex flex-wrap items-center justify-between gap-2.5 p-2 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[10.5px] font-mono font-bold text-slate-400 uppercase tracking-wider px-2">
+                Brand Filter:
+              </span>
+              <button
+                onClick={() => { setStaticBrandFilter('all'); setStaticAngleFilter('all'); }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  staticBrandFilter === 'all'
+                    ? 'bg-[#0F172A] text-white shadow-xs'
+                    : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                }`}
+              >
+                All Statics (22)
+              </button>
+              <button
+                onClick={() => { setStaticBrandFilter('auraflora'); setStaticAngleFilter('all'); }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer ${
+                  staticBrandFilter === 'auraflora'
+                    ? 'bg-[#0F172A] text-white shadow-xs'
+                    : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                }`}
+              >
+                AuraFlora™ (Gut Health • 7)
+              </button>
+              <button
+                onClick={() => { setStaticBrandFilter('quietwake'); setStaticAngleFilter('all'); }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  staticBrandFilter === 'quietwake'
+                    ? 'bg-[#0F172A] text-white shadow-xs'
+                    : 'bg-white hover:bg-slate-100 text-slate-600 border border-slate-200'
+                }`}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                <span>QuietWake™ Australia (Sleep Tech • 15)</span>
+              </button>
+            </div>
+
+            <span className="text-[11px] font-mono text-slate-500 px-2 hidden md:inline">
+              {staticBrandFilter === 'quietwake' ? 'QuietWake Australia ($79.90 AUD)' : staticBrandFilter === 'auraflora' ? 'AuraFlora Direct-Response' : '22 Production-Ready Creatives'}
+            </span>
+          </div>
+
+          {/* Row 2: 5-Angle Psychographic Sub-Filters */}
+          {(staticBrandFilter === 'quietwake' || staticBrandFilter === 'all') && (
+            <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white shadow-xs space-y-2.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-700/60 pb-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold uppercase tracking-wider">
+                    Angle Architecture
+                  </span>
+                  <span className="text-xs font-mono text-slate-200 font-bold">
+                    QuietWake™ 5-Angle Testing Matrix ($79.90 AUD Hero SKU)
+                  </span>
+                </div>
+                <span className="text-[10.5px] font-mono text-slate-400">
+                  Select a psychographic angle:
+                </span>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                {[
+                  { id: 'all', label: 'All 5 Angles (15)' },
+                  { id: 'angle-1', label: 'Angle 01: Shift Workers & FIFO (3)' },
+                  { id: 'angle-2', label: 'Angle 02: Anti-Cortisol Shock (3)' },
+                  { id: 'angle-3', label: 'Angle 03: Heavy Sleepers Trap (3)' },
+                  { id: 'angle-4', label: 'Angle 04: Hearing-Impaired (Deaf) (3)' },
+                  { id: 'angle-5', label: 'Angle 05: Parents & Baby Cot (3)' },
+                ].map(angle => (
+                  <button
+                    key={angle.id}
+                    onClick={() => {
+                      setStaticAngleFilter(angle.id);
+                      if (staticBrandFilter === 'auraflora') setStaticBrandFilter('quietwake');
+                    }}
+                    className={`px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold transition-all cursor-pointer ${
+                      staticAngleFilter === angle.id
+                        ? 'bg-emerald-400 text-slate-950 font-bold shadow-xs'
+                        : 'bg-slate-800/90 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                    }`}
+                  >
+                    {angle.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+      )}
 
       {/* Contextual Testing Architecture Note for AI UGC Tab */}
       {activeTab === 'ugc' && (
