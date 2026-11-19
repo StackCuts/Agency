@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import CapabilitiesRibbon from './components/CapabilitiesRibbon';
 import ExecutiveAudioBriefing from './components/ExecutiveAudioBriefing';
 import CreativeVault from './components/CreativeVault';
 import TheMechanism from './components/TheMechanism';
@@ -19,6 +20,9 @@ export default function App() {
         
         {/* Section 01: Hero Section (Nafay 3D Clean Aesthetic) */}
         <Hero />
+
+        {/* Dynamic Infinite Capabilities & Ecosystem Ribbon */}
+        <CapabilitiesRibbon />
 
         {/* Section 02: The Briefing (Executive Audio Master) */}
         <ExecutiveAudioBriefing />

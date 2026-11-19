@@ -144,7 +144,7 @@ export default function PricingFAQ() {
     {
       category: 'IP & Source Ownership',
       q: 'Who owns the final creative assets, raw project files, and code?',
-      a: 'You own 100% of everything produced from day one. Upon milestone approval, you receive full commercial rights, open Figma project files, high-res exported video and static masters, and clean, unminified custom Shopify Liquid code. There are zero licensing traps or proprietary lock-ins.'
+      a: 'You own 100% of everything produced from day one. Upon milestone approval, you receive full commercial rights, editable master creative assets, high-res exported video and static masters, and clean, unminified custom Shopify Liquid code. There are zero licensing traps or proprietary lock-ins.'
     },
     {
       category: 'Shopify Liquid CRO',
