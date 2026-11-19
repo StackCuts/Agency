@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LinkedIn Featured Thumbnail (16:9 - 1280x720)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1280px;
+      height: 720px;
+      overflow: hidden;
+      background-color: #F8F9FB;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Main Container */
+    .banner {
+      width: 1280px;
+      height: 720px;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 18% 50%, rgba(234, 167, 121, 0.12) 0%, transparent 48%),
+                  radial-gradient(circle at 82% 25%, rgba(59, 130, 246, 0.12) 0%, transparent 48%),
+                  #F8F9FB;
+      display: grid;
+      grid-template-columns: 480px 1fr;
+      align-items: center;
+      padding: 60px 80px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    /* Ambient Corner Accents */
+    .sparkle {
+      position: absolute;
+      color: #EAA779;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    /* ========================================================================= */
+    /* LEFT: Large High-Impact Portrait Badge                                    */
+    /* ========================================================================= */
+    .portrait-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .portrait-box {
+      position: relative;
+      width: 370px;
+      height: 370px;
+    }
+
+    /* Bold Orange Arc */
+    .orange-arc {
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      border: 5px solid #EAA779;
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+      transform: rotate(-12deg);
+      z-index: 1;
+    }
+
+    /* Soft Blue Pill */
+    .blue-pill {
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      width: 56px;
+      height: 16px;
+      border-radius: 9999px;
+      background-color: #BAE6FD;
+      transform: rotate(-28deg);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      z-index: 1;
+    }
+
+    /* Main Circular Frame */
+    .portrait-frame {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(147, 197, 253, 0.4), rgba(199, 210, 254, 0.45), rgba(226, 232, 240, 0.5));
+      border: 6px solid #FFFFFF;
+      box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transform: scale(1.06) translateY(12px);
+    }
+
+    /* Floating Status Badge (Large and Legible) */
+    .status-badge {
+      position: absolute;
+      bottom: -18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0F172A;
+      z-index: 5;
+      white-space: nowrap;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #10B981;
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25);
+    }
+
+    /* ========================================================================= */
+    /* RIGHT: High-Impact Typography & Bold Platform Pillars                     */
+    /* ========================================================================= */
+    .content-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 36px;
+      position: relative;
+    }
+
+    /* Brand Logo (Akaya Kanadaka - Big & Bold) */
+    .logo-container {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    .logo-text {
+      font-family: 'Akaya Kanadaka', cursive;
+      font-size: 46px;
+      color: #0F172A;
+      line-height: 1;
+    }
+
+    .logo-divider {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      color: #94A3B8;
+      margin: 0 6px;
+      font-size: 36px;
+    }
+
+    .blue-brush {
+      width: 100%;
+      height: 14px;
+      color: #3B82F6;
+      margin-top: -3px;
+      display: block;
+    }
+
+    /* Main Headline (Fraunces Serif - High Impact) */
+    .headline {
+      font-family: 'Fraunces', serif;
+      font-size: 50px;
+      font-weight: 800;
+      color: #0F172A;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+      position: relative;
+    }
+
+    .red-scribble-wrapper {
+      display: inline-block;
+      position: relative;
+    }
+
+    .red-scribble {
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 14px;
+      color: #E11D48;
+      pointer-events: none;
+    }
+
+    /* Big, Bold Platform Pills (High Visibility at Small Scale) */
+    .pills-container {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: relative;
+    }
+
+    .pill-dark {
+      background-color: #0F172A;
+      color: #FFFFFF;
+      padding: 14px 26px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.15);
+      white-space: nowrap;
+    }
+
+    .pill-light {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      border: 2px solid #CBD5E1;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      white-space: nowrap;
+    }
+
+    .pill-accent {
+      background-color: rgba(234, 167, 121, 0.18);
+      color: #0F172A;
+      border: 2px solid rgba(234, 167, 121, 0.6);
+      padding: 13px 26px;
+      border-radius: 9999px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      box-shadow: 0 4px 10px rgba(234, 167, 121, 0.1);
+      white-space: nowrap;
+    }
+
+    /* Playful Doodle Arrow */
+    .arrow-box {
+      position: absolute;
+      right: 0px;
+      top: -65px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+    }
+
+    .arrow-svg {
+      width: 60px;
+      height: 60px;
+      color: #EAA779;
+      transform: rotate(15deg);
+    }
+
+    .arrow-label {
+      font-family: 'Akaya Kanadaka', cursive;
+      font-size: 20px;
+      color: #EAA779;
+      margin-top: -6px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    
+    <!-- Sparkles -->
+    <div class="sparkle" style="top: 36px; left: 45px;">✦</div>
+    <div class="sparkle" style="top: 36px; right: 45px; color: #3B82F6;">✦</div>
+
+    <!-- LEFT: High-Impact Portrait Badge -->
+    <div class="portrait-col">
+      <div class="portrait-box">
+        <div class="orange-arc"></div>
+        <div class="blue-pill"></div>
+        <div class="portrait-frame">
+          <img src="/mayur_portrait.png" alt="Mayur Portrait">
+        </div>
+        <div class="status-badge">
+          <div class="pulse-dot"></div>
+          <span>Lead Creative Strategist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Content Column -->
+    <div class="content-col">
+      
+      <!-- Brand Logo -->
+      <div class="logo-container">
+        <div class="logo-text">
+          Mayur <span class="logo-divider">//</span> StackCuts
+        </div>
+        <svg class="blue-brush" viewBox="0 0 130 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 9.5C38 4.5 90 4 127 8.5" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="headline">
+        Direct-Response <br>
+        <span class="red-scribble-wrapper">
+          DTC Creative Engine
+          <svg class="red-scribble" viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12C60 6 150 4 295 14" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </h1>
+
+      <!-- 3 Big, Bold Platform Pillars -->
+      <div class="pills-container">
+        <div class="pill-dark">
+          <span>Meta Ads</span>
+        </div>
+        <div class="pill-light">
+          <span>Shopify Liquid CRO</span>
+        </div>
+        <div class="pill-accent">
+          <span>Async Sprints</span>
+        </div>
+
+        <!-- Playful Doodle Arrow pointing down to pills -->
+        <div class="arrow-box">
+          <svg class="arrow-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 12C32 8 46 16 42 28C38 40 24 38 28 50M28 50L20 44M28 50L34 44" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="arrow-label">No Meeting Fatigue</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
